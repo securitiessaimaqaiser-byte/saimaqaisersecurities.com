@@ -1,148 +1,45 @@
-body {
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-  background: var(--bg-main);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-/* ================= LOADER ================= */
-#site-loader {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.loader-bars {
-  display: flex;
-  gap: 8px;
-}
-
-.loader-bars span {
-  width: 6px;
-  height: 48px;
-  background: var(--accent);
-  animation: pulse 1s infinite ease-in-out;
-}
-
-.loader-bars span:nth-child(2) { animation-delay: .15s; }
-.loader-bars span:nth-child(3) { animation-delay: .3s; }
-
-.loader-text {
-  margin-top: 20px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #9ca3af;
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 64px;
-  background: var(--bg-dark);
-}
-
-.logo {
-  font-weight: 600;
-  letter-spacing: .5px;
-}
-
-/* ================= TICKER ================= */
+/* ===== TICKER (Visual Match) ===== */
 .ticker {
   background: var(--bg-dark);
-  padding: 10px 0;
+  border-top: 1px solid #1f2937;
+  border-bottom: 1px solid #1f2937;
+  height: 44px;
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
 #ticker-track {
-  white-space: nowrap;
-  animation: ticker 45s linear infinite;
-}
-
-/* ================= HERO ================= */
-.hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 120px 80px;
-  gap: 60px;
-}
-
-.hero-text h1 {
-  font-size: 52px;
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.hero-text span {
-  color: var(--accent);
-}
-
-.hero-text p {
-  margin-top: 24px;
-  font-size: 18px;
-  max-width: 520px;
-  color: #cbd5f5;
-}
-
-.hero-profile {
-  text-align: center;
-}
-
-.hero-profile img {
-  width: 260px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
-
-.hero-profile h3 {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.hero-profile p {
+  display: inline-flex;
+  gap: 48px;
   font-size: 14px;
-  color: #9ca3af;
+  letter-spacing: .4px;
+  animation: ticker 60s linear infinite;
 }
 
-/* ================= SECTIONS ================= */
-.section {
-  padding: 100px 80px;
+#ticker-track span {
+  color: #e5e7eb;
 }
 
-.section.dark {
-  background: var(--bg-dark);
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ================= CARDS ================= */
-.cards {
-  display: flex;
-  gap: 30px;
-  margin-top: 40px;
+/* Pause on hover (video-like) */
+.ticker:hover #ticker-track {
+  animation-play-state: paused;
 }
 
-.card {
-  padding: 36px;
-  border: 1px solid #1f2937;
-  transition: transform .3s ease;
+/* ===== NAVBAR (mobile-ready base) ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-}
-
-/* ================= FOOTER ================= */
-footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid #1f2937;
-  font-size: 14px;
-  color: #9ca3af;
+/* Improve font rendering (Lighthouse) */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
