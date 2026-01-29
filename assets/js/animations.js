@@ -1,10 +1,9 @@
-const items = document.querySelectorAll(".animate");
+const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
-  items.forEach(el => {
+  reveals.forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
+      el.classList.add("active");
     }
   });
 });
-
