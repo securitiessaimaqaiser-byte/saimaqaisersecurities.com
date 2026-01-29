@@ -1,9 +1,13 @@
-const reveals = document.querySelectorAll(".reveal");
+const revealElements = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+const revealOnScroll = () => {
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 120) {
       el.classList.add("active");
     }
   });
-});
+};
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
