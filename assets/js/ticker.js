@@ -1,65 +1,60 @@
-const ticker = document.getElementById("ticker-content");
+// ===============================
+// PSX SAMPLE DATA (MANUAL FOR NOW)
+// ===============================
 
-/*
-  KSE-100 FRONTEND DATA SNAPSHOT
-  --------------------------------
-  This is a realistic structure that matches
-  real PSX feeds and can be swapped with
-  a paid API later without UI changes.
-*/
-
-const kse100 = [
-  { symbol: "OGDC", price: 91.45, change: +1.12 },
-  { symbol: "PPL", price: 87.20, change: -0.45 },
-  { symbol: "ENGRO", price: 312.60, change: +0.88 },
-  { symbol: "UBL", price: 158.10, change: +1.35 },
-  { symbol: "MCB", price: 203.40, change: -0.22 },
-  { symbol: "HBL", price: 102.55, change: +0.64 },
-  { symbol: "LUCK", price: 612.00, change: +1.90 },
-  { symbol: "PSO", price: 181.30, change: -0.78 },
-  { symbol: "FFC", price: 108.75, change: +0.41 },
-  { symbol: "EFERT", price: 68.95, change: +0.22 },
-  // … extend to 100 (structure stays same)
+const psxData = [
+  { symbol: "ENGRO", price: 265.43 },
+  { symbol: "FFC", price: 596.62 },
+  { symbol: "UBL", price: 487.00 },
+  { symbol: "LUCK", price: 463.00 },
+  { symbol: "MCB", price: 412.00 },
+  { symbol: "OGDC", price: 320.97 },
+  { symbol: "PPL", price: 271.80 },
+  { symbol: "HBL", price: 335.99 },
+  { symbol: "MEBL", price: 479.99 },
+  { symbol: "GLAXO", price: 424.99 },
+  { symbol: "ATLH", price: 1883.87 },
+  { symbol: "AGTL", price: 424.73 },
+  { symbol: "DAWN", price: 25.46 },
+  { symbol: "GNHI", price: 912.06 },
+  { symbol: "HINO", price: 440.16 },
+  { symbol: "KEL", price: 7.27 },
+  { symbol: "WAVESAPP", price: 11.12 },
+  { symbol: "SSGC", price: 35.66 },
+  { symbol: "NCPL", price: 77.85 },
+  { symbol: "AABS", price: 1014.70 },
+  { symbol: "PAEL", price: 56.24 },
+  { symbol: "KAPCO", price: 34.58 },
+  { symbol: "KML", price: 12.09 },
+  { symbol: "PTC", price: 60.43 },
+  { symbol: "BOP", price: 39.53 }
 ];
 
-/*
-  BUILD TICKER STRING
-*/
+// ===============================
+// BUILD TICKER
+// ===============================
+
+const tickerTrack = document.getElementById("ticker-track");
+
 function buildTicker() {
-  return kse100
-    .map(stock => {
-      const sign = stock.change >= 0 ? "+" : "";
-      const color = stock.change >= 0 ? "up" : "down";
+  tickerTrack.innerHTML = "";
 
-      return `
-        <span class="stock ${color}">
-          ${stock.symbol}
-          <strong>${stock.price.toFixed(2)}</strong>
-          (${sign}${stock.change.toFixed(2)}%)
-        </span>
-      `;
-    })
-    .join(" • ");
+  psxData.forEach(stock => {
+    const item = document.createElement("div");
+    item.className = "ticker-item";
+    item.innerHTML = `
+      <strong>${stock.symbol}</strong>
+      <span>PKR ${stock.price.toFixed(2)}</span>
+    `;
+    tickerTrack.appendChild(item);
+  });
+
+  // Duplicate for infinite scroll
+  tickerTrack.innerHTML += tickerTrack.innerHTML;
 }
 
-/*
-  RENDER
-*/
-ticker.innerHTML = buildTicker();
+// ===============================
+// INIT
+// ===============================
 
-/*
-  CONTINUOUS SCROLL EFFECT
-*/
-let offset = 0;
-function animateTicker() {
-  offset -= 0.5;
-  ticker.style.transform = `translateX(${offset}px)`;
-
-  if (Math.abs(offset) > ticker.scrollWidth / 2) {
-    offset = 0;
-  }
-
-  requestAnimationFrame(animateTicker);
-}
-
-animateTicker();
+document.addEventListener("DOMContentLoaded", buildTicker);
