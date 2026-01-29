@@ -1,9 +1,33 @@
+@media (max-width: 1024px) {
+  .hero {
+    padding: 100px 40px;
+  }
+}
+
 @media (max-width: 768px) {
+
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .hero {
     flex-direction: column;
     text-align: center;
+    min-height: auto;
+    padding: 80px 20px;
   }
-  .cards {
-    flex-direction: column;
+
+  .hero-profile img {
+    width: 200px;
+  }
+
+  .section {
+    padding: 70px 20px;
   }
 }
