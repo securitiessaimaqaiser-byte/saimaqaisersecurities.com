@@ -1,14 +1,27 @@
+/* Scroll reveal base */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s ease;
-}
-.reveal.active {
-  opacity: 1;
-  transform: none;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s cubic-bezier(.25,.8,.25,1),
+    transform 0.9s cubic-bezier(.25,.8,.25,1);
+  will-change: opacity, transform;
 }
 
-@keyframes pulse {
-  0%,100% { transform: scaleY(0.4); }
-  50% { transform: scaleY(1); }
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger support */
+.reveal.delay-1 { transition-delay: .15s; }
+.reveal.delay-2 { transition-delay: .3s; }
+.reveal.delay-3 { transition-delay: .45s; }
+
+/* Reduce motion (Lighthouse / accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    transform: none;
+  }
 }
