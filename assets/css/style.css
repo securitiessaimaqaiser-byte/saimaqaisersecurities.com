@@ -1,1 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+}
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero-profile img {
+  width: 260px;
+}
+
+.section {
+  padding: 80px;
+}
+
+.dark {
+  background: #111;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
