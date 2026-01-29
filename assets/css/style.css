@@ -1,105 +1,148 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
   background: var(--bg-main);
   color: var(--text);
+  overflow-x: hidden;
 }
 
-/* Loader */
+/* ================= LOADER ================= */
 #site-loader {
   position: fixed;
   inset: 0;
-  background: black;
+  background: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
-.loader-bars span {
-  width: 6px;
-  height: 40px;
-  background: var(--accent);
-  margin: 0 4px;
-  display: inline-block;
-  animation: pulse 1s infinite;
+
+.loader-bars {
+  display: flex;
+  gap: 8px;
 }
 
-/* Navbar */
+.loader-bars span {
+  width: 6px;
+  height: 48px;
+  background: var(--accent);
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.loader-bars span:nth-child(2) { animation-delay: .15s; }
+.loader-bars span:nth-child(3) { animation-delay: .3s; }
+
+.loader-text {
+  margin-top: 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #9ca3af;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  align-items: center;
+  padding: 22px 64px;
   background: var(--bg-dark);
 }
-.navbar ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-.navbar a {
-  color: white;
-  text-decoration: none;
+
+.logo {
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
-/* Dropdown */
-.dropdown ul {
-  display: none;
-  position: absolute;
-  background: var(--bg-dark);
-}
-.dropdown:hover ul {
-  display: block;
-}
-
-/* Ticker */
+/* ================= TICKER ================= */
 .ticker {
   background: var(--bg-dark);
+  padding: 10px 0;
   overflow: hidden;
 }
+
 #ticker-track {
   white-space: nowrap;
-  animation: ticker 40s linear infinite;
-}
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  animation: ticker 45s linear infinite;
 }
 
-/* Hero */
+/* ================= HERO ================= */
 .hero {
+  min-height: 90vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 80px;
+  padding: 120px 80px;
+  gap: 60px;
 }
-.hero span {
+
+.hero-text h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.hero-text span {
   color: var(--accent);
 }
-.hero-profile img {
-  width: 220px;
-  border-radius: 12px;
+
+.hero-text p {
+  margin-top: 24px;
+  font-size: 18px;
+  max-width: 520px;
+  color: #cbd5f5;
 }
 
-/* Sections */
-.section {
-  padding: 80px;
+.hero-profile {
+  text-align: center;
 }
+
+.hero-profile img {
+  width: 260px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.hero-profile h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.hero-profile p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 100px 80px;
+}
+
 .section.dark {
   background: var(--bg-dark);
 }
 
-/* Cards */
+/* ================= CARDS ================= */
 .cards {
   display: flex;
-  gap: 20px;
-}
-.card {
-  padding: 30px;
-  border: 1px solid #1f2937;
+  gap: 30px;
+  margin-top: 40px;
 }
 
-/* Footer */
+.card {
+  padding: 36px;
+  border: 1px solid #1f2937;
+  transition: transform .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   border-top: 1px solid #1f2937;
+  font-size: 14px;
+  color: #9ca3af;
 }
