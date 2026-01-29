@@ -1,55 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Saima Qaiser Securities</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Saima Qaiser Securities (Pvt) Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <meta name="description" content="Saima Qaiser Securities – Pakistan Stock Exchange insights, trading, research, and portfolio management." />
-  <meta name="keywords" content="PSX, Pakistan Stock Exchange, Stocks, Trading, Investments" />
+  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
+  <meta name="author" content="Abdul Mannan Butt">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body>
 
-<!-- 🔄 LOADER -->
+<!-- LOADER -->
 <div id="site-loader">
-  <div class="spinner"></div>
+  <div class="loader-bars">
+    <span></span><span></span><span></span>
+  </div>
+  <p>Loading Market Intelligence...</p>
 </div>
 
-<!-- 📊 STOCK TICKER -->
-<div class="psx-ticker">
-  <div class="ticker-track" id="ticker-track"></div>
+<!-- MAIN -->
+<div id="site-wrapper">
+
+<header class="navbar">
+  <div class="logo">Saima Qaiser Securities</div>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Services ▾</a>
+        <ul>
+          <li>Equity Trading</li>
+          <li>Investment Research</li>
+          <li>Portfolio Management</li>
+          <li>IPOs</li>
+          <li>Fixed Income</li>
+        </ul>
+      </li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <input type="text" id="site-search" placeholder="Search">
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div id="ticker-track"></div>
 </div>
 
-<!-- 🏠 HERO SECTION -->
-<section class="hero">
+<!-- HERO -->
+<section id="home" class="hero reveal">
   <div class="hero-text">
-    <h1>BUILD WEALTH <span>WITH CONFIDENCE</span></h1>
+    <h1>Empowering Investors with <span>Integrity & Precision</span></h1>
     <p>
-      At Saima Qaiser Securities, we prioritize integrity and expertise to help you
-      achieve your investment goals.
+      We provide expert guidance and powerful tools to help you navigate
+      the financial markets with confidence.
     </p>
   </div>
 
   <div class="hero-profile">
-    <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt" />
+    <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt">
     <h3>Abdul Mannan Butt</h3>
     <p>Front End Web Developer</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- SERVICES -->
+<section class="section reveal">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">Equity Trading</div>
+    <div class="card">Investment Research</div>
+    <div class="card">Portfolio Management</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section dark reveal">
+  <h2>Contact Us</h2>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="message" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section reveal">
+  <h2>Disclaimer</h2>
+  <p>
+    This website is for informational purposes only and does not constitute
+    investment advice. Investments are subject to market risk.
+  </p>
+</section>
+
 <footer>
   © 2026 Saima Qaiser Securities (Pvt) Ltd
 </footer>
 
-<!-- JS -->
-<script src="assets/js/ticker.js"></script>
-<script src="assets/js/main.js"></script>
+</div>
 
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/ticker.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
