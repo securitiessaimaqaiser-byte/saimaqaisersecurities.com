@@ -1,101 +1,103 @@
 /* =========================================================
-   DESIGN TOKENS — SAIMA QAISER SECURITIES
+   CSS VARIABLES
+   Project: Saima Qaiser Securities
+   Purpose: Global design system (colors, fonts, spacing)
    ========================================================= */
 
 :root {
 
-  /* =========================
-     COLORS
-     ========================= */
+  /* ===============================
+     BRAND COLORS
+     =============================== */
+  --color-primary: #0a2a4f;          /* Deep navy (finance trust) */
+  --color-secondary: #0f3d73;        /* Lighter navy */
+  --color-accent: #d4af37;           /* Gold accent */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f8fb;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
 
-  --color-bg-primary: #020617;
-  --color-bg-secondary: #020617;
-  --color-bg-card: rgba(255, 255, 255, 0.03);
-  --color-bg-overlay: rgba(2, 6, 23, 0.85);
+  /* ===============================
+     MARKET COLORS
+     =============================== */
+  --color-green: #16a34a;            /* Price up */
+  --color-red: #dc2626;              /* Price down */
+  --color-neutral: #9ca3af;
 
-  --color-border-light: rgba(255, 255, 255, 0.08);
-  --color-border-medium: rgba(255, 255, 255, 0.12);
-
-  --color-text-primary: #e5e7eb;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
-
-  --color-accent-primary: #22c55e;
-  --color-accent-secondary: #16a34a;
-
-  --color-success: #22c55e;
-  --color-danger: #ef4444;
-  --color-warning: #f59e0b;
-
-  /* =========================
+  /* ===============================
      TYPOGRAPHY
-     ========================= */
+     =============================== */
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs: 0.75rem;           /* 12px */
+  --font-size-sm: 0.875rem;          /* 14px */
+  --font-size-base: 1rem;            /* 16px */
+  --font-size-lg: 1.125rem;          /* 18px */
+  --font-size-xl: 1.375rem;          /* 22px */
+  --font-size-xxl: 1.75rem;          /* 28px */
 
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.85rem;
-  --font-size-base: 1rem;
-  --font-size-md: 1.1rem;
-  --font-size-lg: 1.3rem;
-  --font-size-xl: 1.6rem;
-  --font-size-2xl: 2.2rem;
-  --font-size-3xl: 3rem;
+  /* ===============================
+     SPACING SCALE
+     =============================== */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  /* ===============================
+     BORDERS & RADIUS
+     =============================== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
 
-  /* =========================
-     SPACING
-     ========================= */
-
-  --space-2xs: 4px;
-  --space-xs: 8px;
-  --space-sm: 12px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-  --space-4xl: 96px;
-
-  /* =========================
-     RADIUS
-     ========================= */
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-full: 999px;
-
-  /* =========================
+  /* ===============================
      SHADOWS
-     ========================= */
+     =============================== */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12);
 
-  --shadow-sm: 0 4px 10px rgba(0,0,0,0.2);
-  --shadow-md: 0 12px 30px rgba(0,0,0,0.35);
-  --shadow-lg: 0 20px 50px rgba(0,0,0,0.5);
-
-  /* =========================
-     MOTION
-     ========================= */
-
-  --motion-fast: 0.25s;
-  --motion-normal: 0.45s;
-  --motion-slow: 0.8s;
-
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* =========================
-     Z-INDEX
-     ========================= */
-
-  --z-base: 1;
-  --z-dropdown: 100;
-  --z-sticky: 500;
-  --z-modal: 900;
+  /* ===============================
+     Z-INDEX SCALE
+     =============================== */
   --z-loader: 9999;
+  --z-modal: 9000;
+  --z-dropdown: 8000;
+  --z-header: 7000;
+  --z-tooltip: 7500;
+
+  /* ===============================
+     ANIMATION TIMING
+     =============================== */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+
+  /* ===============================
+     LAYOUT
+     =============================== */
+  --container-width: 1200px;
+  --header-height: 72px;
+  --ticker-height: 42px;
+
+}
+
+/* ===============================
+   DARK MODE PREP (future-ready)
+   =============================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1220;
+    --color-bg-alt: #111827;
+    --color-text: #e5e7eb;
+    --color-muted: #9ca3af;
+  }
 }
