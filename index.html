@@ -1,216 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ================= META ================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Saima Qaiser Securities (Pvt) Limited</title>
+  <meta charset="UTF-8">
+  <title>Saima Qaiser Securities | Brokerage & Investment Services</title>
 
-  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage, market insights, investment research, and portfolio management." />
-  <meta name="keywords" content="PSX, Saima Qaiser Securities, Pakistan Stock Exchange, brokerage, stocks, investments" />
-  <meta name="author" content="Abdul Mannan Butt" />
+  <!-- SEO -->
+  <meta name="description" content="Saima Qaiser Securities provides professional brokerage and investment services at Pakistan Stock Exchange.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
 
-  <!-- ================= FONTS ================= -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css">
 
-  <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/variables.css" />
-  <link rel="stylesheet" href="assets/css/animations.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 
-  <!-- ================= SEO ================= -->
-  <link rel="canonical" href="https://saimaqaisersecurities.com/" />
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="assets/images/logo2.png">
 </head>
 
 <body>
 
-<!-- ================= PAGE REFRESH OVERLAY ================= -->
-<div id="refresh-overlay" aria-hidden="true"></div>
-
-<!-- ================= LOADER ================= -->
-<div id="site-loader" role="status" aria-live="polite">
+<!-- =========================
+     LOADER
+     ========================= -->
+<div id="site-loader">
   <div class="loader-bars">
     <span></span><span></span><span></span>
   </div>
-  <p class="loader-text">Loading Market Intelligence…</p>
 </div>
 
-<!-- ================= SITE WRAPPER ================= -->
-<div id="site-wrapper">
+<div id="site-wrapper" style="display:none;">
 
-  <!-- ================= HEADER ================= -->
-  <header class="header">
-    <div class="header-inner">
+<!-- =========================
+     NAVBAR
+     ========================= -->
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities">
+  </div>
 
-      <!-- Logo -->
-      <a href="/" class="logo">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
-      </a>
+  <nav class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#services">Services</a>
 
-      <!-- Search -->
-      <div class="header-search">
-        <input type="text" id="site-search" placeholder="Search…" aria-label="Search website" />
+    <div class="dropdown">
+      <a href="#">Miscellaneous ▾</a>
+      <div class="dropdown-menu">
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="risk-disclosure.html">Risk Disclosure</a>
       </div>
-
-      <!-- Desktop Navigation -->
-      <nav class="nav" aria-label="Primary Navigation">
-        <ul class="nav-list">
-          <li><a href="#home">Home</a></li>
-
-          <li class="has-dropdown">
-            <a href="#services">Services</a>
-            <ul class="dropdown">
-              <li><a href="#equity">Equity Trading</a></li>
-              <li><a href="#research">Investment Research</a></li>
-              <li><a href="#portfolio">Portfolio Management</a></li>
-              <li><a href="#ipos">IPOs</a></li>
-            </ul>
-          </li>
-
-          <li><a href="#about">About Us</a></li>
-
-          <li class="has-dropdown">
-            <a href="#">Miscellaneous</a>
-            <ul class="dropdown">
-              <li><a href="disclaimer.html">Disclaimer</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-              <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
-            </ul>
-          </li>
-
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Open Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
     </div>
-  </header>
 
-  <!-- ================= MOBILE NAV ================= -->
-  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li>
-        <span>Services</span>
-        <ul>
-          <li><a href="#equity">Equity Trading</a></li>
-          <li><a href="#research">Investment Research</a></li>
-          <li><a href="#portfolio">Portfolio Management</a></li>
-          <li><a href="#ipos">IPOs</a></li>
-        </ul>
-      </li>
-      <li><a href="#about">About Us</a></li>
-      <li>
-        <span>Miscellaneous</span>
-        <ul>
-          <li><a href="disclaimer.html">Disclaimer</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
-        </ul>
-      </li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ================= TICKER ================= -->
-  <section class="ticker" aria-label="Pakistan Stock Exchange Ticker">
-    <div class="ticker-track" id="ticker-track">
-      <!-- Injected by ticker.js -->
-    </div>
-  </section>
+  <!-- Search -->
+  <input type="search" id="site-search" placeholder="Search…" aria-label="Search website">
 
-  <!-- ================= HERO ================= -->
-  <section id="home" class="hero reveal">
-    <div class="hero-content">
-      <h1>Build Wealth <span>With Confidence</span></h1>
-      <p>
-        At Saima Qaiser Securities, we prioritize integrity and expertise to help
-        you navigate Pakistan’s financial markets with confidence.
-      </p>
-      <a href="#services" class="btn-primary">Explore Our Services</a>
-    </div>
+  <!-- Hamburger -->
+  <button class="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-    <div class="hero-profile">
-      <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt" />
-      <h3>Abdul Mannan Butt</h3>
-      <p>Front End Web Developer</p>
-    </div>
-  </section>
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
 
-  <!-- ================= SERVICES ================= -->
-  <section id="services" class="services reveal">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">Equity Trading</div>
-      <div class="service-card">Investment Research</div>
-      <div class="service-card">Portfolio Management</div>
-      <div class="service-card">IPOs</div>
-    </div>
-  </section>
+  <div class="mobile-dropdown">
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="risk-disclosure.html">Risk Disclosure</a>
+  </div>
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about" class="about reveal">
-    <h2>About Us</h2>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- =========================
+     HERO
+     ========================= -->
+<section id="home" class="hero container reveal">
+  <div>
+    <h1>
+      Trusted Brokerage Services<br>
+      <span>Pakistan Stock Exchange</span>
+    </h1>
     <p>
-      Saima Qaiser Securities (Pvt) Ltd provides trusted brokerage and advisory
-      services across Pakistan’s capital markets, aligned with regulatory
-      compliance and investor protection.
+      Professional investment solutions by
+      <strong>Abdul Mannan Butt</strong>,
+      Front End Web Developer & Financial Services Partner.
     </p>
-  </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" class="contact reveal">
-    <h2>Contact Us</h2>
+    <div class="cta">
+      <button>Get Started</button>
+    </div>
+  </div>
 
-    <form id="contact-form" novalidate>
-      <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-      <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
-      <textarea name="message" placeholder="Your Message" required aria-required="true"></textarea>
-      <button type="submit">Send Message</button>
-      <p id="form-status" role="status" aria-live="polite"></p>
-    </form>
-  </section>
+  <div class="hero-image">
+    <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt">
+  </div>
+</section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="footer-logos">
-      <a href="https://jamapunji.pk" target="_blank" rel="noopener">
-        <img src="assets/images/jama-punji.png" alt="JamaPunji" />
-      </a>
-      <a href="https://www.psx.com.pk" target="_blank" rel="noopener">
-        <img src="assets/images/psx.png" alt="Pakistan Stock Exchange" />
-      </a>
-      <a href="https://www.secp.gov.pk" target="_blank" rel="noopener">
-        <img src="assets/images/secp.png" alt="SECP" />
-      </a>
-      <a href="https://www.nccpl.com.pk" target="_blank" rel="noopener">
-        <img src="assets/images/nccpl.png" alt="NCCPL" />
-      </a>
-      <a href="https://www.cdcpakistan.com" target="_blank" rel="noopener">
-        <img src="assets/images/CDC.png" alt="CDC Pakistan" />
-      </a>
+<!-- =========================
+     TICKER
+     ========================= -->
+<div class="ticker">
+  <div class="ticker-track">
+
+    <div class="ticker-item tooltip" data-tooltip="Engro Holdings">
+      <span class="symbol">ENGRO</span>
+      <span class="price">265.43</span>
+      <span class="arrow price-up">▲</span>
     </div>
 
-    <p>© 2026 Saima Qaiser Securities (Pvt) Ltd. All rights reserved.</p>
-  </footer>
+    <div class="ticker-item tooltip" data-tooltip="Fauji Fertilizer">
+      <span class="symbol">FFC</span>
+      <span class="price">596.62</span>
+      <span class="arrow price-up">▲</span>
+    </div>
+
+    <div class="ticker-item tooltip" data-tooltip="United Bank Ltd">
+      <span class="symbol">UBL</span>
+      <span class="price">487.00</span>
+      <span class="arrow price-down">▼</span>
+    </div>
+
+    <div class="ticker-item tooltip" data-tooltip="Lucky Cement">
+      <span class="symbol">LUCK</span>
+      <span class="price">463.00</span>
+      <span class="arrow price-up">▲</span>
+    </div>
+
+    <div class="ticker-item tooltip" data-tooltip="Oil & Gas Dev Co">
+      <span class="symbol">OGDC</span>
+      <span class="price">320.97</span>
+      <span class="arrow price-down">▼</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
+     SERVICES
+     ========================= -->
+<section id="services" class="container reveal">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Professional brokerage & investment solutions</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Equity Trading</h3>
+      <p>Secure and reliable equity trading at PSX.</p>
+    </div>
+    <div class="card">
+      <h3>Investment Advisory</h3>
+      <p>Strategic investment planning and guidance.</p>
+    </div>
+    <div class="card">
+      <h3>Portfolio Management</h3>
+      <p>Data-driven portfolio optimization.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     CONTACT
+     ========================= -->
+<section id="contact" class="container reveal">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Get in touch for professional assistance</p>
+  </div>
+
+  <div class="contact-grid">
+    <form class="contact-form" id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div>
+      <p>
+        We are committed to providing transparent and compliant
+        brokerage services in Pakistan.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer class="footer">
+  <p>© 2026 Saima Qaiser Securities. All rights reserved.</p>
+
+  <div class="exchange-logos">
+    <a href="https://jamapunji.pk" target="_blank">
+      <img src="assets/images/jamapunji.png" alt="Jamapunji">
+    </a>
+    <a href="https://www.psx.com.pk/" target="_blank">
+      <img src="assets/images/psx.png" alt="PSX">
+    </a>
+    <a href="https://www.secp.gov.pk/" target="_blank">
+      <img src="assets/images/secp.png" alt="SECP">
+    </a>
+    <a href="https://www.nccpl.com.pk/" target="_blank">
+      <img src="assets/images/nccpl.png" alt="NCCPL">
+    </a>
+    <a href="https://www.cdcpakistan.com/" target="_blank">
+      <img src="assets/images/cdc.png" alt="CDC Pakistan">
+    </a>
+  </div>
+</footer>
 
 </div>
 
-<!-- ================= JS ================= -->
+<!-- =========================
+     JS
+     ========================= -->
 <script src="assets/js/loader.js"></script>
 <script src="assets/js/animations.js"></script>
-<script src="assets/js/ticker.js"></script>
-<script src="assets/js/search.js"></script>
-<script src="assets/js/contact.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/contact.js"></script>
 
 </body>
 </html>
