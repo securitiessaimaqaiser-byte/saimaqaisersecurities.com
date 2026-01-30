@@ -1,69 +1,97 @@
 /* =========================================================
-   ANIMATIONS.JS
-   Scroll Reveal & Entrance Animations
-   Saima Qaiser Securities
+   SCROLL & UI ANIMATIONS
+   Project: Saima Qaiser Securities
    ========================================================= */
 
 (function () {
   "use strict";
 
-  /* -----------------------------------------
-     Reduced Motion Check (Accessibility)
-     ----------------------------------------- */
+  /**
+   * Respect reduced motion preferences (WCAG)
+   */
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
   if (prefersReducedMotion) {
-    document.querySelectorAll(".reveal").forEach(el => {
-      el.classList.add("is-visible");
-    });
+    document.documentElement.classList.add("reduce-motion");
     return;
   }
 
-  /* -----------------------------------------
-     Intersection Observer Setup
-     ----------------------------------------- */
-  const revealElements = document.querySelectorAll(".reveal");
+  /**
+   * Scroll Reveal using IntersectionObserver
+   */
+  const revealElements = document.querySelectorAll(
+    "[data-animate]"
+  );
 
   if (!("IntersectionObserver" in window)) {
     // Fallback: show everything immediately
-    revealElements.forEach(el => el.classList.add("is-visible"));
+    revealElements.forEach(el => el.classList.add("animate-in"));
     return;
   }
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px 0px -80px 0px",
-    threshold: 0.15
-  };
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
+          // Optional stagger delay
+          const delay = el.getAttribute("data-delay");
+          if (delay) {
+            el.style.animationDelay = `${delay}ms`;
+          }
 
-      const el = entry.target;
+          el.classList.add("animate-in");
+          obs.unobserve(el);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -60px 0px"
+    }
+  );
 
-      /* Stagger delay support */
-      if (el.dataset.delay) {
-        el.style.transitionDelay = `${el.dataset.delay}ms`;
-      }
+  revealElements.forEach(el => observer.observe(el));
 
-      el.classList.add("is-visible");
-      observer.unobserve(el);
-    });
-  }, observerOptions);
+  /**
+   * Header subtle shadow on scroll (video polish)
+   */
+  const header = document.querySelector("header");
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  if (header) {
+    let lastScroll = 0;
 
-  /* -----------------------------------------
-     Hero Animation Sync (on load)
-     ----------------------------------------- */
-  window.addEventListener("load", () => {
-    const hero = document.querySelector(".hero");
-    if (!hero) return;
+    window.addEventListener(
+      "scroll",
+      () => {
+        const currentScroll = window.scrollY;
 
-    hero.classList.add("is-visible");
+        if (currentScroll > 8) {
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+        }
+
+        lastScroll = currentScroll;
+      },
+      { passive: true }
+    );
+  }
+
+  /**
+   * Button press micro-interaction
+   */
+  document.addEventListener("click", event => {
+    const btn = event.target.closest("button, .btn");
+    if (!btn) return;
+
+    btn.classList.add("btn-pressed");
+    setTimeout(() => {
+      btn.classList.remove("btn-pressed");
+    }, 160);
   });
 
 })();
