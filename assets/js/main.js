@@ -1,21 +1,12 @@
-/* Contact form validation (Lighthouse-friendly) */
-const form = document.getElementById("contact-form");
+const burger = document.querySelector('.hamburger');
+const nav = document.querySelector('.nav');
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
+burger.onclick = () => {
+  nav.classList.toggle('active');
+  burger.classList.toggle('active');
+  document.body.classList.toggle('no-scroll');
+};
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-
-  if (!name || !email) {
-    alert("Please fill all required fields.");
-    return;
-  }
-
-  alert("Message sent successfully (demo).");
-});
-
-/* Prevent layout shift on load */
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
+document.querySelectorAll('.dropdown > button').forEach(btn=>{
+  btn.onclick = () => btn.parentElement.classList.toggle('open');
 });
