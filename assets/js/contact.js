@@ -5,10 +5,10 @@
   const status = document.getElementById("form-status");
   const btn = document.getElementById("submit-btn");
 
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (form.company.value !== "") return; // honeypot
+    if (form.company.value !== "") return;
 
     btn.disabled = true;
     status.textContent = "Sending message…";
@@ -22,6 +22,8 @@
       .catch(() => {
         status.textContent = "Error sending message.";
       })
-      .finally(() => btn.disabled = false);
+      .finally(() => {
+        btn.disabled = false;
+      });
   });
 })();
