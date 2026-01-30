@@ -1,113 +1,97 @@
 /* =========================================================
-   TICKER.JS
-   Pakistan Stock Exchange Ticker (Static Data)
-   Saima Qaiser Securities
+   PSX STOCK TICKER (STATIC DATA)
+   Project: Saima Qaiser Securities
    ========================================================= */
 
 (function () {
   "use strict";
 
-  const tickerTrack = document.querySelector(".ticker-track");
-  if (!tickerTrack) return;
+  document.addEventListener("DOMContentLoaded", () => {
 
-  /* ======================================================
-     STATIC PSX DATA (USER PROVIDED)
-     ====================================================== */
+    const tickerTrack = document.querySelector(".ticker-track");
+    if (!tickerTrack) return;
 
-  const stocks = [
-    { symbol: "ENGRO", name: "Engro Holdings", price: 265.43, change: 1 },
-    { symbol: "FFC", name: "Fauji Fertilizer Company", price: 596.62, change: 1 },
-    { symbol: "UBL", name: "United Bank Limited", price: 487.0, change: -1 },
-    { symbol: "LUCK", name: "Lucky Cement", price: 463.0, change: 1 },
-    { symbol: "MCB", name: "MCB Bank Ltd.", price: 412.0, change: -1 },
-    { symbol: "OGDC", name: "Oil & Gas Development Co.", price: 320.97, change: -1 },
-    { symbol: "PPL", name: "Pakistan Petroleum Ltd.", price: 271.8, change: 1 },
-    { symbol: "HBL", name: "Habib Bank Ltd.", price: 335.99, change: -1 },
-    { symbol: "MEBL", name: "Meezan Bank Ltd.", price: 479.99, change: 1 },
-    { symbol: "GLAXO", name: "GlaxoSmithKline Pakistan", price: 424.99, change: 1 },
-    { symbol: "ATLH", name: "Atlas Honda Ltd.", price: 1883.87, change: 1 },
-    { symbol: "AGTL", name: "Al-Ghazi Tractors", price: 424.73, change: -1 },
-    { symbol: "DAWN", name: "Dewan Motors", price: 25.46, change: -1 },
-    { symbol: "GNHI", name: "Ghandhara Industries", price: 912.06, change: 1 },
-    { symbol: "HINO", name: "Hinopak Motors", price: 440.16, change: 1 },
-    { symbol: "KEL", name: "K-Electric Ltd.", price: 7.27, change: -1 },
-    { symbol: "WAVESAPP", name: "Waves App Ltd.", price: 11.12, change: 1 },
-    { symbol: "SSGC", name: "Sui Southern Gas Co.", price: 35.66, change: -1 },
-    { symbol: "NCPL", name: "NCL Industries", price: 77.85, change: 1 },
-    { symbol: "AABS", name: "AABS Fabrics", price: 1014.7, change: 1 },
-    { symbol: "PAEL", name: "Pak Elektron Ltd.", price: 56.24, change: 1 },
-    { symbol: "KAPCO", name: "Kot Addu Power Co.", price: 34.58, change: -1 },
-    { symbol: "KML", name: "Kohinoor Mills Ltd.", price: 12.09, change: -1 },
-    { symbol: "PTC", name: "Pakistan Telecom Company", price: 60.43, change: 1 },
-    { symbol: "BOP", name: "Bank of Punjab", price: 39.53, change: 1 }
-  ];
+    /* ===============================
+       STATIC PSX DATA (USER PROVIDED)
+       =============================== */
 
-  /* ======================================================
-     BUILD TICKER ITEMS
-     ====================================================== */
+    const psxStocks = [
+      { symbol: "ENGRO", price: 265.43, change: +1.25 },
+      { symbol: "FFC", price: 596.62, change: -2.10 },
+      { symbol: "UBL", price: 487.00, change: +0.85 },
+      { symbol: "LUCK", price: 463.00, change: -1.40 },
+      { symbol: "MCB", price: 412.00, change: +0.60 },
+      { symbol: "OGDC", price: 320.97, change: -0.75 },
+      { symbol: "PPL", price: 271.80, change: +1.05 },
+      { symbol: "HBL", price: 335.99, change: -0.45 },
+      { symbol: "MEBL", price: 479.99, change: +1.90 },
+      { symbol: "GLAXO", price: 424.99, change: -0.30 },
+      { symbol: "ATLH", price: 1883.87, change: +12.4 },
+      { symbol: "AGTL", price: 424.73, change: -3.15 },
+      { symbol: "DAWN", price: 25.46, change: +0.12 },
+      { symbol: "GNHI", price: 912.06, change: +6.75 },
+      { symbol: "HINO", price: 440.16, change: -2.40 },
+      { symbol: "KEL", price: 7.27, change: +0.05 },
+      { symbol: "WAVESAPP", price: 11.12, change: -0.08 },
+      { symbol: "SSGC", price: 35.66, change: +0.32 },
+      { symbol: "NCPL", price: 77.85, change: -0.55 },
+      { symbol: "AABS", price: 1014.70, change: +9.20 },
+      { symbol: "PAEL", price: 56.24, change: +0.44 },
+      { symbol: "KAPCO", price: 34.58, change: -0.28 },
+      { symbol: "KML", price: 12.09, change: +0.06 },
+      { symbol: "PTC", price: 60.43, change: +0.70 },
+      { symbol: "BOP", price: 39.53, change: -0.33 }
+    ];
 
-  function createTickerItem(stock) {
-    const item = document.createElement("div");
-    item.className = "ticker-item tooltip";
-    item.setAttribute("data-tooltip", stock.name);
+    /* ===============================
+       RENDER TICKER ITEMS
+       =============================== */
 
-    const symbol = document.createElement("span");
-    symbol.className = "symbol";
-    symbol.textContent = stock.symbol;
+    function renderTicker() {
+      tickerTrack.innerHTML = "";
 
-    const price = document.createElement("span");
-    price.className = "price";
-    price.textContent = stock.price.toFixed(2);
+      psxStocks.forEach(stock => {
+        const item = document.createElement("div");
+        item.className = "ticker-item";
+        item.setAttribute(
+          "aria-label",
+          `${stock.symbol} price ${stock.price} PKR`
+        );
 
-    const arrow = document.createElement("span");
-    arrow.className = "arrow";
-    arrow.textContent = stock.change > 0 ? "▲" : "▼";
-    arrow.classList.add(stock.change > 0 ? "price-up" : "price-down");
+        const isUp = stock.change >= 0;
+        const arrow = isUp ? "▲" : "▼";
+        const changeClass = isUp ? "up" : "down";
 
-    item.appendChild(symbol);
-    item.appendChild(price);
-    item.appendChild(arrow);
+        item.innerHTML = `
+          <span class="symbol">${stock.symbol}</span>
+          <span class="price">PKR ${stock.price.toFixed(2)}</span>
+          <span class="change ${changeClass}" 
+                title="Change: ${stock.change}">
+            ${arrow} ${Math.abs(stock.change).toFixed(2)}
+          </span>
+        `;
 
-    return item;
-  }
+        tickerTrack.appendChild(item);
+      });
 
-  /* ======================================================
-     RENDER & DUPLICATE (SEAMLESS LOOP)
-     ====================================================== */
+      // Duplicate items for seamless scroll
+      tickerTrack.innerHTML += tickerTrack.innerHTML;
+    }
 
-  function renderTicker() {
-    tickerTrack.innerHTML = "";
+    renderTicker();
 
-    stocks.forEach(stock => {
-      tickerTrack.appendChild(createTickerItem(stock));
+    /* ===============================
+       PAUSE ON HOVER
+       =============================== */
+
+    tickerTrack.addEventListener("mouseenter", () => {
+      tickerTrack.style.animationPlayState = "paused";
     });
 
-    // Duplicate for seamless scroll
-    stocks.forEach(stock => {
-      tickerTrack.appendChild(createTickerItem(stock));
+    tickerTrack.addEventListener("mouseleave", () => {
+      tickerTrack.style.animationPlayState = "running";
     });
-  }
 
-  renderTicker();
-
-  /* ======================================================
-     PAUSE ON HOVER (LIKE PSX)
-     ====================================================== */
-
-  tickerTrack.addEventListener("mouseenter", () => {
-    tickerTrack.style.animationPlayState = "paused";
   });
-
-  tickerTrack.addEventListener("mouseleave", () => {
-    tickerTrack.style.animationPlayState = "running";
-  });
-
-  /* ======================================================
-     FUTURE: REAL PSX API INTEGRATION
-     ======================================================
-     Replace the `stocks` array with API response
-     and re-call renderTicker().
-     NO OTHER CHANGES REQUIRED.
-     ====================================================== */
 
 })();
