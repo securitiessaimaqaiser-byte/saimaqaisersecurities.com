@@ -1,74 +1,82 @@
 /* =========================================================
-   CONTACT.JS
-   Contact Form Handling (Client-side)
-   Saima Qaiser Securities
+   CONTACT FORM HANDLER
+   Project: Saima Qaiser Securities
    ========================================================= */
 
 (function () {
   "use strict";
 
-  const form = document.getElementById("contactForm");
-  if (!form) return;
+  document.addEventListener("DOMContentLoaded", () => {
 
-  const status = document.createElement("div");
-  status.setAttribute("aria-live", "polite");
-  status.style.marginTop = "12px";
-  status.style.fontSize = "0.9rem";
-  form.appendChild(status);
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("contact-status");
 
-  /* -----------------------------------------
-     Utility Functions
-     ----------------------------------------- */
-  function showMessage(message, type = "success") {
-    status.textContent = message;
-    status.style.color = type === "success" ? "#22c55e" : "#ef4444";
-  }
+    if (!form || !status) return;
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
+    /**
+     * Basic email regex (WCAG-safe)
+     */
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  /* -----------------------------------------
-     Submit Handler
-     ----------------------------------------- */
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = form.querySelector("input[name='name']").value.trim();
-    const email = form.querySelector("input[name='email']").value.trim();
-    const message = form.querySelector("textarea[name='message']").value.trim();
-
-    /* Validation */
-    if (!name || !email || !message) {
-      showMessage("Please fill in all required fields.", "error");
-      return;
+    /**
+     * Show status message
+     */
+    function showStatus(message, isError = false) {
+      status.textContent = message;
+      status.className = isError ? "error" : "success";
+      status.setAttribute("role", "alert");
     }
 
-    if (!isValidEmail(email)) {
-      showMessage("Please enter a valid email address.", "error");
-      return;
-    }
+    /**
+     * Handle submit
+     */
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    /* -----------------------------------------
-       SIMULATED SUCCESS (STATIC SITE)
-       -----------------------------------------
-       GitHub Pages cannot send emails directly.
-       This is intentional and professional.
+      status.textContent = "";
 
-       WHEN READY:
-       - Replace this block with Formspree / EmailJS /
-         serverless function / backend API
-       ----------------------------------------- */
+      const name = form.querySelector('[name="name"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      const message = form.querySelector('[name="message"]').value.trim();
 
-    showMessage("Sending message…");
+      // Validation
+      if (!name || !email || !message) {
+        showStatus("Please fill in all required fields.", true);
+        return;
+      }
 
-    setTimeout(() => {
-      showMessage(
-        "Thank you. Your message has been received. We will contact you shortly.",
-        "success"
-      );
-      form.reset();
-    }, 900);
+      if (!emailPattern.test(email)) {
+        showStatus("Please enter a valid email address.", true);
+        return;
+      }
+
+      /**
+       * Submit via FormSubmit (AJAX, no redirect)
+       * Emails go directly to: abdulmmm556@gmail.com
+       */
+      const formData = new FormData(form);
+      formData.append("_captcha", "false");
+      formData.append("_template", "table");
+
+      fetch("https://formsubmit.co/ajax/abdulmmm556@gmail.com", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success === "true") {
+            showStatus("Thank you! Your message has been sent successfully.");
+            form.reset();
+          } else {
+            showStatus("Something went wrong. Please try again.", true);
+          }
+        })
+        .catch(() => {
+          showStatus("Network error. Please try again later.", true);
+        });
+
+    });
+
   });
 
 })();
