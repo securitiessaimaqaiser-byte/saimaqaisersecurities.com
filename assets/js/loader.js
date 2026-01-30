@@ -1,48 +1,42 @@
 /* =========================================================
-   LOADER.JS
-   Page Load Animation Controller
-   Saima Qaiser Securities
+   LOADER CONTROLLER
+   Project: Saima Qaiser Securities
+   Purpose: Initial page loading & refresh animation
    ========================================================= */
 
 (function () {
   "use strict";
 
   const loader = document.getElementById("site-loader");
-  const site = document.getElementById("site-wrapper");
 
-  if (!loader || !site) return;
+  if (!loader) return;
 
-  /* -----------------------------------------
-     Accessibility: Reduced Motion
-     ----------------------------------------- */
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  function showSite() {
-    loader.classList.add("loader-hide");
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      site.style.display = "block";
-      site.classList.add("site-visible");
-    }, prefersReducedMotion ? 0 : 600);
-  }
-
-  /* -----------------------------------------
-     Primary Load Event
-     ----------------------------------------- */
+  /**
+   * Hide loader after page fully loads
+   */
   window.addEventListener("load", () => {
-    showSite();
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.pointerEvents = "none";
+
+      document.body.classList.add("page-loaded");
+
+      setTimeout(() => {
+        loader.remove();
+      }, 600);
+    }, 300);
   });
 
-  /* -----------------------------------------
-     Failsafe (max wait 4s)
-     ----------------------------------------- */
-  setTimeout(() => {
-    if (loader.style.display !== "none") {
-      showSite();
+  /**
+   * Show loader on page refresh / navigation
+   */
+  window.addEventListener("beforeunload", () => {
+    document.body.classList.remove("page-loaded");
+
+    if (loader) {
+      loader.style.opacity = "1";
+      loader.style.pointerEvents = "auto";
     }
-  }, 4000);
+  });
 
 })();
