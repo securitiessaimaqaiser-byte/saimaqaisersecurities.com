@@ -8,6 +8,11 @@
   <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
   <meta name="author" content="Abdul Mannan Butt">
 
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/animations.css">
@@ -17,7 +22,8 @@
 
 <body>
 
-<!-- LOADER -->
+<div id="refresh-overlay"></div>
+
 <div id="site-loader">
   <div class="loader-bars">
     <span></span><span></span><span></span>
@@ -25,13 +31,16 @@
   <p class="loader-text">Loading Market Intelligence…</p>
 </div>
 
-<!-- SITE -->
 <div id="site-wrapper">
 
 <header class="navbar">
   <div class="logo">Saima Qaiser Securities</div>
 
-  <nav>
+  <div id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav id="main-nav">
     <ul>
       <li><a href="#home">Home</a></li>
       <li class="dropdown">
@@ -51,12 +60,10 @@
   <input type="text" id="site-search" placeholder="Search">
 </header>
 
-<!-- TICKER -->
 <div class="ticker">
   <div id="ticker-track"></div>
 </div>
 
-<!-- HERO -->
 <section id="home" class="hero reveal">
   <div class="hero-text">
     <h1>
@@ -76,7 +83,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section reveal">
   <h2>Our Services</h2>
   <div class="cards">
@@ -86,7 +92,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section dark reveal">
   <h2>Contact Us</h2>
   <form id="contact-form">
@@ -97,17 +102,32 @@
   </form>
 </section>
 
-<!-- DISCLAIMER -->
-<section class="section reveal">
-  <h2>Disclaimer</h2>
+<section class="section reveal" id="legal">
+  <h2>Legal & Risk Disclosure</h2>
+
+  <h3>Risk Disclosure</h3>
   <p>
-    This website is for informational purposes only and does not constitute
-    investment advice. Investments are subject to market risk.
+    Trading in securities involves market risk. Prices of securities may
+    fluctuate and investors may incur losses. Past performance is not
+    indicative of future results.
+  </p>
+
+  <h3>Privacy Policy</h3>
+  <p>
+    We respect your privacy. Information submitted through this website is
+    used solely for communication purposes and is not shared with third
+    parties except where required by law.
+  </p>
+
+  <p>
+    By using this website, you acknowledge that you understand and accept
+    these terms.
   </p>
 </section>
 
 <footer>
-  © 2026 Saima Qaiser Securities (Pvt) Ltd
+  © 2026 Saima Qaiser Securities (Pvt) Ltd |
+  <a href="#legal">Legal</a>
 </footer>
 
 </div>
