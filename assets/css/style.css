@@ -1,38 +1,67 @@
-body {
-  font-family: Inter, sans-serif;
-  background: #0b0f14;
-  color: #fff;
+/* =========================
+   TICKER
+========================= */
+
+.ticker {
+  background: #0b1f33;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.header {
-  display: flex;
+#ticker-track {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 40px;
-  background: #000;
+  animation: ticker-scroll 35s linear infinite;
 }
 
-.nav ul {
-  display: flex;
-  gap: 20px;
-}
-
-.dropdown ul {
-  display: none;
-  position: absolute;
-  background: #111;
-}
-
-.dropdown:hover ul {
-  display: block;
-}
-
-.hero {
-  height: 90vh;
-  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-              url('../images/hero.jpg') center/cover;
-  display: flex;
+.ticker-item {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: default;
+  position: relative;
+}
+
+.ticker-item strong {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.ticker-item b {
+  font-weight: 500;
+}
+
+.ticker-item i {
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Price direction */
+.ticker-item.up i {
+  color: #00e676;
+}
+
+.ticker-item.down i {
+  color: #ff5252;
+}
+
+/* Hover tooltip effect */
+.ticker-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Animation */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
