@@ -1,67 +1,39 @@
-/* =========================
-   TICKER
-========================= */
-
-.ticker {
-  background: #0b1f33;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+body {
+  font-family: 'Inter', sans-serif;
+  background:#0b1116;
+  color:#fff;
 }
 
-#ticker-track {
-  display: inline-flex;
-  align-items: center;
-  animation: ticker-scroll 35s linear infinite;
+.section {
+  padding: 6rem 8%;
 }
 
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  font-size: 14px;
-  color: #ffffff;
-  cursor: default;
-  position: relative;
+.hero {
+  min-height: 90vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.ticker-item strong {
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.hero h1 {
+  font-size: clamp(2.8rem,4vw,3.8rem);
+  line-height:1.1;
 }
 
-.ticker-item b {
-  font-weight: 500;
+.hero span { color: var(--accent); }
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:2rem;
 }
 
-.ticker-item i {
-  font-style: normal;
-  font-size: 13px;
-  font-weight: 600;
+.card {
+  padding:2rem;
+  background:#111c23;
+  border-radius:14px;
+  transition:transform .3s ease;
 }
+.card:hover { transform:translateY(-6px); }
 
-/* Price direction */
-.ticker-item.up i {
-  color: #00e676;
-}
-
-.ticker-item.down i {
-  color: #ff5252;
-}
-
-/* Hover tooltip effect */
-.ticker-item:hover {
-  background: rgba(255,255,255,0.06);
-}
-
-/* Animation */
-@keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
+.footer img { height:44px; }
