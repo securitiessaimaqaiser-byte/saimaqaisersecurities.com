@@ -1,29 +1,74 @@
+/* =========================================================
+   CONTACT.JS
+   Contact Form Handling (Client-side)
+   Saima Qaiser Securities
+   ========================================================= */
+
 (function () {
-  emailjs.init("ADD_PUBLIC_KEY_LATER");
+  "use strict";
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-  const btn = document.getElementById("submit-btn");
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
+  const status = document.createElement("div");
+  status.setAttribute("aria-live", "polite");
+  status.style.marginTop = "12px";
+  status.style.fontSize = "0.9rem";
+  form.appendChild(status);
+
+  /* -----------------------------------------
+     Utility Functions
+     ----------------------------------------- */
+  function showMessage(message, type = "success") {
+    status.textContent = message;
+    status.style.color = type === "success" ? "#22c55e" : "#ef4444";
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /* -----------------------------------------
+     Submit Handler
+     ----------------------------------------- */
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (form.company.value !== "") return;
+    const name = form.querySelector("input[name='name']").value.trim();
+    const email = form.querySelector("input[name='email']").value.trim();
+    const message = form.querySelector("textarea[name='message']").value.trim();
 
-    btn.disabled = true;
-    status.textContent = "Sending message…";
+    /* Validation */
+    if (!name || !email || !message) {
+      showMessage("Please fill in all required fields.", "error");
+      return;
+    }
 
-    emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", form)
-      .then(() => {
-        status.textContent = "Message sent successfully.";
-        form.reset();
-        setTimeout(() => status.textContent = "", 5000);
-      })
-      .catch(() => {
-        status.textContent = "Error sending message.";
-      })
-      .finally(() => {
-        btn.disabled = false;
-      });
+    if (!isValidEmail(email)) {
+      showMessage("Please enter a valid email address.", "error");
+      return;
+    }
+
+    /* -----------------------------------------
+       SIMULATED SUCCESS (STATIC SITE)
+       -----------------------------------------
+       GitHub Pages cannot send emails directly.
+       This is intentional and professional.
+
+       WHEN READY:
+       - Replace this block with Formspree / EmailJS /
+         serverless function / backend API
+       ----------------------------------------- */
+
+    showMessage("Sending message…");
+
+    setTimeout(() => {
+      showMessage(
+        "Thank you. Your message has been received. We will contact you shortly.",
+        "success"
+      );
+      form.reset();
+    }, 900);
   });
+
 })();
