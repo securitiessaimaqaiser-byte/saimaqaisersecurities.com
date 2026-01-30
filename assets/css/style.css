@@ -1,45 +1,44 @@
-/* ===== TICKER (Visual Match) ===== */
-.ticker {
-  background: var(--bg-dark);
-  border-top: 1px solid #1f2937;
-  border-bottom: 1px solid #1f2937;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-#ticker-track {
-  display: inline-flex;
-  gap: 48px;
-  font-size: 14px;
-  letter-spacing: .4px;
-  animation: ticker 60s linear infinite;
-}
+/* =====================================================
+   FINAL POLISH – TICKER TYPOGRAPHY
+   ===================================================== */
 
 #ticker-track span {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
   color: #e5e7eb;
 }
 
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+#ticker-track strong {
+  font-weight: 600;
+  color: #ffffff;
 }
 
-/* Pause on hover (video-like) */
-.ticker:hover #ticker-track {
-  animation-play-state: paused;
+#ticker-track .price {
+  color: var(--accent);
+  font-weight: 500;
 }
 
-/* ===== NAVBAR (mobile-ready base) ===== */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* =====================================================
+   FINAL POLISH – HERO MICRO ADJUSTMENTS
+   ===================================================== */
+
+.hero-text h1 {
+  letter-spacing: -0.8px;
 }
 
-/* Improve font rendering (Lighthouse) */
-body {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+.hero-text p {
+  margin-top: 22px;
+  opacity: 0.95;
+}
+
+/* =====================================================
+   FINAL POLISH – SMOOTHER ANIMATIONS
+   ===================================================== */
+
+.reveal {
+  transition:
+    opacity 1s cubic-bezier(.22,.61,.36,1),
+    transform 1s cubic-bezier(.22,.61,.36,1);
 }
