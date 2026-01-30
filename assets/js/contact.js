@@ -1,33 +1,27 @@
-/**
- * CONTACT FORM HANDLER
- * Uses EmailJS (keys added later)
- * No redirect, no backend server
- */
-
 (function () {
-  emailjs.init("YOUR_PUBLIC_KEY_HERE"); // ADD LATER
+  emailjs.init("ADD_PUBLIC_KEY_LATER");
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
+  const btn = document.getElementById("submit-btn");
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", e => {
     e.preventDefault();
 
-    status.textContent = "Sending message...";
-    status.setAttribute("aria-live", "polite");
+    if (form.company.value !== "") return; // honeypot
 
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID_HERE",
-      "YOUR_TEMPLATE_ID_HERE",
-      this
-    ).then(
-      () => {
+    btn.disabled = true;
+    status.textContent = "Sending message…";
+
+    emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", form)
+      .then(() => {
         status.textContent = "Message sent successfully.";
         form.reset();
-      },
-      () => {
-        status.textContent = "Error sending message. Please try again.";
-      }
-    );
+        setTimeout(() => status.textContent = "", 5000);
+      })
+      .catch(() => {
+        status.textContent = "Error sending message.";
+      })
+      .finally(() => btn.disabled = false);
   });
 })();
