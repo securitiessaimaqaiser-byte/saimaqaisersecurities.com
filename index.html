@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Saima Qaiser Securities (Pvt) Ltd</title>
+  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange Brokerage & Market Intelligence">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
-  <meta name="author" content="Abdul Mannan Butt">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/animations.css">
@@ -22,120 +19,131 @@
 
 <body>
 
-<div id="refresh-overlay"></div>
-
+<!-- Page Loader -->
 <div id="site-loader">
-  <div class="loader-bars">
-    <span></span><span></span><span></span>
-  </div>
-  <p class="loader-text">Loading Market Intelligence…</p>
+  <div class="loader-ring"></div>
+  <p>Loading Market Intelligence...</p>
 </div>
 
-<div id="site-wrapper">
+<!-- Refresh Overlay -->
+<div id="refresh-overlay"></div>
 
-<header class="navbar">
-  <div class="logo">Saima Qaiser Securities</div>
-
-  <div id="hamburger">
-    <span></span><span></span><span></span>
+<!-- Header -->
+<header class="header">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="Saima Qaiser Securities">
   </div>
 
-  <nav id="main-nav">
+  <nav class="nav">
     <ul>
       <li><a href="#home">Home</a></li>
+
       <li class="dropdown">
-        <a href="#">Services ▾</a>
+        <a href="#">Services</a>
         <ul>
-          <li>Equity Trading</li>
+          <li>Online Trading</li>
           <li>Investment Research</li>
           <li>Portfolio Management</li>
-          <li>IPOs</li>
-          <li>Fixed Income</li>
+          <li>IPO Advisory</li>
         </ul>
       </li>
+
+      <li class="dropdown">
+        <a href="#">Investors</a>
+        <ul>
+          <li>Market Information</li>
+          <li>Financial Reports</li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Miscellaneous</a>
+        <ul>
+          <li><a href="#disclaimer">Disclaimer</a></li>
+          <li>Privacy Policy</li>
+          <li>Risk Disclosure</li>
+        </ul>
+      </li>
+
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <input type="text" id="site-search" placeholder="Search">
+  <input type="text" id="site-search" placeholder="Search..." />
+  <div class="hamburger">&#9776;</div>
 </header>
 
+<!-- Ticker -->
 <div class="ticker">
   <div id="ticker-track"></div>
 </div>
 
+<!-- Hero -->
 <section id="home" class="hero reveal">
-  <div class="hero-text">
-    <h1>
-      Empowering Investors<br>
-      <span>With Integrity & Precision</span>
-    </h1>
-    <p>
-      Expert guidance and powerful tools to help you navigate
-      the financial markets with confidence.
-    </p>
-  </div>
-
-  <div class="hero-profile">
-    <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt">
-    <h3>Abdul Mannan Butt</h3>
-    <p>Front End Web Developer</p>
+  <div class="hero-content">
+    <h1>Welcome to Saima Qaiser Securities</h1>
+    <p>Market Intelligence • Precision • Integrity</p>
+    <a href="#services" class="btn-primary">Read More</a>
   </div>
 </section>
 
-<section class="section reveal">
+<!-- Profile -->
+<section class="profile reveal">
+  <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt">
+  <h3>Abdul Mannan Butt</h3>
+  <p>Front End Web Developer</p>
+</section>
+
+<!-- Services -->
+<section id="services" class="services reveal">
   <h2>Our Services</h2>
   <div class="cards">
-    <div class="card">Equity Trading</div>
+    <div class="card">Online Trading</div>
     <div class="card">Investment Research</div>
     <div class="card">Portfolio Management</div>
+    <div class="card">IPOs</div>
   </div>
 </section>
 
-<section id="contact" class="section dark reveal">
+<!-- Contact -->
+<section id="contact" class="contact reveal">
   <h2>Contact Us</h2>
   <form id="contact-form">
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="email" id="email" placeholder="Your Email">
-    <textarea id="message" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit">Submit</button>
   </form>
 </section>
 
-<section class="section reveal" id="legal">
-  <h2>Legal & Risk Disclosure</h2>
-
-  <h3>Risk Disclosure</h3>
+<!-- Disclaimer -->
+<section id="disclaimer" class="legal reveal">
+  <h2>Disclaimer</h2>
   <p>
-    Trading in securities involves market risk. Prices of securities may
-    fluctuate and investors may incur losses. Past performance is not
-    indicative of future results.
-  </p>
-
-  <h3>Privacy Policy</h3>
-  <p>
-    We respect your privacy. Information submitted through this website is
-    used solely for communication purposes and is not shared with third
-    parties except where required by law.
-  </p>
-
-  <p>
-    By using this website, you acknowledge that you understand and accept
-    these terms.
+    Saima Qaiser Securities has no affiliation with any unofficial pages, profiles, apps, or WhatsApp numbers.
+    We never request OTPs, personal information, or funds through unofficial platforms.
+    Always verify information via PSX, SECP, CDC, and NCCPL.
   </p>
 </section>
 
-<footer>
-  © 2026 Saima Qaiser Securities (Pvt) Ltd |
-  <a href="#legal">Legal</a>
+<!-- Footer -->
+<footer class="footer">
+  <div class="regulators">
+    <a href="https://jamapunji.pk" target="_blank"><img src="assets/images/jama-punji.png"></a>
+    <a href="https://www.psx.com.pk" target="_blank"><img src="assets/images/psx.png"></a>
+    <a href="https://www.secp.gov.pk" target="_blank"><img src="assets/images/secp.png"></a>
+    <a href="https://www.nccpl.com.pk" target="_blank"><img src="assets/images/nccpl.png"></a>
+    <a href="https://www.cdcpakistan.com" target="_blank"><img src="assets/images/cdc.png"></a>
+  </div>
+  <p>© 2026 Saima Qaiser Securities (Pvt) Ltd</p>
 </footer>
 
-</div>
-
+<!-- JS -->
 <script src="assets/js/loader.js"></script>
 <script src="assets/js/animations.js"></script>
 <script src="assets/js/ticker.js"></script>
 <script src="assets/js/search.js"></script>
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>
