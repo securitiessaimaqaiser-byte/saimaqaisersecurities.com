@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<title>Saima Qaiser Securities (Pvt) Ltd</title>
+  <title>Saima Qaiser Securities (Pvt) Ltd</title>
 
-<!-- SECURITY HEADERS -->
-<meta http-equiv="Content-Security-Policy"
-content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com https://api.emailjs.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com;">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
+  <!-- SECURITY -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com https://api.emailjs.com;
+                 img-src 'self' data: https:;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                 script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com;">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
+  <!-- SEO -->
+  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
+  <meta name="keywords" content="PSX, Pakistan Stock Exchange, Brokerage, Investments">
+  <meta name="author" content="Abdul Mannan Butt">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/variables.css">
-<link rel="stylesheet" href="assets/css/animations.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body>
 
-<div id="site-loader" role="status">
-  <div class="loader-bars"><span></span><span></span><span></span></div>
+<!-- LOADER -->
+<div id="site-loader" role="status" aria-label="Loading">
+  <div class="loader-bars">
+    <span></span><span></span><span></span>
+  </div>
   <p>Loading Market Intelligence…</p>
 </div>
 
 <div id="site-wrapper">
 
-<header class="header">
+<header class="header" role="banner">
   <div class="logo">
-    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities">
+    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities logo">
   </div>
 
   <div class="market-status" aria-live="polite">
@@ -45,12 +56,12 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
     <span id="market-text">Checking market…</span>
   </div>
 
-  <nav class="nav">
+  <nav class="nav" role="navigation">
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+      <li><a href="#" aria-current="page">Home</a></li>
 
       <li class="dropdown">
-        <button>Services</button>
+        <button aria-haspopup="true">Services</button>
         <ul class="dropdown-menu">
           <li>Online Trading</li>
           <li>Investment Research</li>
@@ -60,7 +71,7 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
       </li>
 
       <li class="dropdown">
-        <button>Miscellaneous</button>
+        <button aria-haspopup="true">Miscellaneous</button>
         <ul class="dropdown-menu">
           <li><a href="#legal">Disclaimer</a></li>
           <li><a href="#legal">Risk Disclosure</a></li>
@@ -72,21 +83,23 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
     </ul>
   </nav>
 
-  <input id="site-search" type="search" placeholder="Search…">
+  <input id="site-search" type="search" placeholder="Search…" aria-label="Search website">
 
-  <button class="hamburger" aria-label="Menu">
+  <button class="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<div class="ticker">
+<!-- TICKER -->
+<div class="ticker" aria-label="PSX prices">
   <div id="ticker-track"></div>
 </div>
 
+<!-- HERO -->
 <section class="hero reveal">
   <div class="hero-text">
     <h1>BUILD WEALTH<br><span>WITH CONFIDENCE</span></h1>
-    <p>Expert guidance and powerful tools for Pakistan’s financial markets.</p>
+    <p>Expert guidance and powerful tools to navigate Pakistan’s financial markets.</p>
     <a href="#contact" class="btn-primary">Explore Services</a>
   </div>
 
@@ -97,6 +110,7 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="section reveal">
   <h2>Our Services</h2>
   <div class="cards">
@@ -107,6 +121,7 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section dark reveal">
   <h2>Contact Us</h2>
 
@@ -124,19 +139,34 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
   </form>
 </section>
 
+<!-- LEGAL -->
 <section id="legal" class="section reveal">
   <h2>Legal & Risk Disclosure</h2>
-  <p>Trading in securities involves market risk. Past performance is not indicative of future results.</p>
+  <p>
+    Trading in securities involves market risk. Prices may fluctuate and
+    investors may incur losses. Past performance is not indicative of future results.
+  </p>
 </section>
 
+<!-- TRUST -->
 <section class="section trust reveal">
   <h2>Regulatory & Market Affiliations</h2>
   <div class="exchange-logos">
-    <a href="https://jamapunji.pk" target="_blank"><img src="assets/images/jamapunji.png"></a>
-    <a href="https://www.psx.com.pk" target="_blank"><img src="assets/images/psx.png"></a>
-    <a href="https://www.secp.gov.pk" target="_blank"><img src="assets/images/secp.png"></a>
-    <a href="https://www.nccpl.com.pk" target="_blank"><img src="assets/images/nccpl.png"></a>
-    <a href="https://www.cdcpakistan.com" target="_blank"><img src="assets/images/cdc.png"></a>
+    <a href="https://jamapunji.pk" target="_blank" rel="noopener">
+      <img src="assets/images/jamapunji.png" alt="JamaPunji">
+    </a>
+    <a href="https://www.psx.com.pk/" target="_blank" rel="noopener">
+      <img src="assets/images/psx.png" alt="PSX">
+    </a>
+    <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">
+      <img src="assets/images/secp.png" alt="SECP">
+    </a>
+    <a href="https://www.nccpl.com.pk/" target="_blank" rel="noopener">
+      <img src="assets/images/nccpl.png" alt="NCCPL">
+    </a>
+    <a href="https://www.cdcpakistan.com/" target="_blank" rel="noopener">
+      <img src="assets/images/cdc.png" alt="CDC Pakistan">
+    </a>
   </div>
 </section>
 
@@ -146,6 +176,7 @@ content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.co
 
 </div>
 
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="assets/js/loader.js" defer></script>
 <script src="assets/js/ticker.js" defer></script>
