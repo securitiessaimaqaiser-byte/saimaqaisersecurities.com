@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
+  <meta charset="UTF-8" />
   <title>Saima Qaiser Securities (Pvt) Ltd</title>
 
-  <!-- SECURITY -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com https://fonts.gstatic.com https://api.emailjs.com;
-                 img-src 'self' data: https:;
-                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                 script-src 'self' https://cdn.jsdelivr.net https://api.emailjs.com;">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-
   <!-- SEO -->
-  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd – Pakistan Stock Exchange brokerage & investment services.">
-  <meta name="keywords" content="PSX, Pakistan Stock Exchange, Brokerage, Investments">
-  <meta name="author" content="Abdul Mannan Butt">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Saima Qaiser Securities (Pvt) Ltd — Pakistan Stock Exchange brokerage & investment services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b3d2e" />
 
-  <!-- FONTS -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -36,46 +24,46 @@
 
 <body>
 
-<!-- LOADER -->
-<div id="site-loader" role="status" aria-label="Loading">
-  <div class="loader-bars">
-    <span></span><span></span><span></span>
-  </div>
+<!-- ================= LOADER ================= -->
+<div id="site-loader" aria-hidden="true">
+  <div class="loader-bar"></div>
   <p>Loading Market Intelligence…</p>
 </div>
 
-<div id="site-wrapper">
-
-<header class="header" role="banner">
+<!-- ================= HEADER ================= -->
+<header class="main-header">
   <div class="logo">
-    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities logo">
+    <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo">
   </div>
 
-  <div class="market-status" aria-live="polite">
-    <span class="status-dot"></span>
-    <span id="market-text">Checking market…</span>
-  </div>
+  <nav class="main-nav" aria-label="Primary Navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
 
-  <nav class="nav" role="navigation">
-    <ul class="nav-links">
-      <li><a href="#" aria-current="page">Home</a></li>
+      <li class="has-dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown">
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#mission">Mission</a></li>
+        </ul>
+      </li>
 
-      <li class="dropdown">
-        <button aria-haspopup="true">Services</button>
-        <ul class="dropdown-menu">
-          <li>Online Trading</li>
+      <li class="has-dropdown">
+        <a href="#">Services</a>
+        <ul class="dropdown">
+          <li>Equity Trading</li>
           <li>Investment Research</li>
           <li>Portfolio Management</li>
           <li>IPOs</li>
         </ul>
       </li>
 
-      <li class="dropdown">
-        <button aria-haspopup="true">Miscellaneous</button>
-        <ul class="dropdown-menu">
-          <li><a href="#legal">Disclaimer</a></li>
-          <li><a href="#legal">Risk Disclosure</a></li>
-          <li><a href="#legal">Privacy Policy</a></li>
+      <li class="has-dropdown">
+        <a href="#">Miscellaneous</a>
+        <ul class="dropdown">
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
         </ul>
       </li>
 
@@ -83,24 +71,60 @@
     </ul>
   </nav>
 
-  <input id="site-search" type="search" placeholder="Search…" aria-label="Search website">
-
-  <button class="hamburger" aria-label="Open menu">
+  <button class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- TICKER -->
-<div class="ticker" aria-label="PSX prices">
-  <div id="ticker-track"></div>
-</div>
+<!-- ================= TICKER ================= -->
+<section class="ticker" aria-label="Pakistan Stock Exchange Ticker">
+  <div class="ticker-track">
 
-<!-- HERO -->
-<section class="hero reveal">
+    <span class="stock up" title="Engro Holdings">
+      ▲ ENGRO 265.43
+    </span>
+
+    <span class="stock down" title="Fauji Fertilizer Company">
+      ▼ FFC 596.62
+    </span>
+
+    <span class="stock up" title="United Bank Ltd">
+      ▲ UBL 487.00
+    </span>
+
+    <span class="stock up" title="Lucky Cement">
+      ▲ LUCK 463.00
+    </span>
+
+    <span class="stock down" title="MCB Bank Ltd">
+      ▼ MCB 412.00
+    </span>
+
+    <span class="stock up" title="OGDC">
+      ▲ OGDC 320.97
+    </span>
+
+    <span class="stock up" title="Habib Bank Ltd">
+      ▲ HBL 335.99
+    </span>
+
+    <span class="stock up" title="Meezan Bank Ltd">
+      ▲ MEBL 479.99
+    </span>
+
+    <span class="stock down" title="Pakistan Telecommunication">
+      ▼ PTC 60.43
+    </span>
+
+  </div>
+</section>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero reveal">
   <div class="hero-text">
-    <h1>BUILD WEALTH<br><span>WITH CONFIDENCE</span></h1>
-    <p>Expert guidance and powerful tools to navigate Pakistan’s financial markets.</p>
-    <a href="#contact" class="btn-primary">Explore Services</a>
+    <h1>Welcome To<br><span>Saima Qaiser Securities</span></h1>
+    <p>Trusted brokerage & investment solutions at Pakistan Stock Exchange.</p>
+    <a class="btn-primary" href="#contact">Read More</a>
   </div>
 
   <div class="hero-profile">
@@ -110,80 +134,76 @@
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section reveal">
+<!-- ================= SERVICES ================= -->
+<section class="services reveal">
   <h2>Our Services</h2>
-  <div class="cards">
-    <div class="card">Equity Trading</div>
-    <div class="card">Investment Research</div>
-    <div class="card">Portfolio Management</div>
-    <div class="card">IPOs</div>
+  <div class="service-grid">
+    <div class="service-card">Online Trading</div>
+    <div class="service-card">Financial Information</div>
+    <div class="service-card">Market Research</div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section dark reveal">
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact reveal">
   <h2>Contact Us</h2>
 
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
+  <form id="contact-form" aria-label="Contact Form">
+    <label>
+      Name
+      <input type="text" required>
+    </label>
 
-    <!-- Honeypot -->
-    <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp">
+    <label>
+      Email
+      <input type="email" required>
+    </label>
 
-    <textarea name="message" placeholder="Message" required></textarea>
+    <label>
+      Message
+      <textarea required></textarea>
+    </label>
 
-    <button type="submit" id="submit-btn">Send Message</button>
-    <p id="form-status" aria-live="polite"></p>
+    <button type="submit">Submit</button>
   </form>
 </section>
 
-<!-- LEGAL -->
-<section id="legal" class="section reveal">
-  <h2>Legal & Risk Disclosure</h2>
-  <p>
-    Trading in securities involves market risk. Prices may fluctuate and
-    investors may incur losses. Past performance is not indicative of future results.
-  </p>
-</section>
-
-<!-- TRUST -->
-<section class="section trust reveal">
-  <h2>Regulatory & Market Affiliations</h2>
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
   <div class="exchange-logos">
-    <a href="https://jamapunji.pk" target="_blank" rel="noopener">
-      <img src="assets/images/jamapunji.png" alt="JamaPunji">
+
+    <a href="https://jamapunji.pk" target="_blank">
+      <img src="assets/images/jama-punji.png" alt="JamaPunji">
     </a>
-    <a href="https://www.psx.com.pk/" target="_blank" rel="noopener">
+
+    <a href="https://www.psx.com.pk/" target="_blank">
       <img src="assets/images/psx.png" alt="PSX">
     </a>
-    <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">
+
+    <a href="https://www.secp.gov.pk/" target="_blank">
       <img src="assets/images/secp.png" alt="SECP">
     </a>
-    <a href="https://www.nccpl.com.pk/" target="_blank" rel="noopener">
+
+    <a href="https://www.nccpl.com.pk/" target="_blank">
       <img src="assets/images/nccpl.png" alt="NCCPL">
     </a>
-    <a href="https://www.cdcpakistan.com/" target="_blank" rel="noopener">
-      <img src="assets/images/cdc.png" alt="CDC Pakistan">
-    </a>
-  </div>
-</section>
 
-<footer class="footer">
+    <a href="https://www.cdcpakistan.com/" target="_blank">
+      <img src="assets/images/CDC.png" alt="CDC">
+    </a>
+
+  </div>
+
   <p>© 2026 Saima Qaiser Securities (Pvt) Ltd</p>
 </footer>
 
-</div>
-
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="assets/js/loader.js" defer></script>
-<script src="assets/js/ticker.js" defer></script>
-<script src="assets/js/search.js" defer></script>
-<script src="assets/js/animations.js" defer></script>
-<script src="assets/js/contact.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+<!-- ================= JS ================= -->
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/ticker.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/contact.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
