@@ -1,166 +1,125 @@
 /* =========================================================
-   MAIN.JS
-   Core UI Interactions
-   Saima Qaiser Securities
+   MAIN CONTROLLER
+   Project: Saima Qaiser Securities
    ========================================================= */
 
 (function () {
   "use strict";
 
-  /* ======================================================
-     ELEMENT REFERENCES
-     ====================================================== */
+  /* ===============================
+     DOM READY
+     =============================== */
 
-  const hamburger = document.querySelector(".hamburger");
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const dropdowns = document.querySelectorAll(".dropdown");
-  const mobileDropdown = document.querySelector(".mobile-dropdown");
-  const searchInput = document.getElementById("site-search");
-  const sections = document.querySelectorAll("section[id]");
+  document.addEventListener("DOMContentLoaded", () => {
 
-  /* ======================================================
-     ACCESSIBILITY: REDUCED MOTION
-     ====================================================== */
+    /* ===============================
+       HEADER & DROPDOWNS
+       =============================== */
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-  /* ======================================================
-     MOBILE MENU TOGGLE
-     ====================================================== */
+    dropdowns.forEach(dropdown => {
+      const trigger = dropdown.querySelector(".dropdown-toggle");
 
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener("click", () => {
-      const isOpen = mobileMenu.classList.toggle("open");
-      hamburger.setAttribute("aria-expanded", isOpen);
+      if (!trigger) return;
 
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    });
-  }
-
-  /* ======================================================
-     MOBILE DROPDOWN TOGGLE
-     ====================================================== */
-
-  if (mobileDropdown) {
-    const trigger = mobileMenu.querySelector("a[href='#']");
-    if (trigger) {
-      trigger.addEventListener("click", (e) => {
+      trigger.addEventListener("click", e => {
         e.preventDefault();
-        mobileDropdown.classList.toggle("open");
+
+        // Close other dropdowns
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove("open");
+        });
+
+        dropdown.classList.toggle("open");
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener("click", e => {
+      dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove("open");
+        }
+      });
+    });
+
+
+    /* ===============================
+       MOBILE HAMBURGER MENU
+       =============================== */
+
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+        document.body.classList.toggle("menu-open");
       });
     }
-  }
 
-  /* ======================================================
-     DESKTOP DROPDOWNS (HOVER + FOCUS)
-     ====================================================== */
 
-  dropdowns.forEach(dropdown => {
-    const menu = dropdown.querySelector(".dropdown-menu");
-    const link = dropdown.querySelector("a");
+    /* ===============================
+       MOBILE DROPDOWNS
+       =============================== */
 
-    if (!menu || !link) return;
+    const mobileDropdowns = document.querySelectorAll(
+      ".mobile-menu .dropdown"
+    );
 
-    dropdown.addEventListener("mouseenter", () => {
-      menu.style.display = "block";
+    mobileDropdowns.forEach(dropdown => {
+      const toggle = dropdown.querySelector(".dropdown-toggle");
+      if (!toggle) return;
+
+      toggle.addEventListener("click", e => {
+        e.preventDefault();
+        dropdown.classList.toggle("open");
+      });
     });
 
-    dropdown.addEventListener("mouseleave", () => {
-      menu.style.display = "none";
+
+    /* ===============================
+       SMOOTH SCROLL (ANCHORS)
+       =============================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (!target) return;
+
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
     });
 
-    link.addEventListener("focus", () => {
-      menu.style.display = "block";
-    });
 
-    link.addEventListener("blur", () => {
-      menu.style.display = "none";
-    });
-  });
+    /* ===============================
+       ACCESSIBILITY ENHANCEMENTS
+       =============================== */
 
-  /* ======================================================
-     CLICK OUTSIDE TO CLOSE MENUS
-     ====================================================== */
-
-  document.addEventListener("click", (e) => {
-    if (
-      mobileMenu &&
-      mobileMenu.classList.contains("open") &&
-      !mobileMenu.contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
-      mobileMenu.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-  });
-
-  /* ======================================================
-     ACTIVE NAV LINK ON SCROLL
-     ====================================================== */
-
-  function updateActiveLink() {
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (scrollY >= sectionTop) {
-        current = section.getAttribute("id");
+    // Keyboard focus for dropdowns
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        dropdowns.forEach(d => d.classList.remove("open"));
+        if (mobileMenu) mobileMenu.classList.remove("open");
       }
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  }
 
-  window.addEventListener("scroll", updateActiveLink);
+    /* ===============================
+       FOOTER YEAR AUTO-UPDATE
+       =============================== */
 
-  /* ======================================================
-     SEARCH INSIDE WEBSITE
-     ====================================================== */
-
-  if (searchInput) {
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase();
-
-      document.querySelectorAll("section").forEach(section => {
-        const text = section.textContent.toLowerCase();
-        section.style.display =
-          text.includes(query) || query === "" ? "" : "none";
-      });
-    });
-  }
-
-  /* ======================================================
-     TICKER PAUSE ON HOVER
-     ====================================================== */
-
-  const tickerTrack = document.querySelector(".ticker-track");
-  if (tickerTrack && !prefersReducedMotion) {
-    tickerTrack.addEventListener("mouseenter", () => {
-      tickerTrack.style.animationPlayState = "paused";
-    });
-
-    tickerTrack.addEventListener("mouseleave", () => {
-      tickerTrack.style.animationPlayState = "running";
-    });
-  }
-
-  /* ======================================================
-     ESC KEY CLOSE MOBILE MENU
-     ====================================================== */
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileMenu?.classList.contains("open")) {
-      mobileMenu.classList.remove("open");
-      document.body.style.overflow = "";
-      hamburger?.focus();
+    const yearEl = document.querySelector(".current-year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
     }
+
   });
 
 })();
