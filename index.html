@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- =========================
+       META / SEO
+       ========================= -->
   <meta charset="UTF-8">
   <title>Saima Qaiser Securities | Brokerage & Investment Services</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Saima Qaiser Securities provides professional brokerage and investment services at Pakistan Stock Exchange.">
+  <meta name="description" content="Saima Qaiser Securities provides brokerage, equity trading, and investment advisory services at Pakistan Stock Exchange.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
 
-  <!-- Fonts -->
+  <!-- =========================
+       FONTS (SELF-HOSTED)
+       ========================= -->
   <link rel="stylesheet" href="assets/fonts/inter/inter.css">
 
-  <!-- CSS -->
+  <!-- =========================
+       CSS
+       ========================= -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 
-  <!-- Favicon (optional) -->
   <link rel="icon" href="assets/images/logo2.png">
 </head>
 
@@ -28,7 +32,7 @@
 <!-- =========================
      LOADER
      ========================= -->
-<div id="site-loader">
+<div id="site-loader" aria-hidden="true">
   <div class="loader-bars">
     <span></span><span></span><span></span>
   </div>
@@ -37,19 +41,19 @@
 <div id="site-wrapper" style="display:none;">
 
 <!-- =========================
-     NAVBAR
+     HEADER / NAVBAR
      ========================= -->
 <header class="navbar">
   <div class="logo">
-    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities">
+    <img src="assets/images/logo2.png" alt="Saima Qaiser Securities Logo">
   </div>
 
-  <nav class="nav-links">
+  <nav class="nav-links" aria-label="Main navigation">
     <a href="#home" class="active">Home</a>
     <a href="#services">Services</a>
 
     <div class="dropdown">
-      <a href="#">Miscellaneous ▾</a>
+      <a href="#" aria-haspopup="true" aria-expanded="false">Miscellaneous ▾</a>
       <div class="dropdown-menu">
         <a href="disclaimer.html">Disclaimer</a>
         <a href="privacy.html">Privacy Policy</a>
@@ -61,16 +65,23 @@
   </nav>
 
   <!-- Search -->
-  <input type="search" id="site-search" placeholder="Search…" aria-label="Search website">
+  <input
+    type="search"
+    id="site-search"
+    placeholder="Search website…"
+    aria-label="Search this website"
+  >
 
   <!-- Hamburger -->
-  <button class="hamburger" aria-label="Open menu">
+  <button class="hamburger" aria-label="Open mobile menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu">
+<!-- =========================
+     MOBILE MENU
+     ========================= -->
+<div class="mobile-menu" aria-hidden="true">
   <a href="#home">Home</a>
   <a href="#services">Services</a>
 
@@ -87,11 +98,12 @@
      HERO
      ========================= -->
 <section id="home" class="hero container reveal">
-  <div>
+  <div class="hero-content">
     <h1>
       Trusted Brokerage Services<br>
       <span>Pakistan Stock Exchange</span>
     </h1>
+
     <p>
       Professional investment solutions by
       <strong>Abdul Mannan Butt</strong>,
@@ -99,19 +111,23 @@
     </p>
 
     <div class="cta">
-      <button>Get Started</button>
+      <button type="button">Get Started</button>
     </div>
   </div>
 
   <div class="hero-image">
-    <img src="assets/images/abdul-mannan-butt.jpg" alt="Abdul Mannan Butt">
+    <img
+      src="assets/images/abdul-mannan-butt.jpg"
+      alt="Abdul Mannan Butt"
+      loading="lazy"
+    >
   </div>
 </section>
 
 <!-- =========================
-     TICKER
+     TICKER (STATIC PSX RATES)
      ========================= -->
-<div class="ticker">
+<div class="ticker" aria-label="Pakistan Stock Exchange ticker">
   <div class="ticker-track">
 
     <div class="ticker-item tooltip" data-tooltip="Engro Holdings">
@@ -120,13 +136,13 @@
       <span class="arrow price-up">▲</span>
     </div>
 
-    <div class="ticker-item tooltip" data-tooltip="Fauji Fertilizer">
+    <div class="ticker-item tooltip" data-tooltip="Fauji Fertilizer Company">
       <span class="symbol">FFC</span>
       <span class="price">596.62</span>
       <span class="arrow price-up">▲</span>
     </div>
 
-    <div class="ticker-item tooltip" data-tooltip="United Bank Ltd">
+    <div class="ticker-item tooltip" data-tooltip="United Bank Limited">
       <span class="symbol">UBL</span>
       <span class="price">487.00</span>
       <span class="arrow price-down">▼</span>
@@ -138,7 +154,7 @@
       <span class="arrow price-up">▲</span>
     </div>
 
-    <div class="ticker-item tooltip" data-tooltip="Oil & Gas Dev Co">
+    <div class="ticker-item tooltip" data-tooltip="Oil & Gas Development Company">
       <span class="symbol">OGDC</span>
       <span class="price">320.97</span>
       <span class="arrow price-down">▼</span>
@@ -159,15 +175,17 @@
   <div class="card-grid">
     <div class="card">
       <h3>Equity Trading</h3>
-      <p>Secure and reliable equity trading at PSX.</p>
+      <p>Secure and efficient equity trading at PSX.</p>
     </div>
+
     <div class="card">
       <h3>Investment Advisory</h3>
-      <p>Strategic investment planning and guidance.</p>
+      <p>Data-driven strategies tailored to your goals.</p>
     </div>
+
     <div class="card">
       <h3>Portfolio Management</h3>
-      <p>Data-driven portfolio optimization.</p>
+      <p>Optimized portfolio construction and monitoring.</p>
     </div>
   </div>
 </section>
@@ -178,11 +196,11 @@
 <section id="contact" class="container reveal">
   <div class="section-title">
     <h2>Contact Us</h2>
-    <p>Get in touch for professional assistance</p>
+    <p>Get in touch with our team</p>
   </div>
 
   <div class="contact-grid">
-    <form class="contact-form" id="contactForm">
+    <form id="contactForm" class="contact-form" novalidate>
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
@@ -191,8 +209,8 @@
 
     <div>
       <p>
-        We are committed to providing transparent and compliant
-        brokerage services in Pakistan.
+        We are committed to transparency, compliance,
+        and long-term client success in Pakistan’s capital markets.
       </p>
     </div>
   </div>
@@ -205,19 +223,19 @@
   <p>© 2026 Saima Qaiser Securities. All rights reserved.</p>
 
   <div class="exchange-logos">
-    <a href="https://jamapunji.pk" target="_blank">
+    <a href="https://jamapunji.pk" target="_blank" rel="noopener">
       <img src="assets/images/jamapunji.png" alt="Jamapunji">
     </a>
-    <a href="https://www.psx.com.pk/" target="_blank">
-      <img src="assets/images/psx.png" alt="PSX">
+    <a href="https://www.psx.com.pk/" target="_blank" rel="noopener">
+      <img src="assets/images/psx.png" alt="Pakistan Stock Exchange">
     </a>
-    <a href="https://www.secp.gov.pk/" target="_blank">
+    <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">
       <img src="assets/images/secp.png" alt="SECP">
     </a>
-    <a href="https://www.nccpl.com.pk/" target="_blank">
+    <a href="https://www.nccpl.com.pk/" target="_blank" rel="noopener">
       <img src="assets/images/nccpl.png" alt="NCCPL">
     </a>
-    <a href="https://www.cdcpakistan.com/" target="_blank">
+    <a href="https://www.cdcpakistan.com/" target="_blank" rel="noopener">
       <img src="assets/images/cdc.png" alt="CDC Pakistan">
     </a>
   </div>
@@ -226,11 +244,12 @@
 </div>
 
 <!-- =========================
-     JS
+     JAVASCRIPT
      ========================= -->
 <script src="assets/js/loader.js"></script>
 <script src="assets/js/animations.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/search.js"></script>
 <script src="assets/js/contact.js"></script>
 
 </body>
