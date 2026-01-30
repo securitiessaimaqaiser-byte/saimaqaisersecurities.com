@@ -1,9 +1,27 @@
-const reveals = document.querySelectorAll(".reveal");
+/**
+ * Scroll Reveal Engine
+ * Tuned to video timing
+ */
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  {
+    threshold: 0.18
+  }
+);
+
+// Standard reveal elements
+document.querySelectorAll(".reveal").forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Card stagger handling
+document.querySelectorAll(".cards .card").forEach(card => {
+  revealObserver.observe(card);
 });
