@@ -1,201 +1,153 @@
 /* =========================================================
    RESPONSIVE STYLES
+   Project: Saima Qaiser Securities
    ========================================================= */
 
-/* =========================
-   LARGE SCREENS (≤ 1200px)
-   ========================= */
 
-@media (max-width: 1200px) {
+/* ===============================
+   LARGE TABLETS & DOWN (≤1024px)
+   =============================== */
 
-  .container {
-    padding-left: 32px;
-    padding-right: 32px;
+@media (max-width: 1024px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
   }
 
-  .hero h1 {
-    font-size: 2.6rem;
+  .hero {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
   }
 
-  .ticker-item {
-    padding: 0 18px;
+  .section {
+    padding: var(--space-xl) 0;
   }
+
 }
 
-/* =========================
-   TABLETS (≤ 992px)
-   ========================= */
 
-@media (max-width: 992px) {
+/* ===============================
+   TABLETS (≤900px)
+   =============================== */
 
-  /* NAVBAR */
-  .nav-links {
+@media (max-width: 900px) {
+
+  nav {
     display: none;
   }
 
   .hamburger {
-    display: block;
-  }
-
-  /* HERO */
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .hero-image {
-    order: -1;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 64px 0;
-  }
-
-  /* TICKER */
-  .ticker {
-    overflow-x: hidden;
-  }
-
-  .ticker-track {
-    animation-duration: 36s;
-  }
-
-  /* CONTACT */
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-/* =========================
-   MOBILE (≤ 768px)
-   ========================= */
-
-@media (max-width: 768px) {
-
-  /* TYPOGRAPHY */
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-  }
-
-  /* NAVBAR */
-  .navbar {
-    padding: 14px 20px;
+    display: flex;
   }
 
   .mobile-menu {
-    position: fixed;
-    inset: 0;
-    background: #020617;
-    display: flex;
-    flex-direction: column;
-    padding: 80px 24px 24px;
-    transform: translateX(100%);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 999;
+    display: block;
   }
 
-  .mobile-menu.open {
-    transform: translateX(0);
+  .header-inner {
+    gap: var(--space-md);
   }
 
-  .mobile-menu a {
-    font-size: 1.1rem;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+  .ticker {
+    font-size: var(--font-size-xs);
   }
 
-  /* DROPDOWNS */
-  .mobile-dropdown {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-  }
-
-  .mobile-dropdown.open {
-    max-height: 500px;
-  }
-
-  /* HERO IMAGE */
-  .hero-image img {
-    width: 200px;
-    height: 200px;
-  }
-
-  /* TICKER */
-  .ticker-item span {
-    font-size: 0.85rem;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-  }
-
-  .exchange-logos {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
 }
 
-/* =========================
-   SMALL MOBILE (≤ 480px)
-   ========================= */
 
-@media (max-width: 480px) {
-
-  .hero h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .ticker-item {
-    padding: 0 12px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.9rem;
-    padding: 12px;
-  }
-
-  button {
-    width: 100%;
-  }
-}
-
-/* =========================
-   LEGAL PAGES
-   ========================= */
+/* ===============================
+   MOBILE (≤768px)
+   =============================== */
 
 @media (max-width: 768px) {
 
-  .legal-content {
-    padding: 40px 20px;
+  .container {
+    padding: 0 var(--space-sm);
   }
 
-  .legal-content h2 {
-    font-size: 1.3rem;
+  .hero h1 {
+    font-size: 2rem;
   }
 
-  .legal-content p,
-  .legal-content li {
-    font-size: 0.95rem;
+  .hero p {
+    font-size: var(--font-size-base);
   }
+
+  .hero .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .site-search {
+    max-width: 100%;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .stock-links {
+    justify-content: center;
+  }
+
+}
+
+
+/* ===============================
+   SMALL MOBILE (≤480px)
+   =============================== */
+
+@media (max-width: 480px) {
+
+  .ticker {
+    height: auto;
+    padding: 6px 0;
+  }
+
+  .ticker-track {
+    gap: 20px;
+  }
+
+  .ticker-item {
+    font-size: 0.7rem;
+  }
+
+  header {
+    height: 64px;
+  }
+
+  .logo img {
+    height: 36px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding-left: var(--space-md);
+  }
+
+}
+
+
+/* ===============================
+   TOUCH OPTIMIZATION
+   =============================== */
+
+@media (hover: none) {
+
+  nav a,
+  .mobile-menu a,
+  button,
+  .btn {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
 }
