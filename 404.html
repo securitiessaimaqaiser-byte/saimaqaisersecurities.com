@@ -1,132 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ================= META ================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- =========================
+       META
+       ========================= -->
+  <meta charset="UTF-8">
   <title>404 – Page Not Found | Saima Qaiser Securities</title>
+  <meta name="description" content="The page you are looking for could not be found. Saima Qaiser Securities.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
 
-  <meta name="description" content="The page you are looking for could not be found. Return to Saima Qaiser Securities homepage." />
-  <meta name="robots" content="noindex, follow" />
+  <!-- =========================
+       FONTS
+       ========================= -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css">
 
-  <!-- ================= FONTS ================= -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- =========================
+       CSS
+       ========================= -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 
-  <!-- ================= CSS ================= -->
-  <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/variables.css" />
-  <link rel="stylesheet" href="assets/css/animations.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-
-  <style>
-    /* Local-only tweaks for 404 */
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0b0f1a, #0f172a);
-      color: #ffffff;
-      text-align: center;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .error-wrapper {
-      max-width: 720px;
-      padding: 2rem;
-      animation: fadeUp 0.8s ease forwards;
-    }
-
-    .error-code {
-      font-size: clamp(4rem, 12vw, 8rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: #22c55e;
-      margin-bottom: 1rem;
-    }
-
-    .error-title {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .error-text {
-      font-size: 1rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .error-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .error-actions a {
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-home {
-      background: #22c55e;
-      color: #022c22;
-    }
-
-    .btn-home:hover {
-      background: #16a34a;
-    }
-
-    .btn-contact {
-      border: 1px solid #22c55e;
-      color: #22c55e;
-    }
-
-    .btn-contact:hover {
-      background: rgba(34, 197, 94, 0.1);
-    }
-
-    .error-footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-  </style>
+  <link rel="icon" href="assets/images/logo2.png">
 </head>
 
 <body>
 
-  <main class="error-wrapper" role="main" aria-labelledby="error-title">
-    <div class="error-code" aria-hidden="true">404</div>
+<!-- =========================
+     LOADER
+     ========================= -->
+<div id="site-loader" aria-hidden="true">
+  <div class="loader-bars">
+    <span></span><span></span><span></span>
+  </div>
+</div>
 
-    <h1 id="error-title" class="error-title">
-      Page Not Found
-    </h1>
+<div id="site-wrapper" style="display:none;">
 
-    <p class="error-text">
-      The page you are trying to access may have been moved, renamed,
-      or is temporarily unavailable.
-      <br />
-      Please use one of the options below to continue.
+<!-- =========================
+     HEADER
+     ========================= -->
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/logo2.png" alt="Saima Qaiser Securities Logo">
+    </a>
+  </div>
+
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- =========================
+     404 CONTENT
+     ========================= -->
+<main class="container reveal" style="min-height:70vh;display:flex;align-items:center;">
+  <div style="max-width:600px;">
+    <h1 style="font-size:3rem;">404</h1>
+    <h2>Page Not Found</h2>
+
+    <p style="margin-top:16px;color:var(--color-text-secondary);">
+      The page you’re looking for doesn’t exist, may have been moved,
+      or the URL may be incorrect.
     </p>
 
-    <div class="error-actions">
-      <a href="index.html" class="btn-home">Go to Homepage</a>
-      <a href="index.html#contact" class="btn-contact">Contact Support</a>
+    <div style="margin-top:32px;">
+      <a href="index.html">
+        <button type="button">Return to Homepage</button>
+      </a>
     </div>
+  </div>
+</main>
 
-    <div class="error-footer">
-      © 2026 Saima Qaiser Securities (Pvt) Ltd
-    </div>
-  </main>
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer class="footer">
+  <p>© 2026 Saima Qaiser Securities. All rights reserved.</p>
+</footer>
+
+</div>
+
+<!-- =========================
+     JS
+     ========================= -->
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/animations.js"></script>
 
 </body>
 </html>
