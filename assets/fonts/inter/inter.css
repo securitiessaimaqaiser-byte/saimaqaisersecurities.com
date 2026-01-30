@@ -1,94 +1,60 @@
 /* =========================================================
-   INTER FONT FAMILY
+   INTER FONT FAMILY – OPTIMIZED
    Project: Saima Qaiser Securities
    ========================================================= */
 
-/* Inter Thin */
+/* ===============================
+   Variable Font (Primary)
+   =============================== */
+
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-Thin.woff2") format("woff2"),
-       url("./Inter-Thin.woff") format("woff");
-  font-weight: 100;
+  src: url("./InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* Inter ExtraLight */
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-ExtraLight.woff2") format("woff2"),
-       url("./Inter-ExtraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
+  src: url("./InterVariable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
   font-display: swap;
 }
 
-/* Inter Light */
-@font-face {
-  font-family: "Inter";
-  src: url("./Inter-Light.woff2") format("woff2"),
-       url("./Inter-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* ===============================
+   Static Fallbacks (Safety)
+   =============================== */
 
-/* Inter Regular */
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-Regular.woff2") format("woff2"),
-       url("./Inter-Regular.woff") format("woff");
+  src: url("./Inter-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Inter Medium */
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-Medium.woff2") format("woff2"),
-       url("./Inter-Medium.woff") format("woff");
+  src: url("./Inter-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
-/* Inter SemiBold */
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-SemiBold.woff2") format("woff2"),
-       url("./Inter-SemiBold.woff") format("woff");
+  src: url("./Inter-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
-/* Inter Bold */
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-Bold.woff2") format("woff2"),
-       url("./Inter-Bold.woff") format("woff");
+  src: url("./Inter-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Inter ExtraBold */
-@font-face {
-  font-family: "Inter";
-  src: url("./Inter-ExtraBold.woff2") format("woff2"),
-       url("./Inter-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Inter Black */
-@font-face {
-  font-family: "Inter";
-  src: url("./Inter-Black.woff2") format("woff2"),
-       url("./Inter-Black.woff") format("woff");
-  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
