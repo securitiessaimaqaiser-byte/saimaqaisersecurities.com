@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Home -->
   <url>
     <loc>https://saimaqaisersecurities.com/</loc>
     <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 
+  <!-- Legal Pages -->
   <url>
-    <loc>https://saimaqaisersecurities.com/index.html</loc>
+    <loc>https://saimaqaisersecurities.com/disclaimer.html</loc>
     <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://saimaqaisersecurities.com/privacy.html</loc>
     <lastmod>2026-01-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
-  </url>
-
-  <url>
-    <loc>https://saimaqaisersecurities.com/disclaimer.html</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://saimaqaisersecurities.com/risk-disclosure.html</loc>
     <lastmod>2026-01-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
+  <!-- Error Page (not indexed but listed for completeness) -->
   <url>
     <loc>https://saimaqaisersecurities.com/404.html</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.20</priority>
+    <priority>0.1</priority>
   </url>
 
 </urlset>
