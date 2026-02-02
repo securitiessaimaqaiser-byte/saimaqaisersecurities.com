@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Saima Qaiser Securities | Pakistan Stock Exchange Brokerage</title>
+  <title>Saima Qaiser Securities – PSX Brokerage & Investment Services</title>
 
-  <meta name="description" content="Saima Qaiser Securities provides professional stock brokerage, PSX trading, and investment advisory services in Pakistan." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Saima Qaiser Securities is a SECP registered brokerage house offering PSX trading, investment advisory, and capital market services in Pakistan." />
+  <meta name="keywords" content="Saima Qaiser Securities, PSX broker, stock trading Pakistan, SECP registered broker, investment advisory" />
+  <meta name="author" content="Saima Qaiser Securities" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Saima Qaiser Securities" />
+  <meta property="og:description" content="Trusted PSX Brokerage & Investment Services in Pakistan" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css" />
@@ -18,144 +25,117 @@
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-<!-- ================= LOADER ================= -->
-<div id="page-loader" aria-hidden="true">
-  <div class="loader-spinner"></div>
-</div>
-
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="container">
-
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
-    </div>
-
-    <!-- SEARCH -->
-    <div class="site-search">
-      <input
-        type="search"
-        placeholder="Search services..."
-        data-search-input
-        aria-label="Search website"
-      />
-    </div>
-
-  </div>
-</header>
-
-<!-- ================= MAIN ================= -->
-<main>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero">
+  <header class="site-header">
     <div class="container">
-      <h1>Saima Qaiser Securities</h1>
-      <p>Trusted Pakistan Stock Exchange Brokerage & Investment Advisory</p>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES (SEARCHABLE) ===== -->
-  <section class="services">
-    <div class="container">
-
-      <h2>Our Services</h2>
-
-      <div class="services-grid">
-
-        <div class="service-card" data-search-item="pakistan stock exchange trading psx brokerage">
-          <h3>PSX Trading</h3>
-          <p>Equity trading services at Pakistan Stock Exchange.</p>
-        </div>
-
-        <div class="service-card" data-search-item="investment advisory portfolio management">
-          <h3>Investment Advisory</h3>
-          <p>Professional portfolio and investment guidance.</p>
-        </div>
-
-        <div class="service-card" data-search-item="research analysis market insights">
-          <h3>Market Research</h3>
-          <p>In-depth equity research and market analysis.</p>
-        </div>
-
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
       </div>
 
-      <p class="search-no-results" style="display:none;">
-        No results found
-      </p>
-
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="contact">
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Saima Qaiser Securities</h1>
+        <p>SECP Registered Brokerage & Investment Advisory Services</p>
+        <a href="#contact" class="btn-primary">Get Started</a>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>PSX Trading</h3>
+            <p>Equity trading services on Pakistan Stock Exchange with reliable execution.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Investment Advisory</h3>
+            <p>Professional investment advice aligned with your financial goals.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Portfolio Management</h3>
+            <p>Strategic portfolio planning and risk-managed investment solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          Saima Qaiser Securities is committed to delivering transparent, compliant,
+          and client-focused capital market services. We operate under SECP regulations
+          and maintain the highest standards of integrity.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required maxlength="100" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required maxlength="100" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required maxlength="500"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
+      <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
 
-      <h2>Contact Us</h2>
-
-      <form id="contactForm" novalidate>
-
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
-
-        <!-- Honeypot -->
-        <input
-          type="text"
-          name="company"
-          tabindex="-1"
-          autocomplete="off"
-        />
-
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          required
-        ></textarea>
-
-        <button type="submit">Send Message</button>
-
-        <p class="form-status" role="status"></p>
-
-      </form>
-
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
+      </ul>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- ================= JS ================= -->
-<script src="assets/js/loader.js"></script>
-<script src="assets/js/animations.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/ticker.js"></script>
-<script src="assets/js/search.js"></script>
-<script src="assets/js/contact.js"></script>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- JavaScript -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/contact.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
 
 </body>
 </html>
