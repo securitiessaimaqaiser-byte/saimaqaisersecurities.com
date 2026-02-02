@@ -1,189 +1,200 @@
 /* =========================================================
-   RESPONSIVE.CSS — MOBILE & DEVICE ADAPTATION
+   RESPONSIVE.CSS — MOBILE & TABLET LAYOUTS
    Project: Saima Qaiser Securities
+   Purpose: Video-accurate responsive behavior
    ========================================================= */
 
 
-/* =========================================================
-   LARGE TABLETS / SMALL LAPTOPS (≤ 1200px)
-   ========================================================= */
+/* ===============================
+   TABLET (≤ 1024px)
+================================ */
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
 
   .container {
-    max-width: var(--max-width-lg);
+    padding-inline: 18px;
   }
-
-  .hero {
-    padding: 100px 0;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-
-}
-
-
-/* =========================================================
-   TABLETS (≤ 992px)
-   ========================================================= */
-
-@media (max-width: 992px) {
-
-  /* Header */
-  .navbar {
-    height: 64px;
-  }
-
-  /* Navigation */
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--color-bg);
-    flex-direction: column;
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .nav-menu.mobile-nav {
-    display: flex;
-  }
-
-  .nav-menu > li {
-    padding: 8px 20px;
-  }
-
-  .nav-menu a {
-    font-size: var(--font-size-base);
-  }
-
-  /* Dropdown */
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-    padding-left: 12px;
-  }
-
-  /* Hamburger */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Search */
-  .site-search {
-    display: none;
-  }
-
-  /* Ticker */
-  .ticker {
-    font-size: var(--font-size-sm);
-  }
-
-  /* Hero */
-  .hero {
-    padding: 90px 0;
-  }
-
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-
-}
-
-
-/* =========================================================
-   LARGE PHONES (≤ 768px)
-   ========================================================= */
-
-@media (max-width: 768px) {
 
   .section {
-    padding: 64px 0;
-  }
-
-  .section__title h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero {
     padding: 80px 0;
   }
 
+  .hero {
+    padding: 96px 0 92px;
+  }
+
   .hero h1 {
-    font-size: 1.9rem;
+    font-size: 2.3rem;
   }
 
-  .hero p {
-    font-size: var(--font-size-base);
-  }
-
-  /* Cards */
   .cards {
-    gap: var(--space-md);
-  }
-
-  /* Footer */
-  .footer-logos img {
-    height: 42px;
+    gap: 24px;
   }
 
 }
 
 
-/* =========================================================
-   SMALL PHONES (≤ 576px)
-   ========================================================= */
+/* ===============================
+   MOBILE (≤ 768px)
+================================ */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
 
-  body {
-    font-size: 15px;
-  }
+  /* ----- Header ----- */
 
   .navbar {
-    padding-inline: 14px;
+    height: 64px;
   }
 
   .logo img {
     height: 40px;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+    display: none;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-menu > li {
+    width: 100%;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* ----- Mobile Dropdowns ----- */
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid #f1f5f9;
+    display: none;
+    background-color: #f9fafb;
+  }
+
+  .nav-menu li.open > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    padding: 12px 32px;
+    font-size: 0.9rem;
+  }
+
+  /* ----- Ticker ----- */
+
+  .ticker {
+    height: 36px;
+  }
+
+  .ticker-item {
+    padding: 0 18px;
+    font-size: 0.85rem;
+  }
+
+  /* ----- Hero ----- */
+
   .hero {
-    padding: 70px 0;
+    padding: 88px 0 84px;
   }
 
   .hero h1 {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* ----- Sections ----- */
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section__title h2 {
+    font-size: 1.6rem;
+  }
+
+  /* ----- Cards ----- */
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  /* ----- Contact ----- */
 
   .contact-form {
-    padding-inline: 8px;
+    padding: 0 6px;
   }
 
-  .contact-form button {
-    width: 100%;
+  /* ----- Footer ----- */
+
+  footer {
+    padding: 64px 0 40px;
+  }
+
+  .footer-logos {
+    gap: 20px;
+  }
+
+  .footer-logos img {
+    height: 40px;
   }
 
 }
 
 
-/* =========================================================
-   VERY SMALL DEVICES (≤ 360px)
-   ========================================================= */
+/* ===============================
+   SMALL MOBILE (≤ 480px)
+================================ */
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
 
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .section__title h2 {
+    font-size: 1.45rem;
   }
 
   .ticker-item {
-    padding: 0 12px;
+    padding: 0 14px;
   }
 
 }
