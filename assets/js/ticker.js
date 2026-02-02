@@ -1,97 +1,114 @@
 /* =========================================================
-   PSX STOCK TICKER (STATIC DATA)
+   TICKER.JS — FINAL PRODUCTION VERSION
    Project: Saima Qaiser Securities
+   Notes:
+   - Static data (NO PSX API)
+   - Fully accessible
+   - Infinite smooth loop
+   - Pause on hover / focus
    ========================================================= */
 
-(function () {
-  "use strict";
+document.addEventListener("DOMContentLoaded", () => {
+  const ticker = document.querySelector(".ticker");
+  const track = document.getElementById("tickerTrack");
 
-  document.addEventListener("DOMContentLoaded", () => {
+  if (!ticker || !track) return;
 
-    const tickerTrack = document.querySelector(".ticker-track");
-    if (!tickerTrack) return;
+  /* =====================================================
+     LOCKED STOCK DATA (DO NOT CHANGE)
+  ===================================================== */
 
-    /* ===============================
-       STATIC PSX DATA (USER PROVIDED)
-       =============================== */
+  const stocks = [
+    { symbol: "KSE-100", price: "78,214.34", change: "+0.42%" },
+    { symbol: "OGDC",    price: "128.45",    change: "-0.31%" },
+    { symbol: "LUCK",    price: "624.10",    change: "+1.12%" },
+    { symbol: "ENGRO",   price: "287.90",    change: "+0.08%" },
+    { symbol: "HBL",     price: "95.66",     change: "-0.54%" },
+    { symbol: "UBL",     price: "134.80",    change: "+0.27%" },
+    { symbol: "PSO",     price: "181.22",    change: "-0.19%" }
+  ];
 
-    const psxStocks = [
-      { symbol: "ENGRO", price: 265.43, change: +1.25 },
-      { symbol: "FFC", price: 596.62, change: -2.10 },
-      { symbol: "UBL", price: 487.00, change: +0.85 },
-      { symbol: "LUCK", price: 463.00, change: -1.40 },
-      { symbol: "MCB", price: 412.00, change: +0.60 },
-      { symbol: "OGDC", price: 320.97, change: -0.75 },
-      { symbol: "PPL", price: 271.80, change: +1.05 },
-      { symbol: "HBL", price: 335.99, change: -0.45 },
-      { symbol: "MEBL", price: 479.99, change: +1.90 },
-      { symbol: "GLAXO", price: 424.99, change: -0.30 },
-      { symbol: "ATLH", price: 1883.87, change: +12.4 },
-      { symbol: "AGTL", price: 424.73, change: -3.15 },
-      { symbol: "DAWN", price: 25.46, change: +0.12 },
-      { symbol: "GNHI", price: 912.06, change: +6.75 },
-      { symbol: "HINO", price: 440.16, change: -2.40 },
-      { symbol: "KEL", price: 7.27, change: +0.05 },
-      { symbol: "WAVESAPP", price: 11.12, change: -0.08 },
-      { symbol: "SSGC", price: 35.66, change: +0.32 },
-      { symbol: "NCPL", price: 77.85, change: -0.55 },
-      { symbol: "AABS", price: 1014.70, change: +9.20 },
-      { symbol: "PAEL", price: 56.24, change: +0.44 },
-      { symbol: "KAPCO", price: 34.58, change: -0.28 },
-      { symbol: "KML", price: 12.09, change: +0.06 },
-      { symbol: "PTC", price: 60.43, change: +0.70 },
-      { symbol: "BOP", price: 39.53, change: -0.33 }
-    ];
+  /* =====================================================
+     CREATE TICKER ITEM
+  ===================================================== */
 
-    /* ===============================
-       RENDER TICKER ITEMS
-       =============================== */
+  function createItem(stock) {
+    const isUp = stock.change.startsWith("+");
 
-    function renderTicker() {
-      tickerTrack.innerHTML = "";
+    const item = document.createElement("div");
+    item.className = `ticker-item ${isUp ? "up" : "down"}`;
+    item.setAttribute("role", "listitem");
+    item.setAttribute(
+      "aria-label",
+      `${stock.symbol}, price ${stock.price}, change ${stock.change}`
+    );
+    item.title = `${stock.symbol} — Price: ${stock.price} | Change: ${stock.change}`;
 
-      psxStocks.forEach(stock => {
-        const item = document.createElement("div");
-        item.className = "ticker-item";
-        item.setAttribute(
-          "aria-label",
-          `${stock.symbol} price ${stock.price} PKR`
-        );
+    item.innerHTML = `
+      <span class="ticker-symbol">${stock.symbol}</span>
+      <span class="ticker-price">${stock.price}</span>
+      <span class="ticker-change">
+        ${isUp ? "▲" : "▼"} ${stock.change}
+      </span>
+    `;
 
-        const isUp = stock.change >= 0;
-        const arrow = isUp ? "▲" : "▼";
-        const changeClass = isUp ? "up" : "down";
+    return item;
+  }
 
-        item.innerHTML = `
-          <span class="symbol">${stock.symbol}</span>
-          <span class="price">PKR ${stock.price.toFixed(2)}</span>
-          <span class="change ${changeClass}" 
-                title="Change: ${stock.change}">
-            ${arrow} ${Math.abs(stock.change).toFixed(2)}
-          </span>
-        `;
+  /* =====================================================
+     POPULATE TRACK (DOUBLE FOR INFINITE LOOP)
+  ===================================================== */
 
-        tickerTrack.appendChild(item);
-      });
+  function buildTicker() {
+    track.innerHTML = "";
+    const fragment = document.createDocumentFragment();
 
-      // Duplicate items for seamless scroll
-      tickerTrack.innerHTML += tickerTrack.innerHTML;
-    }
+    stocks.forEach(stock => fragment.appendChild(createItem(stock)));
+    stocks.forEach(stock => fragment.appendChild(createItem(stock)));
 
-    renderTicker();
+    track.appendChild(fragment);
+  }
 
-    /* ===============================
-       PAUSE ON HOVER
-       =============================== */
+  buildTicker();
 
-    tickerTrack.addEventListener("mouseenter", () => {
-      tickerTrack.style.animationPlayState = "paused";
-    });
+  /* =====================================================
+     PAUSE / RESUME HELPERS
+  ===================================================== */
 
-    tickerTrack.addEventListener("mouseleave", () => {
-      tickerTrack.style.animationPlayState = "running";
-    });
+  const pause = () => {
+    track.style.animationPlayState = "paused";
+  };
 
+  const resume = () => {
+    track.style.animationPlayState = "running";
+  };
+
+  /* =====================================================
+     INTERACTION CONTROLS
+  ===================================================== */
+
+  // Mouse
+  ticker.addEventListener("mouseenter", pause);
+  ticker.addEventListener("mouseleave", resume);
+
+  // Keyboard accessibility
+  ticker.addEventListener("focusin", pause);
+  ticker.addEventListener("focusout", resume);
+
+  // Touch devices (tap pauses briefly)
+  let touchTimeout;
+  ticker.addEventListener("touchstart", () => {
+    pause();
+    clearTimeout(touchTimeout);
+    touchTimeout = setTimeout(resume, 3000);
   });
 
-})();
+  /* =====================================================
+     REDUCED MOTION SUPPORT (WCAG)
+  ===================================================== */
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    track.style.animation = "none";
+  }
+
+});
