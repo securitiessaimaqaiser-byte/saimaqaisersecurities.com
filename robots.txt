@@ -1,8 +1,19 @@
 User-agent: *
 Allow: /
 
-# Block system & utility pages
+# Disallow system or non-public paths (if any in future)
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /assets/fonts/
+Disallow: /assets/images/
+
+# Allow important public files
+Allow: /assets/css/style.css
+Allow: /assets/js/main.js
+Allow: /assets/js/ticker.js
+
+# Block error & utility pages from indexing
 Disallow: /404.html
 
-# Sitemap location
+# Sitemap
 Sitemap: https://saimaqaisersecurities.com/sitemap.xml
