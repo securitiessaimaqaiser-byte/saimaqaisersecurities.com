@@ -1,60 +1,34 @@
-/* =========================================================
-   INTER FONT FAMILY – OPTIMIZED
-   Project: Saima Qaiser Securities
-   ========================================================= */
-
-/* ===============================
-   Variable Font (Primary)
-   =============================== */
+/* =========================
+   Inter Font – Optimized
+   Weights: 400 (Regular), 500 (Medium), 700 (Bold)
+   ========================= */
 
 @font-face {
   font-family: "Inter";
-  src: url("./InterVariable.woff2") format("woff2");
-  font-weight: 100 900;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("./InterVariable-Italic.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* ===============================
-   Static Fallbacks (Safety)
-   =============================== */
-
-@font-face {
-  font-family: "Inter";
-  src: url("./Inter-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
   font-display: swap;
+  src: url("./Inter-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-Medium.woff2") format("woff2");
+  font-style: normal;
   font-weight: 500;
-  font-style: normal;
   font-display: swap;
+  src: url("./Inter-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("./Inter-SemiBold.woff2") format("woff2");
-  font-weight: 600;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("./Inter-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: normal;
   font-display: swap;
+  src: url("./Inter-Bold.woff2") format("woff2");
+}
+
+/* Fallback safety */
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
