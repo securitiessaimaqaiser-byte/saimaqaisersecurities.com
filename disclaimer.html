@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Disclaimer | Saima Qaiser Securities</title>
 
-  <meta name="description" content="Disclaimer for Saima Qaiser Securities regarding investment information, risk, and liability." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Legal disclaimer for Saima Qaiser Securities regarding investment risks, accuracy of information, and limitation of liability." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css" />
@@ -18,122 +17,82 @@
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-<!-- ================= LOADER ================= -->
-<div id="page-loader" aria-hidden="true">
-  <div class="loader-spinner"></div>
-</div>
-
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="container">
-
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
-      </a>
-    </div>
-
-    <!-- SEARCH -->
-    <div class="site-search">
-      <input
-        type="search"
-        placeholder="Search website..."
-        data-search-input
-        aria-label="Search website"
-      />
-    </div>
-
-  </div>
-</header>
-
-<!-- ================= MAIN ================= -->
-<main class="legal-page">
-
-  <section class="legal-content">
+  <header class="site-header">
     <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+        </a>
+      </div>
+    </div>
+  </header>
 
+  <main class="legal-page">
+    <div class="container">
       <h1>Disclaimer</h1>
-      <p class="legal-updated">Last updated: January 2026</p>
 
       <p>
-        The information provided on this website is for general informational
-        purposes only and should not be considered financial, investment, or
-        legal advice.
+        The information provided on the Saima Qaiser Securities website is for general
+        informational purposes only and does not constitute financial, investment,
+        legal, or professional advice.
       </p>
 
       <h2>No Investment Advice</h2>
       <p>
-        Saima Qaiser Securities does not provide personalized investment advice
-        through this website. Any opinions, analysis, or information presented
-        are general in nature and may not be suitable for all investors.
-      </p>
-
-      <h2>Market Risk</h2>
-      <p>
-        Investments in the stock market are subject to market risks, including
-        the possible loss of principal. Past performance is not indicative of
-        future results.
+        Any market analysis, commentary, or content published on this website is not
+        intended as a recommendation to buy or sell any financial instrument. Users
+        should consult with a qualified financial advisor before making investment
+        decisions.
       </p>
 
       <h2>Accuracy of Information</h2>
       <p>
-        While we strive to ensure that the information on this website is
-        accurate and up to date, we make no warranties or representations of
-        any kind regarding its completeness, accuracy, or reliability.
-      </p>
-
-      <h2>Third-Party Links</h2>
-      <p>
-        This website may contain links to third-party websites. Saima Qaiser
-        Securities is not responsible for the content or practices of these
-        external sites.
+        While we strive to ensure that the information presented is accurate and
+        up-to-date, Saima Qaiser Securities makes no warranties or representations
+        regarding the completeness, reliability, or accuracy of any content.
       </p>
 
       <h2>Limitation of Liability</h2>
       <p>
-        Saima Qaiser Securities shall not be liable for any losses or damages
-        arising from the use of this website or reliance on any information
-        provided herein.
+        Saima Qaiser Securities shall not be held liable for any loss or damage,
+        including but not limited to indirect or consequential loss, arising from the
+        use of this website or reliance on any information provided herein.
       </p>
 
-      <h2>Regulatory Notice</h2>
+      <h2>External Links</h2>
       <p>
-        Saima Qaiser Securities operates in accordance with applicable laws and
-        regulations of Pakistan and under the guidelines of the Securities and
-        Exchange Commission of Pakistan (SECP).
+        This website may contain links to third-party websites. Saima Qaiser Securities
+        has no control over the content or availability of those sites and does not
+        endorse them.
       </p>
 
-      <h2>Acceptance of Terms</h2>
-      <p>
-        By using this website, you acknowledge that you have read, understood,
-        and agreed to this disclaimer.
+      <p class="last-updated">
+        Last updated: January 2026
       </p>
-
     </div>
-  </section>
+  </main>
 
-</main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
-  </div>
-</footer>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
+      </ul>
+    </div>
+  </footer>
 
-<!-- ================= JS ================= -->
-<script src="assets/js/loader.js"></script>
-<script src="assets/js/animations.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/search.js"></script>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- JavaScript -->
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 </html>
