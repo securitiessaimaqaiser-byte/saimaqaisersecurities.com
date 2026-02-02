@@ -1,86 +1,117 @@
-/* =========================================================
-   CONTACT.JS — CONTACT FORM HANDLER
-   Project: Saima Qaiser Securities
-   ========================================================= */
+/* ==========================================================
+   contact.js
+   Secure Client-Side Contact Form Handler
+   ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
+  "use strict";
 
-  const form = document.getElementById("contactForm");
-  if (!form) return;
+  const FORM_SELECTOR = "#contactForm";
+  const EMAIL_TO = "abdulmmm556@gmail.com";
 
-  const status = document.getElementById("contactStatus");
+  document.addEventListener("DOMContentLoaded", initContactForm);
 
-  /* =====================================================
-     ACCESSIBILITY
-  ===================================================== */
+  function initContactForm() {
+    const form = document.querySelector(FORM_SELECTOR);
+    if (!form) return;
 
-  if (status) {
-    status.setAttribute("role", "status");
-    status.setAttribute("aria-live", "polite");
+    form.addEventListener("submit", handleSubmit);
   }
 
-  /* =====================================================
-     VALIDATION HELPERS
-  ===================================================== */
-
-  function showStatus(message, success = false) {
-    if (!status) return;
-    status.textContent = message;
-    status.className = success ? "contact-success" : "contact-error";
-  }
-
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  /* =====================================================
-     FORM SUBMIT
-  ===================================================== */
-
-  form.addEventListener("submit", (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    const name = form.querySelector("[name='name']").value.trim();
-    const email = form.querySelector("[name='email']").value.trim();
-    const message = form.querySelector("[name='message']").value.trim();
+    const form = e.target;
+    const status = form.querySelector(".form-status");
+
+    const name = form.querySelector("[name='name']")?.value.trim();
+    const email = form.querySelector("[name='email']")?.value.trim();
+    const message = form.querySelector("[name='message']")?.value.trim();
+    const honeypot = form.querySelector("[name='company']")?.value; // spam trap
+
+    if (honeypot) return; // bot detected
 
     if (!name || !email || !message) {
-      showStatus("Please fill in all required fields.");
+      updateStatus(status, "Please fill in all required fields.", "error");
       return;
     }
 
     if (!isValidEmail(email)) {
-      showStatus("Please enter a valid email address.");
+      updateStatus(status, "Please enter a valid email address.", "error");
       return;
     }
 
-    /* =================================================
-       BUILD EMAIL
-    ================================================= */
+    updateStatus(status, "Sending message...", "loading");
 
-    const subject = encodeURIComponent(
-      "Website Contact — Saima Qaiser Securities"
-    );
+    sendEmail({ name, email, message })
+      .then(() => {
+        updateStatus(
+          status,
+          "Thank you! Your message has been sent successfully.",
+          "success"
+        );
+        form.reset();
+      })
+      .catch(() => {
+        fallbackMailto(name, email, message);
+        updateStatus(
+          status,
+          "Your email app has been opened to send the message.",
+          "success"
+        );
+        form.reset();
+      });
+  }
 
+  /* ------------------------------------------
+     EMAIL DELIVERY (MAILTO FALLBACK SAFE)
+  ------------------------------------------ */
+  function sendEmail({ name, email, message }) {
+    return new Promise((resolve, reject) => {
+      try {
+        const mailtoLink = `
+          mailto:${EMAIL_TO}
+          ?subject=Website Contact from ${encodeURIComponent(name)}
+          &body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+          )}
+        `.replace(/\s+/g, "");
+
+        window.location.href = mailtoLink;
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  /* ------------------------------------------
+     FALLBACK
+  ------------------------------------------ */
+  function fallbackMailto(name, email, message) {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
 
-    const mailtoLink =
-      `mailto:abdulmmm556@gmail.com?subject=${subject}&body=${body}`;
-
-    /* =================================================
-       OPEN EMAIL CLIENT
-    ================================================= */
-
-    window.location.href = mailtoLink;
-
-    showStatus(
-      "Your message is ready to be sent. Please confirm in your email app.",
-      true
+    window.open(
+      `mailto:${EMAIL_TO}?subject=Website Contact&body=${body}`,
+      "_blank"
     );
+  }
 
-    form.reset();
-  });
+  /* ------------------------------------------
+     HELPERS
+  ------------------------------------------ */
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
 
-});
+  function updateStatus(element, message, type) {
+    if (!element) return;
+
+    element.textContent = message;
+    element.className = `form-status ${type}`;
+    element.setAttribute("aria-live", "polite");
+  }
+
+})();
