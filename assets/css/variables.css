@@ -1,52 +1,57 @@
-/* =========================================================
-   VARIABLES.CSS — DESIGN SYSTEM
-   Project: Saima Qaiser Securities
-   Purpose: Centralized theming & consistency
-   ========================================================= */
+/* =====================================================
+   CSS VARIABLES (DESIGN TOKENS)
+   Finance / Market Website Standard
+   ===================================================== */
 
 :root {
 
-  /* =====================================================
-     BRAND COLORS
-     ===================================================== */
+  /* ===========================
+     🎨 BRAND COLORS
+     =========================== */
+  --color-primary: #0b3c5d;       /* Deep financial blue */
+  --color-secondary: #2563eb;     /* Accent blue */
+  --color-accent: #16a34a;        /* Positive / gain */
+  --color-danger: #dc2626;        /* Negative / loss */
+  --color-warning: #f59e0b;
 
-  --color-primary: #0b3d2e;        /* Deep green (finance trust) */
-  --color-secondary: #0ea36c;      /* Accent green */
-  --color-accent: #1abc9c;
+  /* ===========================
+     📊 MARKET COLORS
+     =========================== */
+  --color-up: #16a34a;
+  --color-down: #dc2626;
+  --color-neutral: #64748b;
 
-  --color-danger: #e74c3c;
-  --color-success: #2ecc71;
-  --color-warning: #f39c12;
-  --color-info: #3498db;
+  /* ===========================
+     🖥 BACKGROUND COLORS
+     =========================== */
+  --bg-main: #ffffff;
+  --bg-alt: #f8fafc;
+  --bg-dark: #0f172a;
+  --bg-table-header: #f1f5f9;
+  --bg-table-row: #ffffff;
+  --bg-table-row-alt: #f9fafb;
 
-  /* =====================================================
-     NEUTRALS
-     ===================================================== */
+  /* ===========================
+     ✏️ TEXT COLORS
+     =========================== */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
 
-  --color-black: #111111;
-  --color-dark: #222222;
-  --color-text: #333333;
-  --color-muted: #666666;
-  --color-border: #e5e5e5;
+  /* ===========================
+     🔤 TYPOGRAPHY
+     =========================== */
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --color-bg: #ffffff;
-  --color-bg-light: #f4f7f6;
-  --color-bg-dark: #0b3d2e;
-
-  /* =====================================================
-     TYPOGRAPHY
-     ===================================================== */
-
-  --font-family-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-
-  --font-size-xs: 0.75rem;   /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-base: 1rem;    /* 16px */
-  --font-size-md: 1.125rem;  /* 18px */
-  --font-size-lg: 1.25rem;   /* 20px */
-  --font-size-xl: 1.5rem;    /* 24px */
-  --font-size-xxl: 2rem;     /* 32px */
-  --font-size-hero: 2.75rem; /* Hero */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
 
   --font-weight-thin: 100;
   --font-weight-light: 300;
@@ -57,81 +62,54 @@
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
 
-  --line-height-tight: 1.25;
-  --line-height-base: 1.6;
-  --line-height-loose: 1.8;
+  /* ===========================
+     📐 SPACING SCALE
+     =========================== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
 
-  /* =====================================================
-     LAYOUT
-     ===================================================== */
+  /* ===========================
+     📦 LAYOUT
+     =========================== */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
 
-  --max-width-xs: 480px;
-  --max-width-sm: 640px;
-  --max-width-md: 960px;
-  --max-width-lg: 1140px;
-  --max-width-xl: 1280px;
-
-  --container-padding: 20px;
-
-  /* =====================================================
-     SPACING SCALE (8pt system)
-     ===================================================== */
-
-  --space-xxs: 4px;
-  --space-xs: 8px;
-  --space-sm: 12px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-xxl: 48px;
-  --space-hero: 80px;
-
-  /* =====================================================
-     BORDERS & RADIUS
-     ===================================================== */
-
+  /* ===========================
+     🔲 BORDERS & SHADOWS
+     =========================== */
   --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-pill: 999px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  --border-width: 1px;
+  --border-light: 1px solid #e2e8f0;
+  --border-dark: 1px solid #1e293b;
 
-  /* =====================================================
-     SHADOWS
-     ===================================================== */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.12);
 
-  --shadow-xs: 0 2px 6px rgba(0,0,0,0.05);
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
-  --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
-
-  /* =====================================================
-     TRANSITIONS & ANIMATIONS
-     ===================================================== */
-
+  /* ===========================
+     ⚡ TRANSITIONS
+     =========================== */
   --transition-fast: 0.15s ease-in-out;
-  --transition-base: 0.3s ease;
-  --transition-slow: 0.6s ease;
+  --transition-base: 0.25s ease-in-out;
+  --transition-slow: 0.4s ease-in-out;
 
-  /* =====================================================
-     Z-INDEX SCALE
-     ===================================================== */
+  /* ===========================
+     🧭 Z-INDEX SCALE
+     =========================== */
+  --z-header: 1000;
+  --z-dropdown: 1100;
+  --z-modal: 1200;
+  --z-loader: 1300;
 
-  --z-negative: -1;
-  --z-base: 1;
-  --z-dropdown: 100;
-  --z-sticky: 500;
-  --z-modal: 1000;
-  --z-loader: 2000;
-
-  /* =====================================================
-     COMPONENT-SPECIFIC
-     ===================================================== */
-
-  --header-height: 72px;
-  --ticker-height: 44px;
-
-  --focus-ring-color: var(--color-secondary);
 }
