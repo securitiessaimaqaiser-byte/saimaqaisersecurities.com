@@ -1,15 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block unnecessary system paths (optional safety)
-Disallow: /assets/js/
-Disallow: /assets/css/
-
-# Allow important assets explicitly
-Allow: /assets/js/
-Allow: /assets/css/
-Allow: /assets/fonts/
-Allow: /assets/images/
-
-# Sitemap location
 Sitemap: https://saimaqaisersecurities.com/sitemap.xml
