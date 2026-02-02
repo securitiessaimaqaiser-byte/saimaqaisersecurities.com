@@ -1,146 +1,36 @@
-/* =========================================================
-   ANIMATIONS.CSS — MOTION & INTERACTIONS
-   Project: Saima Qaiser Securities
-   Purpose: Video-accurate motion (professional, subtle)
-   ========================================================= */
+/* =====================================================
+   ANIMATIONS & TRANSITIONS
+   Finance / Market Website
+   ===================================================== */
 
-
-/* ===============================
-   GLOBAL ANIMATION SETTINGS
-================================ */
-
-:root {
-  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* ===========================
+   ♻ GLOBAL TRANSITIONS
+   =========================== */
+* {
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
 
-
-/* ===============================
-   PAGE LOADER
-================================ */
-
-#site-loader {
-  position: fixed;
-  inset: 0;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  animation: loaderFadeOut 0.6s ease forwards;
-  animation-delay: 0.8s;
-}
-
-.loader-spinner {
-  width: 42px;
-  height: 42px;
-  border: 3px solid #e5e7eb;
-  border-top-color: #003366;
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes loaderFadeOut {
-  to {
+/* ===========================
+   ✨ FADE & SLIDE ANIMATIONS
+   =========================== */
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    visibility: hidden;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-
-/* ===============================
-   REVEAL ON SCROLL (VIDEO-LIKE)
-================================ */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.6s var(--ease-soft),
-    transform 0.6s var(--ease-soft);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* ===============================
-   DROPDOWN MICRO-MOTION
-================================ */
-
-.dropdown-menu {
-  transition:
-    opacity 0.25s var(--ease-soft),
-    transform 0.25s var(--ease-soft);
-}
-
-
-/* ===============================
-   NAV LINK HOVER (SUBTLE)
-================================ */
-
-.nav-menu a {
-  position: relative;
-}
-
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: #0b5ed7;
-  transition: width 0.25s var(--ease-soft);
-}
-
-.nav-menu a:hover::after {
-  width: 100%;
-}
-
-
-/* ===============================
-   CARD HOVER (REFINED)
-================================ */
-
-.card {
-  will-change: transform;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-
-/* ===============================
-   BUTTON HOVER
-================================ */
-
-button {
-  transition:
-    background-color 0.2s var(--ease-soft),
-    transform 0.2s var(--ease-soft);
-}
-
-button:hover {
-  transform: translateY(-1px);
-}
-
-
-/* ===============================
-   MOBILE MENU SLIDE
-================================ */
-
-@keyframes mobileMenuSlide {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -148,20 +38,143 @@ button:hover {
   }
 }
 
-.nav-menu.mobile-nav {
-  animation: mobileMenuSlide 0.3s var(--ease-soft);
-}
-
-
-/* ===============================
-   TICKER SCROLL
-================================ */
-
-@keyframes ticker-scroll {
+@keyframes fadeDown {
   from {
-    transform: translateX(0);
+    opacity: 0;
+    transform: translateY(-12px);
   }
   to {
-    transform: translateX(-50%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   📊 TICKER ANIMATION
+   =========================== */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.ticker-track {
+  animation: tickerScroll 60s linear infinite;
+  will-change: transform;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* ===========================
+   🔄 LOADER ANIMATION
+   =========================== */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid #e5e7eb;
+  border-top-color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+/* ===========================
+   📈 NUMBER CHANGE FLASH
+   =========================== */
+@keyframes flashUp {
+  0% {
+    background-color: rgba(22, 163, 74, 0.15);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flashDown {
+  0% {
+    background-color: rgba(220, 38, 38, 0.15);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-up {
+  animation: flashUp 0.8s ease-out;
+}
+
+.flash-down {
+  animation: flashDown 0.8s ease-out;
+}
+
+/* ===========================
+   🧭 DROPDOWN / MENU
+   =========================== */
+.dropdown-enter {
+  animation: fadeDown 0.25s ease-out forwards;
+}
+
+.dropdown-exit {
+  animation: fadeUp 0.2s ease-in forwards;
+}
+
+/* ===========================
+   🖱 HOVER MICRO-INTERACTIONS
+   =========================== */
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* ===========================
+   🚫 REDUCED MOTION SUPPORT
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
