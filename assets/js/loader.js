@@ -1,42 +1,55 @@
 /* =========================================================
-   LOADER CONTROLLER
+   LOADER.JS — PAGE LOADING EXPERIENCE
    Project: Saima Qaiser Securities
-   Purpose: Initial page loading & refresh animation
    ========================================================= */
 
-(function () {
-  "use strict";
-
-  const loader = document.getElementById("site-loader");
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("pageLoader");
 
   if (!loader) return;
 
-  /**
-   * Hide loader after page fully loads
-   */
-  window.addEventListener("load", () => {
+  /* =====================================================
+     ACCESSIBILITY SETUP
+  ===================================================== */
+
+  loader.setAttribute("role", "status");
+  loader.setAttribute("aria-live", "polite");
+  loader.setAttribute("aria-label", "Loading content");
+
+  /* =====================================================
+     SAFETY TIMEOUT (PREVENT STUCK LOADER)
+  ===================================================== */
+
+  const MAX_WAIT = 3000; // 3 seconds fallback
+  let loaderHidden = false;
+
+  function hideLoader() {
+    if (loaderHidden) return;
+    loaderHidden = true;
+
+    loader.classList.add("loader-hide");
+
+    // Remove from DOM after animation
     setTimeout(() => {
-      loader.style.opacity = "0";
-      loader.style.pointerEvents = "none";
+      loader.remove();
+    }, 600);
+  }
 
-      document.body.classList.add("page-loaded");
+  /* =====================================================
+     MAIN LOAD EVENT
+  ===================================================== */
 
-      setTimeout(() => {
-        loader.remove();
-      }, 600);
-    }, 300);
+  window.addEventListener("load", () => {
+    requestAnimationFrame(() => {
+      hideLoader();
+    });
   });
 
-  /**
-   * Show loader on page refresh / navigation
-   */
-  window.addEventListener("beforeunload", () => {
-    document.body.classList.remove("page-loaded");
+  /* =====================================================
+     FAILSAFE
+  ===================================================== */
 
-    if (loader) {
-      loader.style.opacity = "1";
-      loader.style.pointerEvents = "auto";
-    }
-  });
-
-})();
+  setTimeout(() => {
+    hideLoader();
+  }, MAX_WAIT);
+});
