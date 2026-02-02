@@ -1,125 +1,93 @@
 /* =========================================================
-   MAIN CONTROLLER
+   MAIN.JS — CORE INTERACTIONS
    Project: Saima Qaiser Securities
+   Purpose: Navigation & UI behavior (video-accurate)
    ========================================================= */
 
-(function () {
-  "use strict";
+document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     DOM READY
-     =============================== */
+     ELEMENT REFERENCES
+  ================================ */
 
-  document.addEventListener("DOMContentLoaded", () => {
-
-    /* ===============================
-       HEADER & DROPDOWNS
-       =============================== */
-
-    const dropdowns = document.querySelectorAll(".dropdown");
-
-    dropdowns.forEach(dropdown => {
-      const trigger = dropdown.querySelector(".dropdown-toggle");
-
-      if (!trigger) return;
-
-      trigger.addEventListener("click", e => {
-        e.preventDefault();
-
-        // Close other dropdowns
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove("open");
-        });
-
-        dropdown.classList.toggle("open");
-      });
-    });
-
-    // Close dropdowns on outside click
-    document.addEventListener("click", e => {
-      dropdowns.forEach(dropdown => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.remove("open");
-        }
-      });
-    });
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.querySelector("nav");
+  const navMenu = document.getElementById("navMenu");
+  const navLinks = document.querySelectorAll(".nav-menu > li > a");
 
 
-    /* ===============================
-       MOBILE HAMBURGER MENU
-       =============================== */
+  /* ===============================
+     MOBILE HAMBURGER TOGGLE
+  ================================ */
 
-    const hamburger = document.querySelector(".hamburger");
-    const mobileMenu = document.querySelector(".mobile-menu");
+  hamburger.addEventListener("click", () => {
+    const expanded = hamburger.getAttribute("aria-expanded") === "true";
 
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        mobileMenu.classList.toggle("open");
-        document.body.classList.toggle("menu-open");
-      });
-    }
+    hamburger.setAttribute("aria-expanded", String(!expanded));
+    nav.classList.toggle("active");
+    navMenu.classList.toggle("mobile-nav");
 
-
-    /* ===============================
-       MOBILE DROPDOWNS
-       =============================== */
-
-    const mobileDropdowns = document.querySelectorAll(
-      ".mobile-menu .dropdown"
-    );
-
-    mobileDropdowns.forEach(dropdown => {
-      const toggle = dropdown.querySelector(".dropdown-toggle");
-      if (!toggle) return;
-
-      toggle.addEventListener("click", e => {
-        e.preventDefault();
-        dropdown.classList.toggle("open");
-      });
-    });
-
-
-    /* ===============================
-       SMOOTH SCROLL (ANCHORS)
-       =============================== */
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        const target = document.querySelector(this.getAttribute("href"));
-        if (!target) return;
-
-        e.preventDefault();
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      });
-    });
-
-
-    /* ===============================
-       ACCESSIBILITY ENHANCEMENTS
-       =============================== */
-
-    // Keyboard focus for dropdowns
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        dropdowns.forEach(d => d.classList.remove("open"));
-        if (mobileMenu) mobileMenu.classList.remove("open");
-      }
-    });
-
-
-    /* ===============================
-       FOOTER YEAR AUTO-UPDATE
-       =============================== */
-
-    const yearEl = document.querySelector(".current-year");
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-
+    document.body.classList.toggle("no-scroll", !expanded);
   });
 
-})();
+
+  /* ===============================
+     MOBILE DROPDOWN TOGGLE
+  ================================ */
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      const parent = link.parentElement;
+      const dropdown = parent.querySelector(".dropdown-menu");
+
+      // Only intercept on mobile
+      if (window.innerWidth <= 768 && dropdown) {
+        e.preventDefault();
+
+        parent.classList.toggle("open");
+
+        // Close other open dropdowns
+        document.querySelectorAll(".nav-menu li.open").forEach(item => {
+          if (item !== parent) {
+            item.classList.remove("open");
+          }
+        });
+      }
+    });
+  });
+
+
+  /* ===============================
+     CLOSE MENU ON RESIZE
+  ================================ */
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      nav.classList.remove("active");
+      navMenu.classList.remove("mobile-nav");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+
+      document.querySelectorAll(".nav-menu li.open").forEach(item => {
+        item.classList.remove("open");
+      });
+    }
+  });
+
+
+  /* ===============================
+     CLOSE MENU ON LINK CLICK (MOBILE)
+  ================================ */
+
+  document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        nav.classList.remove("active");
+        navMenu.classList.remove("mobile-nav");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("no-scroll");
+      }
+    });
+  });
+
+});
