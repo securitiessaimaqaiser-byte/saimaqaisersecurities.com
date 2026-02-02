@@ -1,55 +1,82 @@
-/* =========================================================
-   ANIMATIONS.JS — SCROLL & REVEAL EFFECTS
-   Project: Saima Qaiser Securities
-   ========================================================= */
+/* ==========================================================
+   animations.js
+   Purpose: Scroll-based UI animations (performance optimized)
+   Author: Final Production Version
+   ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
+  "use strict";
 
-  /* =====================================================
-     REDUCED MOTION SUPPORT (WCAG AA)
-  ===================================================== */
+  /* ------------------------------------------
+     CONFIGURATION
+  ------------------------------------------ */
+  const CONFIG = {
+    root: null,
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.15,
+    animationClass: "animate",
+    once: true // animate only once
+  };
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  /* ------------------------------------------
+     SELECTORS
+  ------------------------------------------ */
+  const animatedElements = document.querySelectorAll(
+    "[data-animate], .fade-in, .slide-up, .slide-left, .slide-right, .scale-in"
+  );
 
-  if (prefersReducedMotion) {
-    document.querySelectorAll("[data-animate]").forEach(el => {
-      el.classList.add("animate-visible");
-    });
+  if (!animatedElements.length) return;
+
+  /* ------------------------------------------
+     FALLBACK FOR OLD BROWSERS
+  ------------------------------------------ */
+  if (!("IntersectionObserver" in window)) {
+    animatedElements.forEach(el => el.classList.add(CONFIG.animationClass));
     return;
   }
 
-  /* =====================================================
-     INTERSECTION OBSERVER SETUP
-  ===================================================== */
+  /* ------------------------------------------
+     OBSERVER CALLBACK
+  ------------------------------------------ */
+  const onIntersection = (entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px 0px -80px 0px",
-    threshold: 0.15
+      const el = entry.target;
+      el.classList.add(CONFIG.animationClass);
+
+      if (CONFIG.once) observer.unobserve(el);
+    });
   };
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-visible");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  /* ------------------------------------------
+     OBSERVER INIT
+  ------------------------------------------ */
+  const observer = new IntersectionObserver(onIntersection, CONFIG);
 
-  /* =====================================================
-     OBSERVE ELEMENTS
-     Usage in HTML:
-     data-animate="fade"
-     data-animate="slide-up"
-     data-animate="slide-left"
-     data-animate="slide-right"
-  ===================================================== */
+  animatedElements.forEach(el => {
+    // Optional delay support
+    const delay = el.getAttribute("data-delay");
+    if (delay) {
+      el.style.animationDelay = `${delay}ms`;
+    }
 
-  document.querySelectorAll("[data-animate]").forEach(el => {
     observer.observe(el);
   });
 
-});
+  /* ------------------------------------------
+     PAGE VISIBILITY OPTIMIZATION
+  ------------------------------------------ */
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      animatedElements.forEach(el => {
+        el.style.animationPlayState = "paused";
+      });
+    } else {
+      animatedElements.forEach(el => {
+        el.style.animationPlayState = "running";
+      });
+    }
+  });
+
+})();
