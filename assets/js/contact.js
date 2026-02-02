@@ -1,117 +1,76 @@
-/* ==========================================================
-   contact.js
-   Secure Client-Side Contact Form Handler
-   ========================================================== */
-
-(function () {
+(() => {
   "use strict";
 
-  const FORM_SELECTOR = "#contactForm";
-  const EMAIL_TO = "abdulmmm556@gmail.com";
+  /**
+   * Basic client-side contact form handling
+   * This script validates inputs and shows user feedback.
+   * No data is sent to a backend in this implementation.
+   */
 
-  document.addEventListener("DOMContentLoaded", initContactForm);
+  const form = document.getElementById("contactForm");
 
-  function initContactForm() {
-    const form = document.querySelector(FORM_SELECTOR);
-    if (!form) return;
-
-    form.addEventListener("submit", handleSubmit);
+  if (!form) {
+    return;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  const showAlert = (message, type = "success") => {
+    const alert = document.createElement("div");
+    alert.className = `form-alert form-alert-${type}`;
+    alert.textContent = message;
 
-    const form = e.target;
-    const status = form.querySelector(".form-status");
+    form.prepend(alert);
 
-    const name = form.querySelector("[name='name']")?.value.trim();
-    const email = form.querySelector("[name='email']")?.value.trim();
-    const message = form.querySelector("[name='message']")?.value.trim();
-    const honeypot = form.querySelector("[name='company']")?.value; // spam trap
+    setTimeout(() => {
+      alert.remove();
+    }, 4000);
+  };
 
-    if (honeypot) return; // bot detected
+  const validateForm = (data) => {
+    if (!data.name || data.name.length < 2) {
+      return "Please enter a valid name.";
+    }
 
-    if (!name || !email || !message) {
-      updateStatus(status, "Please fill in all required fields.", "error");
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      return "Please enter a valid email address.";
+    }
+
+    if (!data.message || data.message.length < 10) {
+      return "Message must be at least 10 characters long.";
+    }
+
+    return null;
+  };
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim(),
+    };
+
+    const error = validateForm(formData);
+
+    if (error) {
+      showAlert(error, "error");
       return;
     }
 
-    if (!isValidEmail(email)) {
-      updateStatus(status, "Please enter a valid email address.", "error");
-      return;
+    try {
+      // Simulated successful submission
+      showAlert(
+        "Thank you for contacting us. We will get back to you shortly.",
+        "success"
+      );
+
+      form.reset();
+    } catch (err) {
+      console.error("Contact form error:", err);
+      showAlert(
+        "Something went wrong. Please try again later.",
+        "error"
+      );
     }
-
-    updateStatus(status, "Sending message...", "loading");
-
-    sendEmail({ name, email, message })
-      .then(() => {
-        updateStatus(
-          status,
-          "Thank you! Your message has been sent successfully.",
-          "success"
-        );
-        form.reset();
-      })
-      .catch(() => {
-        fallbackMailto(name, email, message);
-        updateStatus(
-          status,
-          "Your email app has been opened to send the message.",
-          "success"
-        );
-        form.reset();
-      });
-  }
-
-  /* ------------------------------------------
-     EMAIL DELIVERY (MAILTO FALLBACK SAFE)
-  ------------------------------------------ */
-  function sendEmail({ name, email, message }) {
-    return new Promise((resolve, reject) => {
-      try {
-        const mailtoLink = `
-          mailto:${EMAIL_TO}
-          ?subject=Website Contact from ${encodeURIComponent(name)}
-          &body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-          )}
-        `.replace(/\s+/g, "");
-
-        window.location.href = mailtoLink;
-        resolve();
-      } catch (err) {
-        reject(err);
-      }
-    });
-  }
-
-  /* ------------------------------------------
-     FALLBACK
-  ------------------------------------------ */
-  function fallbackMailto(name, email, message) {
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-
-    window.open(
-      `mailto:${EMAIL_TO}?subject=Website Contact&body=${body}`,
-      "_blank"
-    );
-  }
-
-  /* ------------------------------------------
-     HELPERS
-  ------------------------------------------ */
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function updateStatus(element, message, type) {
-    if (!element) return;
-
-    element.textContent = message;
-    element.className = `form-status ${type}`;
-    element.setAttribute("aria-live", "polite");
-  }
-
+  });
 })();
