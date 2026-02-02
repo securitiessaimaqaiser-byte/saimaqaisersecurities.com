@@ -2,102 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Disclaimer | Saima Qaiser Securities</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Legal disclaimer for Saima Qaiser Securities. Investment risks, liability limitations, and informational purpose notice." />
+  <meta name="description" content="Legal disclaimer for Saima Qaiser Securities regarding information accuracy, investment risks, and limitation of liability." />
   <meta name="robots" content="index, follow" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/reset.css" />
-  <link rel="stylesheet" href="/assets/css/variables.css" />
-  <link rel="stylesheet" href="/assets/css/animations.css" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link rel="stylesheet" href="/assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="/assets/fonts/inter/inter.css" />
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-  <!-- Page Loader -->
-  <div id="pageLoader" class="page-loader">
-    <span class="loader-spinner" aria-hidden="true"></span>
-  </div>
+  <!-- HEADER (Optional if already globally included) -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Saima Qaiser Securities</a>
+    </div>
+  </header>
 
-  <!-- Main Content -->
-  <main class="legal-page" data-animate="fade">
-
+  <!-- MAIN CONTENT -->
+  <main class="legal-page" role="main">
     <div class="container">
 
       <h1>Disclaimer</h1>
 
       <p>
         The information provided on this website is for general informational
-        purposes only and does not constitute financial, investment, legal,
-        or professional advice.
+        purposes only. While we endeavor to keep the information up to date
+        and accurate, Saima Qaiser Securities makes no representations or
+        warranties of any kind, express or implied, about the completeness,
+        accuracy, reliability, suitability, or availability of the information,
+        products, services, or related graphics contained on the website.
       </p>
 
       <h2>No Investment Advice</h2>
       <p>
-        Saima Qaiser Securities does not provide personalized investment advice
-        through this website. Any market data, commentary, or analysis is
-        provided without consideration of individual investment objectives,
-        financial situations, or needs.
+        Nothing on this website constitutes investment, legal, accounting,
+        or tax advice. All information is provided for educational and
+        informational purposes only and should not be relied upon as a
+        substitute for professional advice.
       </p>
 
-      <h2>Risk Warning</h2>
+      <p>
+        Any investment decisions you make are at your own risk. You should
+        consult with a qualified financial advisor before making any
+        investment decisions.
+      </p>
+
+      <h2>Investment Risk</h2>
       <p>
         Investments in securities markets are subject to market risks,
         including the possible loss of principal. Past performance is not
-        indicative of future results. Users are advised to conduct their own
-        research or consult with a qualified financial advisor before making
-        any investment decisions.
+        indicative of future results. Market prices may fluctuate and
+        investors may lose money.
       </p>
 
       <h2>Accuracy of Information</h2>
       <p>
-        While we strive to ensure that the information on this website is
-        accurate and up to date, Saima Qaiser Securities makes no warranties
-        or representations regarding the completeness, accuracy, or reliability
-        of any content.
-      </p>
-
-      <h2>Limitation of Liability</h2>
-      <p>
-        Saima Qaiser Securities shall not be held liable for any losses,
-        damages, or expenses arising out of or in connection with the use
-        of this website or reliance on any information provided herein.
+        Although we strive to provide accurate and timely information,
+        errors or omissions may occur. Saima Qaiser Securities does not
+        warrant that the information contained on this website is complete,
+        accurate, or current.
       </p>
 
       <h2>External Links</h2>
       <p>
-        This website may contain links to third-party websites. These links
-        are provided for convenience only, and Saima Qaiser Securities does
-        not endorse or assume responsibility for the content or practices
-        of such websites.
+        This website may contain links to third-party websites for your
+        convenience. Saima Qaiser Securities has no control over the content
+        or availability of those sites and does not endorse or accept
+        responsibility for them.
       </p>
 
-      <h2>Changes to This Disclaimer</h2>
+      <h2>Limitation of Liability</h2>
+      <p>
+        In no event shall Saima Qaiser Securities be liable for any loss or
+        damage including, without limitation, indirect or consequential loss
+        or damage, or any loss or damage whatsoever arising from the use of
+        this website.
+      </p>
+
+      <h2>Jurisdiction</h2>
+      <p>
+        This disclaimer shall be governed by and construed in accordance with
+        the laws of Pakistan. Any disputes arising in connection with this
+        website shall be subject to the exclusive jurisdiction of the courts
+        of Pakistan.
+      </p>
+
+      <h2>Updates</h2>
       <p>
         Saima Qaiser Securities reserves the right to modify this disclaimer
-        at any time without prior notice. Continued use of the website
-        constitutes acceptance of any updates.
+        at any time without prior notice. Changes will be effective
+        immediately upon posting on this website.
       </p>
 
     </div>
-
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Saima Qaiser Securities. All rights reserved.
+      </p>
+    </div>
   </footer>
 
   <!-- JS -->
-  <script src="/assets/js/loader.js"></script>
-  <script src="/assets/js/animations.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
