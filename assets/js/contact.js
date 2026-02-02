@@ -1,82 +1,86 @@
 /* =========================================================
-   CONTACT FORM HANDLER
+   CONTACT.JS — CONTACT FORM HANDLER
    Project: Saima Qaiser Securities
    ========================================================= */
 
-(function () {
-  "use strict";
+document.addEventListener("DOMContentLoaded", () => {
 
-  document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("contact-status");
+  const status = document.getElementById("contactStatus");
 
-    if (!form || !status) return;
+  /* =====================================================
+     ACCESSIBILITY
+  ===================================================== */
 
-    /**
-     * Basic email regex (WCAG-safe)
-     */
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (status) {
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+  }
 
-    /**
-     * Show status message
-     */
-    function showStatus(message, isError = false) {
-      status.textContent = message;
-      status.className = isError ? "error" : "success";
-      status.setAttribute("role", "alert");
+  /* =====================================================
+     VALIDATION HELPERS
+  ===================================================== */
+
+  function showStatus(message, success = false) {
+    if (!status) return;
+    status.textContent = message;
+    status.className = success ? "contact-success" : "contact-error";
+  }
+
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /* =====================================================
+     FORM SUBMIT
+  ===================================================== */
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector("[name='name']").value.trim();
+    const email = form.querySelector("[name='email']").value.trim();
+    const message = form.querySelector("[name='message']").value.trim();
+
+    if (!name || !email || !message) {
+      showStatus("Please fill in all required fields.");
+      return;
     }
 
-    /**
-     * Handle submit
-     */
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    if (!isValidEmail(email)) {
+      showStatus("Please enter a valid email address.");
+      return;
+    }
 
-      status.textContent = "";
+    /* =================================================
+       BUILD EMAIL
+    ================================================= */
 
-      const name = form.querySelector('[name="name"]').value.trim();
-      const email = form.querySelector('[name="email"]').value.trim();
-      const message = form.querySelector('[name="message"]').value.trim();
+    const subject = encodeURIComponent(
+      "Website Contact — Saima Qaiser Securities"
+    );
 
-      // Validation
-      if (!name || !email || !message) {
-        showStatus("Please fill in all required fields.", true);
-        return;
-      }
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
 
-      if (!emailPattern.test(email)) {
-        showStatus("Please enter a valid email address.", true);
-        return;
-      }
+    const mailtoLink =
+      `mailto:abdulmmm556@gmail.com?subject=${subject}&body=${body}`;
 
-      /**
-       * Submit via FormSubmit (AJAX, no redirect)
-       * Emails go directly to: abdulmmm556@gmail.com
-       */
-      const formData = new FormData(form);
-      formData.append("_captcha", "false");
-      formData.append("_template", "table");
+    /* =================================================
+       OPEN EMAIL CLIENT
+    ================================================= */
 
-      fetch("https://formsubmit.co/ajax/abdulmmm556@gmail.com", {
-        method: "POST",
-        body: formData
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success === "true") {
-            showStatus("Thank you! Your message has been sent successfully.");
-            form.reset();
-          } else {
-            showStatus("Something went wrong. Please try again.", true);
-          }
-        })
-        .catch(() => {
-          showStatus("Network error. Please try again later.", true);
-        });
+    window.location.href = mailtoLink;
 
-    });
+    showStatus(
+      "Your message is ready to be sent. Please confirm in your email app.",
+      true
+    );
 
+    form.reset();
   });
 
-})();
+});
