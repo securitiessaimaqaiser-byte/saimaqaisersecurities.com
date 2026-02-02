@@ -2,117 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Risk Disclosure | Saima Qaiser Securities</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Risk disclosure statement outlining the risks associated with investing in securities and capital markets." />
+  <meta name="description" content="Risk disclosure statement outlining the risks associated with investing in securities and financial markets." />
   <meta name="robots" content="index, follow" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/reset.css" />
-  <link rel="stylesheet" href="/assets/css/variables.css" />
-  <link rel="stylesheet" href="/assets/css/animations.css" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link rel="stylesheet" href="/assets/css/responsive.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="/assets/fonts/inter/inter.css" />
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-  <!-- Page Loader -->
-  <div id="pageLoader" class="page-loader">
-    <span class="loader-spinner" aria-hidden="true"></span>
-  </div>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Saima Qaiser Securities</a>
+    </div>
+  </header>
 
-  <!-- Main Content -->
-  <main class="legal-page" data-animate="fade">
-
+  <!-- MAIN CONTENT -->
+  <main class="legal-page" role="main">
     <div class="container">
 
       <h1>Risk Disclosure</h1>
 
       <p>
-        Investing in securities involves a high degree of risk and may not be
-        suitable for all investors. Before participating in capital markets,
-        investors should carefully consider their financial situation,
-        investment objectives, and risk tolerance.
+        Investing in securities involves risk. This Risk Disclosure Statement
+        is intended to inform investors of the potential risks associated with
+        investing in financial instruments and markets.
       </p>
 
       <h2>Market Risk</h2>
       <p>
         The value of securities may fluctuate due to changes in market
-        conditions, economic factors, political events, interest rates, and
-        investor sentiment. Prices can rise or fall rapidly, and investors
-        may incur losses.
-      </p>
-
-      <h2>Liquidity Risk</h2>
-      <p>
-        Certain securities may have limited liquidity, making it difficult
-        to buy or sell positions at desired prices or within a reasonable
-        timeframe.
+        conditions, economic factors, political events, interest rates, or
+        other variables. Investors may experience losses, including the loss
+        of principal invested.
       </p>
 
       <h2>Volatility Risk</h2>
       <p>
-        Stock markets can be volatile. Significant price movements may occur
-        over short periods, which may result in substantial gains or losses.
+        Prices of securities can be volatile and may change rapidly over short
+        periods of time. Such volatility may result in significant gains or
+        losses.
       </p>
 
-      <h2>Leverage Risk</h2>
+      <h2>Liquidity Risk</h2>
       <p>
-        Trading on margin or using leverage increases both potential gains
-        and potential losses. Losses may exceed the initial investment.
+        Some securities may not be easily sold or converted into cash without
+        a substantial loss in value. Market liquidity may vary depending on
+        market conditions.
       </p>
 
-      <h2>Operational and System Risk</h2>
+      <h2>Credit Risk</h2>
       <p>
-        Trading systems, communication networks, or other technical
-        infrastructure may experience delays, failures, or disruptions
-        beyond the control of Saima Qaiser Securities.
+        Credit risk refers to the possibility that an issuer or counterparty
+        may fail to meet its financial obligations, resulting in a loss to
+        the investor.
+      </p>
+
+      <h2>Operational & Technical Risk</h2>
+      <p>
+        Trading systems, communication networks, or technical infrastructure
+        may experience delays, disruptions, or failures that could affect the
+        execution of trades or access to information.
+      </p>
+
+      <h2>Regulatory Risk</h2>
+      <p>
+        Changes in laws, regulations, or government policies may affect the
+        value or legality of certain investments and could impact market
+        operations.
       </p>
 
       <h2>No Guarantee of Returns</h2>
       <p>
-        There is no guarantee of profit in securities trading. Past
-        performance of any security or strategy does not guarantee future
-        results.
+        Past performance is not indicative of future results. There is no
+        guarantee that any investment strategy will achieve its objectives or
+        result in profits.
       </p>
 
       <h2>Independent Decision Making</h2>
       <p>
-        Investors are solely responsible for their investment decisions.
-        Saima Qaiser Securities does not accept liability for losses arising
-        from investment decisions made by users of this website.
+        Investors are solely responsible for their investment decisions. Any
+        information provided on this website is for informational purposes
+        only and should not be considered as investment advice.
       </p>
 
-      <h2>Regulatory Compliance</h2>
+      <h2>Professional Advice</h2>
       <p>
-        Investors are advised to comply with applicable laws, rules, and
-        regulations governing securities trading in Pakistan and any other
-        relevant jurisdictions.
+        Investors are strongly encouraged to seek advice from qualified
+        financial, legal, and tax professionals before making any investment
+        decisions.
       </p>
 
       <h2>Acknowledgment</h2>
       <p>
-        By using this website, you acknowledge that you have read, understood,
-        and accepted this Risk Disclosure statement.
+        By using this website, you acknowledge that you understand and accept
+        the risks associated with investing in securities and financial
+        markets.
       </p>
 
     </div>
-
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Saima Qaiser Securities. All rights reserved.
+      </p>
+    </div>
   </footer>
 
   <!-- JS -->
-  <script src="/assets/js/loader.js"></script>
-  <script src="/assets/js/animations.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
