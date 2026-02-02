@@ -4,56 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>404 – Page Not Found | Saima Qaiser Securities</title>
+  <title>404 Not Found | Saima Qaiser Securities</title>
 
-  <meta name="description" content="The page you are looking for could not be found. Please return to the homepage of Saima Qaiser Securities." />
-  <meta name="robots" content="noindex, follow" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="The page you are looking for could not be found." />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
-
-  <!-- Fonts -->
-  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-  <!-- 404 PAGE -->
-  <main class="error-page" role="main">
-    <div class="error-container">
+<!-- ================= LOADER ================= -->
+<div id="page-loader" aria-hidden="true">
+  <div class="loader-spinner"></div>
+</div>
 
-      <div class="error-code" aria-hidden="true">404</div>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container">
 
-      <h1 class="error-title">Page Not Found</h1>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+      </a>
+    </div>
 
-      <p class="error-message">
-        The page you are looking for might have been removed, renamed,
-        or is temporarily unavailable.
+    <!-- SEARCH (OPTIONAL BUT ENABLED) -->
+    <div class="site-search">
+      <input
+        type="search"
+        placeholder="Search website..."
+        data-search-input
+        aria-label="Search website"
+      />
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="error-page">
+
+  <section class="error-hero">
+    <div class="container">
+
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+
+      <p>
+        Sorry, the page you are looking for doesn’t exist or has been moved.
       </p>
 
-      <div class="error-actions">
-        <a href="index.html" class="btn btn-primary">
-          ← Back to Homepage
-        </a>
+      <a href="index.html" class="btn-primary">
+        Go Back Home
+      </a>
+
+      <!-- OPTIONAL SEARCHABLE SUGGESTIONS -->
+      <div class="error-suggestions">
+
+        <div data-search-item="pakistan stock exchange trading psx brokerage">
+          PSX Trading Services
+        </div>
+
+        <div data-search-item="investment advisory portfolio management">
+          Investment Advisory
+        </div>
+
+        <div data-search-item="market research equity analysis">
+          Market Research
+        </div>
+
       </div>
 
+      <p class="search-no-results" style="display:none;">
+        No results found
+      </p>
+
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
-  <footer class="site-footer minimal">
-    <p>
-      © <span id="year"></span> Saima Qaiser Securities. All rights reserved.
-    </p>
-  </footer>
+</main>
 
-  <!-- JS -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/search.js"></script>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
