@@ -1,94 +1,39 @@
-/* ==========================================================
-   search.js
-   Advanced Client-Side Search Engine
-   ========================================================== */
-
-(function () {
+(() => {
   "use strict";
 
-  const SEARCH_DELAY = 200;
+  /**
+   * Simple client-side search functionality
+   * Filters visible elements based on user input.
+   */
 
-  let searchInput;
-  let searchableItems;
-  let debounceTimer;
+  const searchInput = document.getElementById("siteSearch");
 
-  document.addEventListener("DOMContentLoaded", initSearch);
-
-  function initSearch() {
-    searchInput = document.querySelector("[data-search-input]");
-    searchableItems = document.querySelectorAll("[data-search-item]");
-
-    if (!searchInput || searchableItems.length === 0) return;
-
-    bindEvents();
+  if (!searchInput) {
+    return;
   }
 
-  /* ------------------------------------------
-     EVENT BINDINGS
-  ------------------------------------------ */
-  function bindEvents() {
-    searchInput.addEventListener("input", handleSearch);
-    searchInput.addEventListener("keydown", handleKeyControls);
-  }
+  const searchableElements = document.querySelectorAll(
+    "[data-searchable]"
+  );
 
-  /* ------------------------------------------
-     SEARCH HANDLER (DEBOUNCED)
-  ------------------------------------------ */
-  function handleSearch(e) {
-    const value = e.target.value.trim().toLowerCase();
+  const normalizeText = (text) =>
+    text.toLowerCase().replace(/\s+/g, " ").trim();
 
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
-      filterItems(value);
-    }, SEARCH_DELAY);
-  }
+  const performSearch = (query) => {
+    const normalizedQuery = normalizeText(query);
 
-  /* ------------------------------------------
-     FILTER LOGIC
-  ------------------------------------------ */
-  function filterItems(query) {
-    let visibleCount = 0;
+    searchableElements.forEach((el) => {
+      const text = normalizeText(el.textContent);
 
-    searchableItems.forEach(item => {
-      const text =
-        item.getAttribute("data-search-item").toLowerCase();
-
-      if (!query || text.includes(query)) {
-        item.style.display = "";
-        item.setAttribute("aria-hidden", "false");
-        visibleCount++;
+      if (text.includes(normalizedQuery)) {
+        el.style.display = "";
       } else {
-        item.style.display = "none";
-        item.setAttribute("aria-hidden", "true");
+        el.style.display = "none";
       }
     });
+  };
 
-    toggleNoResults(visibleCount);
-  }
-
-  /* ------------------------------------------
-     NO RESULTS MESSAGE
-  ------------------------------------------ */
-  function toggleNoResults(count) {
-    let message = document.querySelector(".search-no-results");
-
-    if (!message) return;
-
-    message.style.display = count === 0 ? "block" : "none";
-  }
-
-  /* ------------------------------------------
-     KEYBOARD CONTROLS
-  ------------------------------------------ */
-  function handleKeyControls(e) {
-    if (e.key === "Escape") {
-      clearSearch();
-    }
-  }
-
-  function clearSearch() {
-    searchInput.value = "";
-    filterItems("");
-  }
-
+  searchInput.addEventListener("input", (event) => {
+    performSearch(event.target.value);
+  });
 })();
