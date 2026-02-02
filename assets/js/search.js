@@ -1,71 +1,94 @@
-/* =========================================================
-   SEARCH.JS — SITE SEARCH (CLIENT-SIDE)
-   Project: Saima Qaiser Securities
-   ========================================================= */
+/* ==========================================================
+   search.js
+   Advanced Client-Side Search Engine
+   ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
+  "use strict";
 
-  const searchInput = document.getElementById("siteSearch");
-  const searchableItems = document.querySelectorAll("[data-search]");
+  const SEARCH_DELAY = 200;
 
-  if (!searchInput || searchableItems.length === 0) return;
+  let searchInput;
+  let searchableItems;
+  let debounceTimer;
 
-  /* =====================================================
-     ACCESSIBILITY ATTRIBUTES
-  ===================================================== */
+  document.addEventListener("DOMContentLoaded", initSearch);
 
-  searchInput.setAttribute("role", "searchbox");
-  searchInput.setAttribute("aria-label", "Search site content");
+  function initSearch() {
+    searchInput = document.querySelector("[data-search-input]");
+    searchableItems = document.querySelectorAll("[data-search-item]");
 
-  /* =====================================================
-     SEARCH HANDLER
-  ===================================================== */
+    if (!searchInput || searchableItems.length === 0) return;
 
-  function normalize(text) {
-    return text.toLowerCase().trim();
+    bindEvents();
   }
 
-  function clearHighlights() {
-    searchableItems.forEach(el => {
-      el.classList.remove("search-hidden", "search-match");
-    });
+  /* ------------------------------------------
+     EVENT BINDINGS
+  ------------------------------------------ */
+  function bindEvents() {
+    searchInput.addEventListener("input", handleSearch);
+    searchInput.addEventListener("keydown", handleKeyControls);
   }
 
-  function performSearch(query) {
-    const q = normalize(query);
+  /* ------------------------------------------
+     SEARCH HANDLER (DEBOUNCED)
+  ------------------------------------------ */
+  function handleSearch(e) {
+    const value = e.target.value.trim().toLowerCase();
 
-    if (!q) {
-      clearHighlights();
-      return;
-    }
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      filterItems(value);
+    }, SEARCH_DELAY);
+  }
 
-    searchableItems.forEach(el => {
-      const text = normalize(el.textContent);
+  /* ------------------------------------------
+     FILTER LOGIC
+  ------------------------------------------ */
+  function filterItems(query) {
+    let visibleCount = 0;
 
-      if (text.includes(q)) {
-        el.classList.add("search-match");
-        el.classList.remove("search-hidden");
+    searchableItems.forEach(item => {
+      const text =
+        item.getAttribute("data-search-item").toLowerCase();
+
+      if (!query || text.includes(query)) {
+        item.style.display = "";
+        item.setAttribute("aria-hidden", "false");
+        visibleCount++;
       } else {
-        el.classList.add("search-hidden");
-        el.classList.remove("search-match");
+        item.style.display = "none";
+        item.setAttribute("aria-hidden", "true");
       }
     });
+
+    toggleNoResults(visibleCount);
   }
 
-  /* =====================================================
-     INPUT EVENTS
-  ===================================================== */
+  /* ------------------------------------------
+     NO RESULTS MESSAGE
+  ------------------------------------------ */
+  function toggleNoResults(count) {
+    let message = document.querySelector(".search-no-results");
 
-  searchInput.addEventListener("input", e => {
-    performSearch(e.target.value);
-  });
+    if (!message) return;
 
-  searchInput.addEventListener("keydown", e => {
+    message.style.display = count === 0 ? "block" : "none";
+  }
+
+  /* ------------------------------------------
+     KEYBOARD CONTROLS
+  ------------------------------------------ */
+  function handleKeyControls(e) {
     if (e.key === "Escape") {
-      searchInput.value = "";
-      clearHighlights();
-      searchInput.blur();
+      clearSearch();
     }
-  });
+  }
 
-});
+  function clearSearch() {
+    searchInput.value = "";
+    filterItems("");
+  }
+
+})();
