@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Risk Disclosure | Saima Qaiser Securities</title>
 
-  <meta name="description" content="Risk Disclosure Statement of Saima Qaiser Securities outlining investment risks associated with capital markets." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Risk disclosure statement outlining the risks associated with securities trading and investment activities." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fonts -->
-  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css" />
@@ -18,128 +17,86 @@
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 </head>
 
 <body>
 
-<!-- ================= LOADER ================= -->
-<div id="page-loader" aria-hidden="true">
-  <div class="loader-spinner"></div>
-</div>
-
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="container">
-
-    <div class="logo">
-      <a href="index.html">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
-      </a>
-    </div>
-
-    <!-- SEARCH -->
-    <div class="site-search">
-      <input
-        type="search"
-        placeholder="Search website..."
-        data-search-input
-        aria-label="Search website"
-      />
-    </div>
-
-  </div>
-</header>
-
-<!-- ================= MAIN ================= -->
-<main class="legal-page">
-
-  <section class="legal-content">
+  <header class="site-header">
     <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+        </a>
+      </div>
+    </div>
+  </header>
 
-      <h1>Risk Disclosure Statement</h1>
-      <p class="legal-updated">Last updated: January 2026</p>
+  <main class="legal-page">
+    <div class="container">
+      <h1>Risk Disclosure</h1>
 
       <p>
-        Investing in securities involves risk. Before making any investment
-        decision, investors should carefully consider their financial situation,
-        investment objectives, and risk tolerance.
+        Trading in securities and other financial instruments involves substantial
+        risk and may not be suitable for all investors. Before engaging in any
+        investment activity, investors should carefully consider their financial
+        situation, investment objectives, and risk tolerance.
       </p>
 
       <h2>Market Risk</h2>
       <p>
-        The value of investments may fluctuate due to market conditions,
-        economic factors, political events, or changes in regulations. Prices
-        of securities can go up or down and investors may incur losses.
+        The value of securities may fluctuate due to market conditions, economic
+        factors, political events, or company-specific developments. Investors may
+        incur losses as well as gains.
       </p>
 
       <h2>Liquidity Risk</h2>
       <p>
-        Certain securities may not be readily tradable due to low market
-        liquidity. This may result in difficulty buying or selling such
-        securities at desired prices.
+        Some securities may be difficult to buy or sell at desired prices due to
+        limited market liquidity. This may result in delayed execution or unfavorable
+        pricing.
       </p>
 
-      <h2>Credit Risk</h2>
+      <h2>Leverage Risk</h2>
       <p>
-        Investments in debt instruments are subject to the risk that the issuer
-        may fail to meet its financial obligations.
-      </p>
-
-      <h2>Volatility Risk</h2>
-      <p>
-        Capital markets can be volatile. Sudden price movements may occur
-        due to unforeseen events, leading to potential losses.
+        Use of leverage or margin trading can amplify both gains and losses. Investors
+        should fully understand the risks involved before using leveraged products.
       </p>
 
       <h2>No Guarantee of Returns</h2>
       <p>
-        Saima Qaiser Securities does not guarantee any specific return on
-        investments. Past performance is not a reliable indicator of future
-        performance.
-      </p>
-
-      <h2>Investor Responsibility</h2>
-      <p>
-        Investors are solely responsible for their investment decisions.
-        It is recommended to seek independent financial advice before
-        engaging in capital market transactions.
+        Past performance is not indicative of future results. Saima Qaiser Securities
+        does not guarantee any specific investment outcome or return.
       </p>
 
       <h2>Regulatory Compliance</h2>
       <p>
-        Saima Qaiser Securities operates in compliance with the rules and
-        regulations of the Securities and Exchange Commission of Pakistan
-        (SECP) and Pakistan Stock Exchange (PSX).
+        Investors are responsible for ensuring compliance with applicable laws and
+        regulations governing securities trading and investments.
       </p>
 
-      <h2>Acknowledgement</h2>
-      <p>
-        By using this website and its services, you acknowledge that you
-        understand and accept the risks associated with investing in
-        securities.
+      <p class="last-updated">
+        Last updated: January 2026
       </p>
-
     </div>
-  </section>
+  </main>
 
-</main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
-  </div>
-</footer>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </footer>
 
-<!-- ================= JS ================= -->
-<script src="assets/js/loader.js"></script>
-<script src="assets/js/animations.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/search.js"></script>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- JavaScript -->
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 </html>
