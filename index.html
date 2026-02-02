@@ -1,182 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- =========================
-       BASIC META
-  ========================== -->
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Saima Qaiser Securities | Pakistan Stock Market Insights</title>
-  <meta name="description" content="Saima Qaiser Securities provides Pakistan Stock Exchange insights, market data, tickers, and investor information. Informational purpose only." />
-  <meta name="keywords" content="PSX, Pakistan Stock Exchange, Stocks, Market Ticker, Securities, Investing Pakistan" />
-  <meta name="author" content="Saima Qaiser Securities" />
+  <title>Saima Qaiser Securities | Pakistan Stock Exchange Brokerage</title>
+
+  <meta name="description" content="Saima Qaiser Securities provides professional stock brokerage, PSX trading, and investment advisory services in Pakistan." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://saimaqaisersecurities.com/" />
 
-  <!-- =========================
-       OPEN GRAPH
-  ========================== -->
-  <meta property="og:title" content="Saima Qaiser Securities" />
-  <meta property="og:description" content="Pakistan Stock Exchange market data, tickers & investor insights." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://saimaqaisersecurities.com/" />
-  <meta property="og:image" content="https://saimaqaisersecurities.com/assets/images/logo.png" />
+  <!-- Fonts -->
+  <link rel="stylesheet" href="assets/fonts/inter/inter.css" />
 
-  <!-- =========================
-       TWITTER CARD
-  ========================== -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Saima Qaiser Securities" />
-  <meta name="twitter:description" content="PSX market insights & stock ticker information." />
-  <meta name="twitter:image" content="https://saimaqaisersecurities.com/assets/images/logo.png" />
-
-  <!-- =========================
-       SECURITY HEADERS (STATIC SAFE)
-  ========================== -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self';" />
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=()" />
-
-  <!-- =========================
-       FAVICON
-  ========================== -->
-  <link rel="icon" type="image/png" href="assets/images/logo.png" />
-
-  <!-- =========================
-       FONTS (LOCAL INTER)
-  ========================== -->
-  <link rel="preload" href="assets/fonts/inter/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- =========================
-       CSS FILES
-  ========================== -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/variables.css" />
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
-
-  <!-- =========================
-       STRUCTURED DATA (SCHEMA)
-  ========================== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": "Saima Qaiser Securities",
-    "url": "https://saimaqaisersecurities.com",
-    "logo": "https://saimaqaisersecurities.com/assets/images/logo.png",
-    "description": "Pakistan Stock Exchange market insights and stock ticker information.",
-    "areaServed": "PK",
-    "serviceType": "Market Information"
-  }
-  </script>
 </head>
 
 <body>
-  <!-- =========================
-       SKIP LINK (ACCESSIBILITY)
-  ========================== -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- =========================
-       LOADER
-  ========================== -->
-  <div id="site-loader" aria-hidden="true">
-    <div class="spinner"></div>
+<!-- ================= LOADER ================= -->
+<div id="page-loader" aria-hidden="true">
+  <div class="loader-spinner"></div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container">
+
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+    </div>
+
+    <!-- SEARCH -->
+    <div class="site-search">
+      <input
+        type="search"
+        placeholder="Search services..."
+        data-search-input
+        aria-label="Search website"
+      />
+    </div>
+
   </div>
+</header>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-  <header class="site-header" role="banner">
+<!-- ================= MAIN ================= -->
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
     <div class="container">
-      <div class="logo">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
-        <span>Saima Qaiser Securities</span>
-      </div>
-
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="disclaimer.html">Disclaimer</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="risk-disclosure.html">Risk Disclosure</a></li>
-        </ul>
-      </nav>
+      <h1>Saima Qaiser Securities</h1>
+      <p>Trusted Pakistan Stock Exchange Brokerage & Investment Advisory</p>
     </div>
-  </header>
+  </section>
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
-  <main id="main-content" role="main">
-
-    <!-- ===== MARKET TICKER ===== -->
-    <section class="ticker-section" aria-label="Market ticker">
-      <div class="ticker-wrapper">
-        <div id="market-ticker" class="ticker" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-      <div class="container">
-        <h1>Pakistan Stock Market Overview</h1>
-        <p>
-          Market data, stock performance and index movements for informational purposes only.
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== INFO GRID ===== -->
-    <section class="info-grid container">
-      <article>
-        <h2>Market Transparency</h2>
-        <p>We present publicly available stock market data in a clear and structured format.</p>
-      </article>
-
-      <article>
-        <h2>Investor Awareness</h2>
-        <p>All information is for educational and informational purposes only.</p>
-      </article>
-
-      <article>
-        <h2>Risk Disclosure</h2>
-        <p>Stock market investments carry risk. Always consult licensed professionals.</p>
-      </article>
-    </section>
-
-  </main>
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer class="site-footer" role="contentinfo">
+  <!-- ===== SERVICES (SEARCHABLE) ===== -->
+  <section class="services">
     <div class="container">
-      <p>
-        © <span id="year"></span> Saima Qaiser Securities. All rights reserved.
+
+      <h2>Our Services</h2>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-search-item="pakistan stock exchange trading psx brokerage">
+          <h3>PSX Trading</h3>
+          <p>Equity trading services at Pakistan Stock Exchange.</p>
+        </div>
+
+        <div class="service-card" data-search-item="investment advisory portfolio management">
+          <h3>Investment Advisory</h3>
+          <p>Professional portfolio and investment guidance.</p>
+        </div>
+
+        <div class="service-card" data-search-item="research analysis market insights">
+          <h3>Market Research</h3>
+          <p>In-depth equity research and market analysis.</p>
+        </div>
+
+      </div>
+
+      <p class="search-no-results" style="display:none;">
+        No results found
       </p>
 
-      <p class="footer-links">
-        <a href="disclaimer.html">Disclaimer</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="risk-disclosure.html">Risk Disclosure</a>
-      </p>
     </div>
-  </footer>
+  </section>
 
-  <!-- =========================
-       JS FILES (DEFERRED)
-  ========================== -->
-  <script src="assets/js/loader.js" defer></script>
-  <script src="assets/js/animations.js" defer></script>
-  <script src="assets/js/ticker.js" defer></script>
-  <script src="assets/js/search.js" defer></script>
-  <script src="assets/js/contact.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact">
+    <div class="container">
+
+      <h2>Contact Us</h2>
+
+      <form id="contactForm" novalidate>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+
+        <!-- Honeypot -->
+        <input
+          type="text"
+          name="company"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p class="form-status" role="status"></p>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> Saima Qaiser Securities. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/ticker.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/contact.js"></script>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
