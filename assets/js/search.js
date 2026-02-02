@@ -1,126 +1,71 @@
 /* =========================================================
-   SITE SEARCH (CLIENT-SIDE)
+   SEARCH.JS — SITE SEARCH (CLIENT-SIDE)
    Project: Saima Qaiser Securities
    ========================================================= */
 
-(function () {
-  "use strict";
+document.addEventListener("DOMContentLoaded", () => {
 
-  document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("siteSearch");
+  const searchableItems = document.querySelectorAll("[data-search]");
 
-    const searchInput = document.querySelector("#site-search-input");
-    const searchResults = document.querySelector("#site-search-results");
+  if (!searchInput || searchableItems.length === 0) return;
 
-    if (!searchInput || !searchResults) return;
+  /* =====================================================
+     ACCESSIBILITY ATTRIBUTES
+  ===================================================== */
 
-    /**
-     * Collect searchable elements
-     * Uses data-searchable attribute OR text blocks
-     */
-    const searchableElements = Array.from(
-      document.querySelectorAll(
-        "[data-searchable], main p, main li, main h1, main h2, main h3"
-      )
-    );
+  searchInput.setAttribute("role", "searchbox");
+  searchInput.setAttribute("aria-label", "Search site content");
 
-    /**
-     * Clear previous results
-     */
-    function clearResults() {
-      searchResults.innerHTML = "";
-      searchResults.classList.remove("active");
+  /* =====================================================
+     SEARCH HANDLER
+  ===================================================== */
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function clearHighlights() {
+    searchableItems.forEach(el => {
+      el.classList.remove("search-hidden", "search-match");
+    });
+  }
+
+  function performSearch(query) {
+    const q = normalize(query);
+
+    if (!q) {
+      clearHighlights();
+      return;
     }
 
-    /**
-     * Highlight matched text
-     */
-    function highlightText(text, query) {
-      const regex = new RegExp(`(${query})`, "gi");
-      return text.replace(regex, "<mark>$1</mark>");
-    }
+    searchableItems.forEach(el => {
+      const text = normalize(el.textContent);
 
-    /**
-     * Perform search
-     */
-    function performSearch(query) {
-      clearResults();
-
-      if (!query || query.length < 2) return;
-
-      const fragment = document.createDocumentFragment();
-      let matchCount = 0;
-
-      searchableElements.forEach(el => {
-        const text = el.textContent.trim();
-        if (!text) return;
-
-        if (text.toLowerCase().includes(query.toLowerCase())) {
-          matchCount++;
-
-          const resultItem = document.createElement("div");
-          resultItem.className = "search-result-item";
-          resultItem.setAttribute("tabindex", "0");
-
-          const preview = text.substring(0, 160) + "...";
-
-          resultItem.innerHTML = `
-            <strong>${el.tagName}</strong>
-            <p>${highlightText(preview, query)}</p>
-          `;
-
-          resultItem.addEventListener("click", () => {
-            el.scrollIntoView({ behavior: "smooth", block: "center" });
-            clearResults();
-          });
-
-          fragment.appendChild(resultItem);
-        }
-      });
-
-      if (matchCount === 0) {
-        const empty = document.createElement("div");
-        empty.className = "search-no-results";
-        empty.textContent = "No results found.";
-        fragment.appendChild(empty);
-      }
-
-      searchResults.appendChild(fragment);
-      searchResults.classList.add("active");
-    }
-
-    /**
-     * Input listener (debounced)
-     */
-    let debounceTimer;
-    searchInput.addEventListener("input", e => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        performSearch(e.target.value.trim());
-      }, 200);
-    });
-
-    /**
-     * Close search on ESC
-     */
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        clearResults();
-        searchInput.blur();
+      if (text.includes(q)) {
+        el.classList.add("search-match");
+        el.classList.remove("search-hidden");
+      } else {
+        el.classList.add("search-hidden");
+        el.classList.remove("search-match");
       }
     });
+  }
 
-    /**
-     * Click outside closes results
-     */
-    document.addEventListener("click", e => {
-      if (
-        !searchResults.contains(e.target) &&
-        e.target !== searchInput
-      ) {
-        clearResults();
-      }
-    });
+  /* =====================================================
+     INPUT EVENTS
+  ===================================================== */
 
+  searchInput.addEventListener("input", e => {
+    performSearch(e.target.value);
   });
 
-})();
+  searchInput.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      searchInput.value = "";
+      clearHighlights();
+      searchInput.blur();
+    }
+  });
+
+});
