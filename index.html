@@ -3,40 +3,13 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- 🔑 IMPORTANT: GitHub Pages subdirectory fix -->
+  <!-- GitHub Pages subdirectory fix -->
   <base href="/saimaqaisersecurities.com/">
 
   <title>Saima Qaiser Securities (Pvt) Limited | SECP Regulated Brokerage</title>
 
   <meta name="description" content="Saima Qaiser Securities (Pvt) Limited is a SECP regulated brokerage house providing capital market and investment services in Pakistan." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Saima Qaiser Securities (Pvt) Limited" />
-  <meta property="og:description" content="SECP regulated brokerage house providing capital market and investment services in Pakistan." />
-  <meta property="og:url" content="https://securitiessaimaqaiser-byte.github.io/saimaqaisersecurities.com/" />
-  <meta property="og:site_name" content="Saima Qaiser Securities" />
-  <meta property="og:image" content="assets/images/og-image.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": "Saima Qaiser Securities (Pvt) Limited",
-    "url": "https://securitiessaimaqaiser-byte.github.io/saimaqaisersecurities.com/",
-    "description": "SECP regulated brokerage house providing capital market and investment services in Pakistan",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Pakistan"
-    },
-    "legalName": "Saima Qaiser Securities (Pvt) Limited"
-  }
-  </script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
@@ -49,6 +22,9 @@
 
 <body>
 
+<!-- =========================
+     FIXED HEADER
+========================= -->
 <header class="site-header">
   <div class="container">
     <div class="logo">
@@ -68,6 +44,20 @@
     </nav>
   </div>
 </header>
+
+<!-- =========================
+     TICKER (STEP 2)
+     EXACT POSITION: BELOW HEADER
+========================= -->
+<div class="ticker-wrapper">
+  <div class="ticker">
+    <span>
+      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
+      Capital Market & Investment Services •
+      Committed to Transparency & Compliance •
+    </span>
+  </div>
+</div>
 
 <main>
 
@@ -98,17 +88,17 @@
       <form id="contactForm">
         <div class="form-group">
           <label>Full Name</label>
-          <input type="text" name="name" required />
+          <input type="text" required />
         </div>
 
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" name="email" required />
+          <input type="email" required />
         </div>
 
         <div class="form-group">
           <label>Message</label>
-          <textarea name="message" rows="4" required></textarea>
+          <textarea rows="4" required></textarea>
         </div>
 
         <button type="submit" class="btn-primary">
