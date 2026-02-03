@@ -1,57 +1,77 @@
-/**
- * Client Login Modal Controller
- * ------------------------------------
- * - Opens on "Client Login" click
- * - Closes on overlay click
- * - Closes on ❌ button
- * - Closes on ESC key
- * - Safe for multiple pages
- */
+/* =====================================================
+   MODAL CONTROLLER
+   - Client Login Modal
+   - Shareholder Agahi Popup (once per session)
+===================================================== */
 
-(function () {
-  function openModal() {
-    const overlay = document.querySelector(".modal-overlay");
-    if (!overlay) return;
+document.addEventListener("DOMContentLoaded", () => {
+  /* =====================================
+     CLIENT LOGIN MODAL
+  ===================================== */
+  const loginBtn = document.querySelector(".btn-secondary");
+  const modalOverlay = document.querySelector(".modal-overlay");
+  const modalClose = document.querySelector(".modal-close");
 
-    overlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    const overlay = document.querySelector(".modal-overlay");
-    if (!overlay) return;
-
-    overlay.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  // Open modal when Client Login button is clicked
-  document.addEventListener("click", function (e) {
-    const loginBtn = e.target.closest(".btn-secondary");
-    if (loginBtn && loginBtn.textContent.trim() === "Client Login") {
+  if (loginBtn && modalOverlay) {
+    loginBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      openModal();
-    }
-  });
+      modalOverlay.classList.add("active");
+    });
+  }
 
-  // Close modal when clicking overlay
-  document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("modal-overlay")) {
-      closeModal();
-    }
-  });
+  if (modalClose) {
+    modalClose.addEventListener("click", () => {
+      modalOverlay.classList.remove("active");
+    });
+  }
 
-  // Close modal on ❌ button
-  document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("modal-close")) {
-      closeModal();
-    }
-  });
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove("active");
+      }
+    });
+  }
 
-  // Close modal on ESC key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeModal();
+  /* =====================================
+     SHAREHOLDER AGAHI POPUP (ONCE/SESSION)
+  ===================================== */
+  const agahiPopup = document.getElementById("agahi-popup");
+  const agahiClose = document.getElementById("agahi-close");
+
+  // Only show once per session
+  if (agahiPopup && !sessionStorage.getItem("agahiPopupShown")) {
+    setTimeout(() => {
+      agahiPopup.classList.add("active");
+      sessionStorage.setItem("agahiPopupShown", "true");
+    }, 800); // slight delay for professional feel
+  }
+
+  if (agahiClose) {
+    agahiClose.addEventListener("click", () => {
+      agahiPopup.classList.remove("active");
+    });
+  }
+
+  if (agahiPopup) {
+    agahiPopup.addEventListener("click", (e) => {
+      if (e.target === agahiPopup) {
+        agahiPopup.classList.remove("active");
+      }
+    });
+  }
+
+  /* =====================================
+     EXTERNAL LINK HANDLERS
+  ===================================== */
+  document.addEventListener("click", (e) => {
+    const target = e.target.closest("[data-external-link]");
+    if (!target) return;
+
+    e.preventDefault();
+    const url = target.getAttribute("data-external-link");
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
     }
   });
-})();
+});
