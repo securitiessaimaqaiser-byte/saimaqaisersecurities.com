@@ -8,13 +8,14 @@
 
   <title>About Us | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Learn about Saima Qaiser Securities (Pvt) Limited, a SECP regulated brokerage house in Pakistan." />
+  <meta name="description" content="About Saima Qaiser Securities (Pvt) Limited – a SECP regulated brokerage house providing capital market services in Pakistan." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
+  <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -34,6 +35,24 @@
       class="loader-logo"
     />
     <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     CLIENT LOGIN MODAL
+========================= -->
+<div class="modal-overlay">
+  <div class="modal">
+    <span class="modal-close">&times;</span>
+
+    <h2>Client Login</h2>
+    <p>Please enter your credentials to continue.</p>
+
+    <form>
+      <input type="text" placeholder="Client ID" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
 </div>
 
@@ -77,12 +96,14 @@
   <div class="ticker">
     <span>
       Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
-      Capital Market & Investment Services •
-      Committed to Transparency & Compliance •
+      Transparency • Compliance • Investor Protection •
     </span>
   </div>
 </div>
 
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 <main>
 
   <section class="section">
@@ -90,19 +111,22 @@
       <h1>About Us</h1>
 
       <p>
-        Saima Qaiser Securities (Pvt) Limited is a licensed brokerage house operating
-        under the regulatory framework of the Securities and Exchange Commission of
-        Pakistan (SECP).
+        Saima Qaiser Securities (Pvt) Limited is a Securities and Exchange
+        Commission of Pakistan (SECP) regulated brokerage house providing
+        comprehensive capital market and investment services.
       </p>
 
       <p>
-        The company provides capital market services with a strong focus on
-        transparency, compliance, and investor protection.
+        Our firm is committed to operating with the highest standards of
+        transparency, regulatory compliance, and ethical business practices.
+        We aim to safeguard investor interests while delivering reliable
+        brokerage and advisory services.
       </p>
 
       <p>
-        Our mission is to deliver professional brokerage services while adhering to
-        the highest standards of corporate governance.
+        With a focus on professionalism and long-term relationships, Saima
+        Qaiser Securities (Pvt) Limited continues to serve its clients with
+        integrity and accountability in Pakistan’s capital markets.
       </p>
 
       <a href="index.html" class="btn-primary">← Back to Home</a>
@@ -111,9 +135,15 @@
 
 </main>
 
+<!-- =========================
+     FOOTER
+========================= -->
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities (Pvt) Limited. All rights reserved.</p>
+    <p>
+      © <span id="year"></span> Saima Qaiser Securities (Pvt) Limited.
+      All rights reserved.
+    </p>
 
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy Policy</a></li>
@@ -125,6 +155,7 @@
 
 <!-- JS -->
 <script src="assets/js/loader.js" defer></script>
+<script src="assets/js/modal.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
