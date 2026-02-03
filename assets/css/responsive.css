@@ -1,132 +1,156 @@
-/* =========================
-   Responsive Styles
-   ========================= */
+/* ======================================================
+   TABLET BREAKPOINT (<= 1024px)
+   ====================================================== */
 
-/* ---------- Tablets ---------- */
 @media (max-width: 1024px) {
 
-  .hero {
-    padding: 80px 0;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  section {
-    padding: 64px 0;
-  }
-
-  .service-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-/* ---------- Small Tablets & Large Phones ---------- */
-@media (max-width: 768px) {
-
-  .site-header .container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .main-nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .hero {
-    padding: 64px 0;
-  }
-
-  .hero h1 {
+  h1 {
     font-size: 32px;
   }
 
-  .hero p {
-    font-size: 16px;
+  h2 {
+    font-size: 22px;
   }
-
-  section h2 {
-    font-size: 28px;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about p {
-    font-size: 16px;
-    padding: 0 10px;
-  }
-
-  .contact form {
-    padding: 0 10px;
-  }
-
-  .legal-page h1 {
-    font-size: 30px;
-  }
-
-}
-
-/* ---------- Mobile Phones ---------- */
-@media (max-width: 480px) {
 
   .container {
-    padding: 0 16px;
+    padding: 0 18px;
+  }
+
+  .hero-corporate {
+    padding: 64px 0;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+}
+
+/* ======================================================
+   MOBILE BREAKPOINT (<= 768px)
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- Header & Navigation ---------- */
+
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
   }
 
   .logo img {
     height: 40px;
   }
 
-  .hero {
-    padding: 56px 0;
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-
-  .btn-primary {
-    padding: 10px 22px;
+  .main-nav a {
     font-size: 14px;
   }
 
-  section {
-    padding: 56px 0;
+  /* ---------- Typography ---------- */
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.25;
   }
 
-  section h2 {
-    font-size: 24px;
+  h2 {
+    font-size: 20px;
   }
 
-  .service-card {
-    padding: 20px;
+  p {
+    font-size: 14px;
   }
 
-  .error-page h1 {
-    font-size: 72px;
+  /* ---------- Hero ---------- */
+
+  .hero-corporate {
+    padding: 56px 0 48px 0;
   }
 
-  .error-page h2 {
-    font-size: 22px;
+  .hero-subtitle {
+    font-size: 14px;
   }
 
-  .site-footer p {
-    font-size: 13px;
+  /* ---------- Sections ---------- */
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-muted {
+    padding: 48px 0;
+  }
+
+  /* ---------- Lists ---------- */
+
+  .principles-list {
+    padding-left: 18px;
+  }
+
+  /* ---------- Forms ---------- */
+
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* ---------- Footer ---------- */
+
+  .site-footer {
+    padding: 28px 0;
   }
 
   .footer-links {
     flex-direction: column;
     gap: 8px;
   }
+}
 
+/* ======================================================
+   SMALL MOBILE BREAKPOINT (<= 480px)
+   ====================================================== */
+
+@media (max-width: 480px) {
+
+  .container {
+    padding: 0 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .hero-corporate {
+    padding: 48px 0 40px 0;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .main-nav ul {
+    gap: 12px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
 }
