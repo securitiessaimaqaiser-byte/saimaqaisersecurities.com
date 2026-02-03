@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- 🔑 GitHub Pages subdirectory fix -->
+  <!-- GitHub Pages subdirectory fix -->
   <base href="/saimaqaisersecurities.com/">
 
   <title>Disclosures | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Regulatory disclosures and compliance information of Saima Qaiser Securities (Pvt) Limited." />
+  <meta name="description" content="Regulatory disclosures of Saima Qaiser Securities (Pvt) Limited in accordance with SECP requirements." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/loader.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -22,8 +23,26 @@
 
 <body>
 
+<!-- =========================
+     SITE LOADER
+========================= -->
+<div class="site-loader">
+  <div class="loader-inner">
+    <img
+      src="assets/images/logo.png"
+      alt="Saima Qaiser Securities"
+      class="loader-logo"
+    />
+    <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     FIXED HEADER
+========================= -->
 <header class="site-header">
-  <div class="container">
+  <div class="container header-layout">
+
     <div class="logo">
       <a href="index.html">
         <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
@@ -36,58 +55,75 @@
         <li><a href="about.html">About</a></li>
         <li><a href="financials.html">Financials</a></li>
         <li><a href="disclosures.html" class="active">Disclosures</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="header-search">
+      <input type="search" placeholder="Search…" aria-label="Search site" />
+    </div>
+
+    <div class="header-actions">
+      <a href="#" class="btn-secondary">Client Login</a>
+      <a href="#" class="btn-primary">Online Trading</a>
+    </div>
+
   </div>
 </header>
 
+<!-- =========================
+     TICKER
+========================= -->
+<div class="ticker-wrapper">
+  <div class="ticker">
+    <span>
+      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
+      Capital Market & Investment Services •
+      Committed to Transparency & Compliance •
+    </span>
+  </div>
+</div>
+
 <main>
 
-  <section class="section section-light">
+  <section class="section">
     <div class="container legal-page">
-      <h1>Regulatory Disclosures</h1>
+      <h1>Disclosures</h1>
 
       <p>
-        Saima Qaiser Securities (Pvt) Limited operates in compliance with the rules,
-        regulations, and guidelines issued by the Securities and Exchange Commission
-        of Pakistan (SECP) and other relevant regulatory authorities.
+        Saima Qaiser Securities (Pvt) Limited makes the following disclosures
+        in compliance with applicable laws, rules, and regulations of the
+        Securities and Exchange Commission of Pakistan (SECP).
       </p>
 
-      <h2>Regulatory Status</h2>
-      <p>
-        The company is a licensed brokerage house authorized to provide capital market
-        services in Pakistan under applicable securities laws.
-      </p>
-
-      <h2>Compliance Framework</h2>
+      <h2>Regulatory Information</h2>
       <ul>
-        <li>Adherence to SECP rules and regulations</li>
-        <li>Internal controls and compliance monitoring</li>
-        <li>Periodic regulatory reporting</li>
-        <li>Client data protection and confidentiality</li>
+        <li>Licensed brokerage house regulated by SECP</li>
+        <li>Subject to rules and regulations of Pakistan Stock Exchange</li>
+        <li>Compliance with AML / CFT requirements</li>
       </ul>
+
+      <h2>Risk Disclosure</h2>
+      <p>
+        Investments in capital markets are subject to market risks.
+        Investors are advised to carefully read the risk disclosure
+        statement before making any investment decisions.
+      </p>
 
       <h2>Conflict of Interest</h2>
       <p>
-        The company maintains policies and procedures to identify, disclose, and manage
-        any potential conflicts of interest in accordance with regulatory requirements.
+        The company may, from time to time, provide services to multiple
+        clients and counterparties which may give rise to potential
+        conflicts of interest. Appropriate policies are maintained to
+        manage such situations fairly.
       </p>
 
-      <h2>Risk Management</h2>
+      <h2>Investor Complaints</h2>
       <p>
-        Robust risk management practices are implemented to safeguard client interests
-        and ensure operational stability.
+        Any investor complaints may be submitted directly to the company
+        or through the SECP complaint management system.
       </p>
 
-      <!-- Back to Home -->
-      <div style="margin-top: 48px;">
-        <a href="index.html" class="btn-primary">← Back to Home</a>
-      </div>
-
-      <p class="last-updated">
-        Last updated: February 2026
-      </p>
+      <a href="index.html" class="btn-primary">← Back to Home</a>
     </div>
   </section>
 
@@ -105,6 +141,8 @@
   </div>
 </footer>
 
+<!-- JS -->
+<script src="assets/js/loader.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
