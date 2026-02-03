@@ -1,0 +1,89 @@
+/* =========================
+   Financial Tables Styling
+   ========================= */
+
+.financial-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0 48px 0;
+  font-size: 14px;
+  color: #1f2937;
+}
+
+/* Table Head */
+.financial-table thead th {
+  text-align: left;
+  padding: 12px 14px;
+  background-color: #f3f4f6;
+  border-bottom: 2px solid #d1d5db;
+  font-weight: 600;
+}
+
+/* Table Body */
+.financial-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+/* Zebra striping */
+.financial-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Hover effect (very subtle) */
+.financial-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Links inside tables */
+.financial-table a {
+  color: #0f766e;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.financial-table a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive handling */
+@media (max-width: 768px) {
+  .financial-table {
+    font-size: 13px;
+  }
+
+  .financial-table thead {
+    display: none;
+  }
+
+  .financial-table,
+  .financial-table tbody,
+  .financial-table tr,
+  .financial-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .financial-table tr {
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 8px 0;
+  }
+
+  .financial-table td {
+    padding: 8px 14px;
+    border: none;
+    position: relative;
+  }
+
+  .financial-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+}
