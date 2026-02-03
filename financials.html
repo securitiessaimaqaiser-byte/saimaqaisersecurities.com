@@ -6,15 +6,16 @@
   <!-- GitHub Pages subdirectory fix -->
   <base href="/saimaqaisersecurities.com/">
 
-  <title>Financial Statements | Saima Qaiser Securities (Pvt) Limited</title>
+  <title>Financials | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Audited financial statements of Saima Qaiser Securities (Pvt) Limited." />
+  <meta name="description" content="Audited financial statements and reports of Saima Qaiser Securities (Pvt) Limited." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
+  <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -34,6 +35,24 @@
       class="loader-logo"
     />
     <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     CLIENT LOGIN MODAL
+========================= -->
+<div class="modal-overlay">
+  <div class="modal">
+    <span class="modal-close">&times;</span>
+
+    <h2>Client Login</h2>
+    <p>Please enter your credentials to continue.</p>
+
+    <form>
+      <input type="text" placeholder="Client ID" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
 </div>
 
@@ -76,13 +95,15 @@
 <div class="ticker-wrapper">
   <div class="ticker">
     <span>
-      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
-      Capital Market & Investment Services •
-      Committed to Transparency & Compliance •
+      Audited Financial Statements Available for Download •
+      Transparency • Compliance • Investor Confidence •
     </span>
   </div>
 </div>
 
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 <main>
 
   <section class="section">
@@ -91,64 +112,62 @@
 
       <p>
         Below are the audited and biannual financial statements of
-        Saima Qaiser Securities (Pvt) Limited.
+        Saima Qaiser Securities (Pvt) Limited. All documents are
+        prepared in accordance with applicable regulatory requirements.
       </p>
 
-      <h2>Audited Financial Statements</h2>
-
-      <ul>
-        <li>
-          <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2016.pdf" target="_blank">
-            Audited Accounts – Year Ended 30 June 2016
-          </a>
-        </li>
-        <li>
-          <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2017.pdf" target="_blank">
-            Audited Accounts – Year Ended 30 June 2017
-          </a>
-        </li>
-        <li>
-          <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2018.pdf" target="_blank">
-            Audited Accounts – Year Ended 30 June 2018
-          </a>
-        </li>
+      <ul class="financial-list">
         <li>
           <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2019.pdf" target="_blank">
-            Audited Accounts – Year Ended 30 June 2019
+            Audited Accounts – 2019
           </a>
         </li>
-      </ul>
 
-      <h2>Biannual Financial Statements</h2>
+        <li>
+          <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2018.pdf" target="_blank">
+            Audited Accounts – 2018
+          </a>
+        </li>
 
-      <ul>
         <li>
-          <a href="assets/financials/Biannual-Financial-Statements-2017.pdf" target="_blank">
-            Biannual Financial Statements – 2017
+          <a href="assets/financials/Saima-Qaiser-Audited-Accounts-2017.pdf" target="_blank">
+            Audited Accounts – 2017
           </a>
         </li>
-        <li>
-          <a href="assets/financials/Biannual-Financial-Statements-2018.pdf" target="_blank">
-            Biannual Financial Statements – 2018
-          </a>
-        </li>
+
         <li>
           <a href="assets/financials/Biannual-Financial-Statements-2019.pdf" target="_blank">
             Biannual Financial Statements – 2019
           </a>
         </li>
+
+        <li>
+          <a href="assets/financials/Biannual-Financial-Statements-2018.pdf" target="_blank">
+            Biannual Financial Statements – 2018
+          </a>
+        </li>
       </ul>
 
-      <a href="index.html" class="btn-primary">← Back to Home</a>
+      <p class="note">
+        <strong>Note:</strong> PDF files are hosted in the
+        <code>assets/financials/</code> directory.
+      </p>
 
+      <a href="index.html" class="btn-primary">← Back to Home</a>
     </div>
   </section>
 
 </main>
 
+<!-- =========================
+     FOOTER
+========================= -->
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities (Pvt) Limited. All rights reserved.</p>
+    <p>
+      © <span id="year"></span> Saima Qaiser Securities (Pvt) Limited.
+      All rights reserved.
+    </p>
 
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy Policy</a></li>
@@ -160,6 +179,7 @@
 
 <!-- JS -->
 <script src="assets/js/loader.js" defer></script>
+<script src="assets/js/modal.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
