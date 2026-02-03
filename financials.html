@@ -14,6 +14,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/tables.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
   <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
@@ -53,13 +54,61 @@
 </div>
 
 <!-- =========================
+     SHAREHOLDER AGAHI POPUP
+========================= -->
+<div class="agahi-overlay" id="agahi-popup">
+  <div class="agahi-popup">
+
+    <span class="agahi-close" id="agahi-close">&times;</span>
+
+    <div class="agahi-header">
+      <img
+        src="assets/images/shareholder-agahi.png"
+        alt="Shareholder Agahi"
+        data-external-link="https://www.shareholderagahi.com/"
+      />
+
+      <div class="agahi-title">
+        Shareholder Awareness Initiative
+      </div>
+    </div>
+
+    <div class="agahi-content">
+      <p>
+        The Securities and Exchange Commission of Pakistan (SECP) has launched
+        the Shareholder Agahi initiative to enhance investor awareness and
+        protection.
+      </p>
+
+      <p>
+        Investors are encouraged to visit the following platforms to learn more
+        about their rights, responsibilities, and best practices for investing
+        in capital markets.
+      </p>
+    </div>
+
+    <div class="agahi-links">
+      <a href="#" data-external-link="https://www.shareholderagahi.com/">
+        Shareholder Agahi
+      </a>
+      <a href="#" data-external-link="http://picg.org.pk/">
+        PICG
+      </a>
+      <a href="#" data-external-link="https://www.cdcpakistan.com/">
+        CDC (Central Depository Company)
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================
      FIXED HEADER (TWO ROW)
 ========================= -->
 <header class="site-header">
 
   <!-- Row 1 -->
   <div class="container header-layout">
-
     <div class="logo">
       <a href="index.html">
         <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
@@ -73,7 +122,6 @@
     <div class="header-actions">
       <a href="#" class="btn-secondary">Client Login</a>
     </div>
-
   </div>
 
   <!-- Row 2 -->
@@ -94,8 +142,8 @@
 <div class="ticker-wrapper">
   <div class="ticker">
     <span>
-      Saima Qaiser Securities (Pvt) Limited — Financial Transparency •
-      Audited Accounts • Regulatory Compliance •
+      Saima Qaiser Securities (Pvt) Limited — Audited Financial Statements •
+      Transparency • Compliance •
     </span>
   </div>
 </div>
@@ -110,18 +158,52 @@
 
       <p>
         Below are the audited financial statements of Saima Qaiser Securities
-        (Pvt) Limited, prepared in accordance with applicable laws and
-        regulations.
+        (Pvt) Limited. Investors are encouraged to review these documents
+        carefully.
       </p>
 
-      <h2>Audited Accounts</h2>
-
-      <ul>
-        <li><a href="assets/financials/BIANNUAL-FS-2019.pdf" target="_blank">Audited Financial Statements – 2019</a></li>
-        <li><a href="assets/financials/BIANNUAL-FS-2018.pdf" target="_blank">Audited Financial Statements – 2018</a></li>
-        <li><a href="assets/financials/BIANNUAL-FS-2017.pdf" target="_blank">Audited Financial Statements – 2017</a></li>
-        <li><a href="assets/financials/Audited-Accounts-2016.pdf" target="_blank">Audited Financial Statements – 2016</a></li>
-      </ul>
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Financial Year</th>
+            <th>Document</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2019</td>
+            <td>
+              <a href="assets/financials/BIANNUAL-FS-2019.pdf" target="_blank">
+                Audited Financial Statements 2019
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td>
+              <a href="assets/financials/BIANNUAL-FS-2018.pdf" target="_blank">
+                Audited Financial Statements 2018
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td>
+              <a href="assets/financials/BIANNUAL-FS-2017.pdf" target="_blank">
+                Audited Financial Statements 2017
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>
+              <a href="assets/financials/Audited-Accounts-2016.pdf" target="_blank">
+                Audited Financial Statements 2016
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <a href="index.html" class="btn-primary">← Back to Home</a>
     </div>
