@@ -1,107 +1,35 @@
-/* =========================================================
-   GLOBAL PAGE LOADER
-   Author: Final Production Build
-   Purpose:
-   - Smooth page loading experience
-   - Prevents FOUC (Flash of Unstyled Content)
-   - GitHub Pages compatible
-   - Accessible & failsafe
-   ========================================================= */
+/**
+ * Global Page Loader Controller
+ * ------------------------------------
+ * - Prevents flicker
+ * - Waits for full page + assets
+ * - Smoothly fades out loader
+ * - Safe for GitHub Pages
+ */
 
 (function () {
-  "use strict";
+  const LOADER_HIDE_DELAY = 300; // ms after load (matches reference feel)
 
-  const LOADER_ID = "page-loader";
-  const BODY_LOADING_CLASS = "loading";
-  const FAILSAFE_TIMEOUT = 5000; // 5 seconds
-
-  /**
-   * Create loader HTML dynamically
-   */
-  function createLoader() {
-    if (document.getElementById(LOADER_ID)) return;
-
-    const loader = document.createElement("div");
-    loader.id = LOADER_ID;
-    loader.setAttribute("aria-hidden", "true");
-
-    loader.innerHTML = `
-      <div class="loader-backdrop"></div>
-      <div class="loader-spinner" role="status" aria-label="Loading"></div>
-    `;
-
-    document.body.appendChild(loader);
-    document.body.classList.add(BODY_LOADING_CLASS);
-  }
-
-  /**
-   * Hide and remove loader
-   */
   function hideLoader() {
-    const loader = document.getElementById(LOADER_ID);
+    const loader = document.querySelector(".site-loader");
     if (!loader) return;
 
-    loader.classList.add("loader-hide");
+    loader.classList.add("hidden");
 
+    // Remove from DOM after animation finishes
     setTimeout(() => {
-      if (loader.parentNode) {
+      if (loader && loader.parentNode) {
         loader.parentNode.removeChild(loader);
       }
-      document.body.classList.remove(BODY_LOADING_CLASS);
-    }, 500);
+    }, 700); // must match CSS transition duration
   }
 
-  /**
-   * Initialize loader as early as possible
-   */
-  function initLoader() {
-    if (document.readyState === "loading") {
-      createLoader();
-    }
-  }
+  // Ensure loader is visible immediately
+  document.documentElement.classList.add("loading");
 
-  /**
-   * Ensure loader is removed once page is fully loaded
-   */
-  function onPageLoad() {
-    hideLoader();
-  }
-
-  /**
-   * Failsafe: Remove loader even if load event fails
-   */
-  function failsafeRemove() {
-    setTimeout(() => {
-      hideLoader();
-    }, FAILSAFE_TIMEOUT);
-  }
-
-  /**
-   * Reduced motion support (accessibility)
-   */
-  function handleReducedMotion() {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
-
-    if (prefersReducedMotion.matches) {
-      const loader = document.getElementById(LOADER_ID);
-      if (loader) {
-        loader.classList.add("reduced-motion");
-      }
-    }
-  }
-
-  /* =========================================================
-     EVENT BINDINGS
-     ========================================================= */
-
-  initLoader();
-
-  window.addEventListener("load", () => {
-    handleReducedMotion();
-    onPageLoad();
+  // When full page (images, fonts, etc.) is loaded
+  window.addEventListener("load", function () {
+    setTimeout(hideLoader, LOADER_HIDE_DELAY);
   });
 
-  failsafeRemove();
 })();
