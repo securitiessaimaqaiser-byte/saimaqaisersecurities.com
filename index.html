@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
+  <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -23,17 +24,31 @@
 
 <body>
 
-<!-- =====================================================
-     SITE LOADER (MUST BE FIRST INSIDE BODY)
-===================================================== -->
+<!-- =========================
+     SITE LOADER
+========================= -->
 <div class="site-loader">
   <div class="loader-inner">
-    <img
-      src="assets/images/logo.png"
-      alt="Saima Qaiser Securities"
-      class="loader-logo"
-    />
+    <img src="assets/images/logo.png" alt="Saima Qaiser Securities" class="loader-logo" />
     <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     CLIENT LOGIN MODAL
+========================= -->
+<div class="modal-overlay">
+  <div class="modal">
+    <span class="modal-close">&times;</span>
+
+    <h2>Client Login</h2>
+    <p>Please enter your credentials to continue.</p>
+
+    <form>
+      <input type="text" placeholder="Client ID" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
 </div>
 
@@ -84,7 +99,6 @@
 </div>
 
 <main>
-
   <section class="hero hero-corporate">
     <div class="container">
       <h1>Saima Qaiser Securities (Pvt) Limited</h1>
@@ -93,7 +107,6 @@
       </p>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
@@ -104,6 +117,7 @@
 
 <!-- JS -->
 <script src="assets/js/loader.js" defer></script>
+<script src="assets/js/modal.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
