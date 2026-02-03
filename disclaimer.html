@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- 🔑 GitHub Pages subdirectory fix -->
+  <!-- GitHub Pages subdirectory fix -->
   <base href="/saimaqaisersecurities.com/">
 
   <title>Disclaimer | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Disclaimer for Saima Qaiser Securities (Pvt) Limited outlining limitations of liability and informational purposes of website content." />
+  <meta name="description" content="Disclaimer of Saima Qaiser Securities (Pvt) Limited regarding information, services, and investment risks." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/loader.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -22,8 +23,26 @@
 
 <body>
 
+<!-- =========================
+     SITE LOADER
+========================= -->
+<div class="site-loader">
+  <div class="loader-inner">
+    <img
+      src="assets/images/logo.png"
+      alt="Saima Qaiser Securities"
+      class="loader-logo"
+    />
+    <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     FIXED HEADER
+========================= -->
 <header class="site-header">
-  <div class="container">
+  <div class="container header-layout">
+
     <div class="logo">
       <a href="index.html">
         <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
@@ -36,61 +55,79 @@
         <li><a href="about.html">About</a></li>
         <li><a href="financials.html">Financials</a></li>
         <li><a href="disclosures.html">Disclosures</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="header-search">
+      <input type="search" placeholder="Search…" aria-label="Search site" />
+    </div>
+
+    <div class="header-actions">
+      <a href="#" class="btn-secondary">Client Login</a>
+      <a href="#" class="btn-primary">Online Trading</a>
+    </div>
+
   </div>
 </header>
 
+<!-- =========================
+     TICKER
+========================= -->
+<div class="ticker-wrapper">
+  <div class="ticker">
+    <span>
+      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
+      Capital Market & Investment Services •
+      Committed to Transparency & Compliance •
+    </span>
+  </div>
+</div>
+
 <main>
 
-  <section class="section section-light">
+  <section class="section">
     <div class="container legal-page">
       <h1>Disclaimer</h1>
 
       <p>
         The information provided on this website is for general informational
-        purposes only and does not constitute financial, investment, or legal
-        advice.
+        purposes only. Saima Qaiser Securities (Pvt) Limited makes no
+        representations or warranties of any kind, express or implied, about the
+        completeness, accuracy, reliability, suitability, or availability of the
+        information contained on this website.
       </p>
 
       <h2>No Investment Advice</h2>
       <p>
-        Saima Qaiser Securities (Pvt) Limited does not warrant the accuracy,
-        completeness, or reliability of any information presented. Visitors
-        should not rely solely on the information provided when making
-        investment decisions.
+        Nothing on this website constitutes investment, legal, accounting, or
+        tax advice. Any investment decisions should be made solely on the basis
+        of independent evaluation and professional advice.
+      </p>
+
+      <h2>Investment Risk</h2>
+      <p>
+        Investments in securities and capital markets are subject to market
+        risks. Past performance is not indicative of future results. Saima
+        Qaiser Securities (Pvt) Limited shall not be liable for any losses arising
+        from reliance on information provided on this website.
+      </p>
+
+      <h2>Third-Party Links</h2>
+      <p>
+        This website may contain links to external websites that are not provided
+        or maintained by Saima Qaiser Securities (Pvt) Limited. The company does
+        not guarantee the accuracy, relevance, timeliness, or completeness of any
+        information on such external websites.
       </p>
 
       <h2>Limitation of Liability</h2>
       <p>
         Under no circumstances shall Saima Qaiser Securities (Pvt) Limited be
-        liable for any direct, indirect, incidental, or consequential damages
-        arising from the use of or reliance on this website.
+        liable for any direct, indirect, incidental, consequential, or punitive
+        damages arising out of access to or use of this website.
       </p>
 
-      <h2>External Links</h2>
-      <p>
-        This website may contain links to third-party websites. Saima Qaiser
-        Securities (Pvt) Limited has no control over the content or availability
-        of such external sites and assumes no responsibility for them.
-      </p>
-
-      <h2>Regulatory Compliance</h2>
-      <p>
-        All services are provided in accordance with applicable laws and
-        regulations of Pakistan and under the oversight of the Securities and
-        Exchange Commission of Pakistan (SECP).
-      </p>
-
-      <!-- Back to Home -->
-      <div style="margin-top: 48px;">
-        <a href="index.html" class="btn-primary">← Back to Home</a>
-      </div>
-
-      <p class="last-updated">
-        Last updated: February 2026
-      </p>
+      <a href="index.html" class="btn-primary">← Back to Home</a>
     </div>
   </section>
 
@@ -108,6 +145,8 @@
   </div>
 </footer>
 
+<!-- JS -->
+<script src="assets/js/loader.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
