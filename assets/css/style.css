@@ -1,47 +1,46 @@
-/* ======================================================
-   GLOBAL BASE
-   ====================================================== */
+/* =====================================================
+   Base Reset & Typography
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
   color: #1f2937;
   background-color: #ffffff;
-  line-height: 1.65;
-  font-size: 15px;
 }
+
+/* =====================================================
+   Layout Utilities
+===================================================== */
 
 .container {
+  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
-h1,
-h2,
-h3 {
-  color: #111827;
-  font-weight: 600;
-  line-height: 1.3;
+.section {
+  padding: 72px 0;
 }
 
-h1 {
-  font-size: 36px;
-  margin-bottom: 12px;
+.section-light {
+  background-color: #f9fafb;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-p {
-  margin-bottom: 16px;
-}
-
-/* ======================================================
-   HEADER & NAVIGATION
-   ====================================================== */
+/* =====================================================
+   Header & Navigation
+===================================================== */
 
 .site-header {
   background-color: #ffffff;
@@ -52,11 +51,11 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  height: 72px;
 }
 
 .logo img {
-  height: 44px;
+  height: 42px;
 }
 
 .main-nav ul {
@@ -67,77 +66,135 @@ p {
 
 .main-nav a {
   text-decoration: none;
-  color: #374151;
   font-weight: 500;
-  font-size: 14px;
+  color: #1f2937;
+  padding: 6px 2px;
+  position: relative;
 }
 
-.main-nav a.active,
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a.active {
   color: #0f766e;
 }
 
-/* ======================================================
-   HERO SECTION (HOMEPAGE)
-   ====================================================== */
+/* =====================================================
+   Typography
+===================================================== */
 
-.hero-corporate {
-  background-color: #f9fafb;
-  padding: 80px 0 72px 0;
-  border-bottom: 1px solid #e5e7eb;
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: #111827;
 }
 
-.hero-corporate h1 {
-  font-size: 38px;
-  font-weight: 600;
-  margin-bottom: 10px;
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: 16px;
 }
 
-.hero-subtitle {
-  font-size: 16px;
-  color: #4b5563;
-  max-width: 720px;
+h2 {
+  font-size: 1.5rem;
+  margin: 32px 0 12px;
 }
 
-/* ======================================================
-   SECTIONS
-   ====================================================== */
-
-.section {
-  padding: 64px 0;
-}
-
-.section-light {
-  background-color: #ffffff;
-}
-
-.section-muted {
-  background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-/* ======================================================
-   PRINCIPLES LIST
-   ====================================================== */
-
-.principles-list {
-  list-style: disc;
-  padding-left: 20px;
-}
-
-.principles-list li {
-  margin-bottom: 10px;
+p {
+  margin-bottom: 16px;
   color: #374151;
 }
 
-/* ======================================================
-   CONTACT SECTION
-   ====================================================== */
+ul {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
 
-.section-contact {
-  background-color: #ffffff;
-  border-top: 1px solid #e5e7eb;
+/* =====================================================
+   Buttons (PRIMARY + BACK-TO-HOME POLISH)
+===================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0f766e;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #0d5f59;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+}
+
+/* Subtle visual cue specifically for "Back to Home" usage */
+.legal-page .btn-primary {
+  margin-top: 12px;
+}
+
+/* =====================================================
+   Legal / Content Pages
+===================================================== */
+
+.legal-page {
+  max-width: 900px;
+}
+
+.last-updated {
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* =====================================================
+   Footer
+===================================================== */
+
+.site-footer {
+  background-color: #111827;
+  color: #d1d5db;
+  padding: 32px 0;
+  margin-top: 64px;
+}
+
+.site-footer p {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* =====================================================
+   Forms
+===================================================== */
+
+form {
+  max-width: 480px;
 }
 
 .form-group {
@@ -146,8 +203,7 @@ p {
 
 label {
   display: block;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 0.9rem;
   margin-bottom: 6px;
   color: #374151;
 }
@@ -158,7 +214,7 @@ textarea {
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 4px;
-  font-size: 14px;
+  font-family: inherit;
 }
 
 input:focus,
@@ -167,64 +223,10 @@ textarea:focus {
   border-color: #0f766e;
 }
 
-.btn-primary {
-  background-color: #0f766e;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
+/* =====================================================
+   Utilities
+===================================================== */
 
-.btn-primary:hover {
-  background-color: #115e59;
-}
-
-/* ======================================================
-   LEGAL / INNER PAGES
-   ====================================================== */
-
-.legal-page h1 {
-  margin-bottom: 20px;
-}
-
-.last-updated {
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 32px;
-}
-
-/* ======================================================
-   FOOTER
-   ====================================================== */
-
-.site-footer {
-  background-color: #f9fafb;
-  border-top: 1px solid #e5e7eb;
-  padding: 32px 0;
-  margin-top: 64px;
-}
-
-.site-footer p {
-  font-size: 13px;
-  color: #6b7280;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  gap: 16px;
-  margin-top: 8px;
-}
-
-.footer-links a {
-  font-size: 13px;
-  color: #374151;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
+.text-center {
+  text-align: center;
 }
