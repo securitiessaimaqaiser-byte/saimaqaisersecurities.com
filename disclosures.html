@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
+  <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -34,6 +35,24 @@
       class="loader-logo"
     />
     <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     CLIENT LOGIN MODAL
+========================= -->
+<div class="modal-overlay">
+  <div class="modal">
+    <span class="modal-close">&times;</span>
+
+    <h2>Client Login</h2>
+    <p>Please enter your credentials to continue.</p>
+
+    <form>
+      <input type="text" placeholder="Client ID" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
 </div>
 
@@ -76,13 +95,15 @@
 <div class="ticker-wrapper">
   <div class="ticker">
     <span>
-      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
-      Capital Market & Investment Services •
-      Committed to Transparency & Compliance •
+      Regulatory Disclosures • Investor Protection • SECP Compliance •
+      Transparency & Accountability •
     </span>
   </div>
 </div>
 
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 <main>
 
   <section class="section">
@@ -91,36 +112,35 @@
 
       <p>
         Saima Qaiser Securities (Pvt) Limited makes the following disclosures
-        in compliance with applicable laws, rules, and regulations of the
-        Securities and Exchange Commission of Pakistan (SECP).
+        in compliance with the rules and regulations issued by the Securities
+        and Exchange Commission of Pakistan (SECP) and other applicable
+        regulatory authorities.
       </p>
 
-      <h2>Regulatory Information</h2>
-      <ul>
-        <li>Licensed brokerage house regulated by SECP</li>
-        <li>Subject to rules and regulations of Pakistan Stock Exchange</li>
-        <li>Compliance with AML / CFT requirements</li>
-      </ul>
-
-      <h2>Risk Disclosure</h2>
+      <h2>Regulatory Status</h2>
       <p>
-        Investments in capital markets are subject to market risks.
-        Investors are advised to carefully read the risk disclosure
-        statement before making any investment decisions.
+        Saima Qaiser Securities (Pvt) Limited is a SECP regulated brokerage
+        house authorized to provide capital market services in Pakistan.
       </p>
 
       <h2>Conflict of Interest</h2>
       <p>
-        The company may, from time to time, provide services to multiple
-        clients and counterparties which may give rise to potential
-        conflicts of interest. Appropriate policies are maintained to
-        manage such situations fairly.
+        The company maintains internal controls and policies to identify,
+        manage, and disclose any potential conflicts of interest in
+        accordance with regulatory requirements.
       </p>
 
-      <h2>Investor Complaints</h2>
+      <h2>Investor Responsibility</h2>
       <p>
-        Any investor complaints may be submitted directly to the company
-        or through the SECP complaint management system.
+        Investors are advised to carefully read all relevant documentation
+        and seek independent financial advice where necessary before making
+        investment decisions.
+      </p>
+
+      <h2>Risk Acknowledgment</h2>
+      <p>
+        Investment in securities involves market risks. Past performance
+        is not indicative of future results.
       </p>
 
       <a href="index.html" class="btn-primary">← Back to Home</a>
@@ -129,9 +149,15 @@
 
 </main>
 
+<!-- =========================
+     FOOTER
+========================= -->
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities (Pvt) Limited. All rights reserved.</p>
+    <p>
+      © <span id="year"></span> Saima Qaiser Securities (Pvt) Limited.
+      All rights reserved.
+    </p>
 
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy Policy</a></li>
@@ -143,6 +169,7 @@
 
 <!-- JS -->
 <script src="assets/js/loader.js" defer></script>
+<script src="assets/js/modal.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
