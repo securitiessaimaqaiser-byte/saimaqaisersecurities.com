@@ -26,28 +26,45 @@
      FIXED HEADER
 ========================= -->
 <header class="site-header">
-  <div class="container">
+  <div class="container header-layout">
+
+    <!-- Logo -->
     <div class="logo">
       <a href="index.html">
         <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
       </a>
     </div>
 
+    <!-- Navigation -->
     <nav class="main-nav">
       <ul>
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="financials.html">Financials</a></li>
         <li><a href="disclosures.html">Disclosures</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
+
+    <!-- Search -->
+    <div class="header-search">
+      <input
+        type="search"
+        placeholder="Search…"
+        aria-label="Search site"
+      />
+    </div>
+
+    <!-- Client Login Buttons -->
+    <div class="header-actions">
+      <a href="#" class="btn-secondary">Client Login</a>
+      <a href="#" class="btn-primary">Online Trading</a>
+    </div>
+
   </div>
 </header>
 
 <!-- =========================
-     TICKER (STEP 2)
-     EXACT POSITION: BELOW HEADER
+     TICKER
 ========================= -->
 <div class="ticker-wrapper">
   <div class="ticker">
@@ -81,33 +98,6 @@
     </div>
   </section>
 
-  <section class="section section-contact" id="contact">
-    <div class="container">
-      <h2>Contact Information</h2>
-
-      <form id="contactForm">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" required />
-        </div>
-
-        <div class="form-group">
-          <label>Message</label>
-          <textarea rows="4" required></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary">
-          Submit Inquiry
-        </button>
-      </form>
-    </div>
-  </section>
-
 </main>
 
 <footer class="site-footer">
@@ -123,7 +113,6 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/contact.js" defer></script>
 
 </body>
 </html>
