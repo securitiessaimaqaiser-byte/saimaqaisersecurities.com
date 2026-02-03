@@ -8,13 +8,14 @@
 
   <title>Privacy Policy | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Privacy policy of Saima Qaiser Securities (Pvt) Limited describing how personal information is collected, used, and protected." />
+  <meta name="description" content="Privacy policy of Saima Qaiser Securities (Pvt) Limited outlining data collection, usage, and protection practices." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/loader.css" />
+  <link rel="stylesheet" href="assets/css/modal.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -34,6 +35,24 @@
       class="loader-logo"
     />
     <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- =========================
+     CLIENT LOGIN MODAL
+========================= -->
+<div class="modal-overlay">
+  <div class="modal">
+    <span class="modal-close">&times;</span>
+
+    <h2>Client Login</h2>
+    <p>Please enter your credentials to continue.</p>
+
+    <form>
+      <input type="text" placeholder="Client ID" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
 </div>
 
@@ -76,13 +95,15 @@
 <div class="ticker-wrapper">
   <div class="ticker">
     <span>
-      Saima Qaiser Securities (Pvt) Limited — SECP Regulated Brokerage House •
-      Capital Market & Investment Services •
-      Committed to Transparency & Compliance •
+      Client Confidentiality • Data Protection • Privacy Commitment •
+      SECP Compliant Practices •
     </span>
   </div>
 </div>
 
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 <main>
 
   <section class="section">
@@ -91,42 +112,43 @@
 
       <p>
         Saima Qaiser Securities (Pvt) Limited is committed to protecting the
-        privacy and confidentiality of personal information provided by its
-        clients, visitors, and stakeholders.
+        privacy and confidentiality of its clients’ personal and financial
+        information. This Privacy Policy outlines how we collect, use, and
+        safeguard such information.
       </p>
 
-      <h2>Information We Collect</h2>
+      <h2>Information Collection</h2>
       <p>
         We may collect personal information including, but not limited to,
-        name, contact details, identification documents, and financial
-        information as required under applicable laws and regulations.
+        identification details, contact information, and financial data
+        provided by clients during account opening or service usage.
       </p>
 
       <h2>Use of Information</h2>
       <p>
-        Collected information is used solely for the purpose of providing
-        brokerage services, complying with regulatory requirements, improving
-        our services, and communicating with clients.
+        Collected information is used solely for providing brokerage and
+        related services, complying with regulatory requirements, improving
+        service quality, and communicating with clients where necessary.
       </p>
 
-      <h2>Information Security</h2>
+      <h2>Information Protection</h2>
       <p>
-        Appropriate administrative, technical, and physical safeguards are
-        maintained to protect personal information against unauthorized access,
-        disclosure, alteration, or destruction.
+        We implement appropriate administrative, technical, and physical
+        safeguards to protect client information against unauthorized access,
+        disclosure, or misuse.
       </p>
 
-      <h2>Disclosure of Information</h2>
+      <h2>Information Sharing</h2>
       <p>
-        Personal information may be disclosed where required by law, regulation,
-        or regulatory authorities including the Securities and Exchange
-        Commission of Pakistan (SECP).
+        Client information is not disclosed to third parties except where
+        required by law, regulatory authorities, or with the client’s consent.
       </p>
 
       <h2>Policy Updates</h2>
       <p>
-        This privacy policy may be updated from time to time. Any changes will
-        be posted on this page.
+        Saima Qaiser Securities (Pvt) Limited reserves the right to update this
+        Privacy Policy from time to time. Any changes will be reflected on
+        this page.
       </p>
 
       <a href="index.html" class="btn-primary">← Back to Home</a>
@@ -135,9 +157,15 @@
 
 </main>
 
+<!-- =========================
+     FOOTER
+========================= -->
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> Saima Qaiser Securities (Pvt) Limited. All rights reserved.</p>
+    <p>
+      © <span id="year"></span> Saima Qaiser Securities (Pvt) Limited.
+      All rights reserved.
+    </p>
 
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy Policy</a></li>
@@ -149,6 +177,7 @@
 
 <!-- JS -->
 <script src="assets/js/loader.js" defer></script>
+<script src="assets/js/modal.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 
 </body>
