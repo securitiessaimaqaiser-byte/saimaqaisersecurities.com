@@ -64,6 +64,7 @@ body {
   list-style: none;
   display: flex;
   gap: 24px;
+  align-items: center;
 }
 
 .main-nav li {
@@ -75,8 +76,7 @@ body {
   font-weight: 500;
   color: #1f2937;
   padding: 6px 2px;
-  position: relative;
-  white-space: nowrap;
+  display: inline-block;
 }
 
 .main-nav a:hover,
@@ -85,7 +85,7 @@ body {
 }
 
 /* =====================================================
-   Dropdown Navigation
+   DROPDOWN MENU (CORE FEATURE)
 ===================================================== */
 
 .nav-dropdown > a::after {
@@ -98,14 +98,18 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ffffff;
   min-width: 220px;
+  background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  list-style: none;
   padding: 8px 0;
-  display: none;
-  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 999;
 }
 
 .dropdown-menu li {
@@ -113,20 +117,24 @@ body {
 }
 
 .dropdown-menu a {
-  display: block;
   padding: 10px 16px;
+  width: 100%;
+  display: block;
   font-size: 0.9rem;
   color: #1f2937;
+  white-space: nowrap;
 }
 
 .dropdown-menu a:hover {
-  background-color: #f0fdfa;
+  background-color: #f3f4f6;
   color: #0f766e;
 }
 
 /* Show dropdown on hover */
 .nav-dropdown:hover .dropdown-menu {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* =====================================================
@@ -161,7 +169,7 @@ ul {
 }
 
 /* =====================================================
-   Buttons (PRIMARY + BACK-TO-HOME POLISH)
+   Buttons
 ===================================================== */
 
 .btn-primary {
@@ -190,7 +198,6 @@ ul {
   box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
 }
 
-/* Subtle visual cue specifically for "Back to Home" usage */
 .legal-page .btn-primary {
   margin-top: 12px;
 }
