@@ -6,15 +6,14 @@
   <!-- 🔑 GitHub Pages subdirectory fix -->
   <base href="/saimaqaisersecurities.com/">
 
-  <title>Financial Statements | Saima Qaiser Securities (Pvt) Limited</title>
+  <title>Investor Information | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Financial statements, audited accounts, and regulatory disclosures of Saima Qaiser Securities (Pvt) Limited." />
+  <meta name="description" content="Investor information including financial statements, statutory auditor details, KYC/CDD policies, and account opening forms." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/tables.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 
   <!-- Fonts -->
@@ -31,71 +30,89 @@
       </a>
     </div>
 
-    <nav class="main-nav">
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="main-nav" aria-label="Primary Navigation">
       <ul>
 
-        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
 
-        <!-- About Us -->
+        <!-- About Us Dropdown -->
         <li class="nav-dropdown">
-          <a href="about.html">About Us</a>
-          <ul class="dropdown-menu">
-            <li><a href="about.html#vision-mission">Vision &amp; Mission</a></li>
-            <li><a href="about.html#introduction">Introduction</a></li>
-            <li><a href="about.html#management">Management</a></li>
-            <li><a href="about.html#legal-facilitation">Our Legal Facilitation</a></li>
+          <a href="about.html"
+             aria-haspopup="true"
+             aria-expanded="false">
+            About Us
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="about.html#vision">Vision &amp; Mission</a></li>
+            <li><a role="menuitem" href="about.html#introduction">Introduction</a></li>
+            <li><a role="menuitem" href="about.html#management">Management</a></li>
+            <li><a role="menuitem" href="about.html#legal">Our Legal Facilitation</a></li>
           </ul>
         </li>
 
-        <!-- Governance -->
+        <!-- Governance Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Governance</a>
-          <ul class="dropdown-menu">
-            <li><a href="governance.html#board-directors">Board of Directors</a></li>
-            <li><a href="governance.html#shareholding-patterns">Share Holding Patterns</a></li>
+          <a href="governance.html"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Governance
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="governance.html#board">Board of Directors</a></li>
+            <li><a role="menuitem" href="governance.html#shareholding">Share Holding Patterns</a></li>
           </ul>
         </li>
 
-        <!-- Investor Information -->
+        <!-- Investor Information Dropdown (ACTIVE) -->
         <li class="nav-dropdown">
-          <a href="#" class="active">Investor Information</a>
-          <ul class="dropdown-menu">
-            <li><a href="financials.html" class="active">Financial Statements</a></li>
-            <li><a href="statutory-auditor.html">Statutory Auditor</a></li>
-            <li><a href="kyc-cdd-policy.html">KYC / CDD Policy</a></li>
-            <li><a href="account-opening-form.html">Account Opening Form</a></li>
+          <a href="financials.html"
+             class="active"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Investor Information
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="financials.html">Financial Statements</a></li>
+            <li><a role="menuitem" href="auditor.html">Statutory Auditor</a></li>
+            <li><a role="menuitem" href="kyc-policy.html">KYC / CDD Policy</a></li>
+            <li><a role="menuitem" href="account-opening.html">Account Opening Form</a></li>
           </ul>
         </li>
 
-        <!-- Investors Portal -->
+        <!-- Investors Portal Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Investors Portal</a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">
-                SECP Online Complaints
-              </a>
-            </li>
-            <li>
-              <a href="https://www.psx.com.pk/" target="_blank" rel="noopener">
-                PSX Online Complaint
-              </a>
-            </li>
-            <li><a href="feedback.html">Feedback Form</a></li>
+          <a href="#"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Investors Portal
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">SECP Online Complaints</a></li>
+            <li><a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">PSX Online Complaint</a></li>
+            <li><a role="menuitem" href="feedback.html">Feedback Form</a></li>
           </ul>
         </li>
 
-        <!-- Miscellaneous -->
+        <!-- Miscellaneous Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Miscellaneous</a>
-          <ul class="dropdown-menu">
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-            <li><a href="media.html">Media</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+          <a href="#"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Miscellaneous
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="disclaimer.html">Disclaimer</a></li>
+            <li><a role="menuitem" href="media.html">Media</a></li>
+            <li><a role="menuitem" href="faq.html">FAQ</a></li>
           </ul>
         </li>
 
-        <li><a href="index.html#contact">Contact</a></li>
+        <li>
+          <a href="index.html#contact">Contact</a>
+        </li>
 
       </ul>
     </nav>
@@ -106,90 +123,39 @@
 
   <section class="section section-light">
     <div class="container legal-page">
-      <h1>Financial Statements</h1>
+
+      <h1>Investor Information</h1>
 
       <p>
-        Below are the audited financial statements and biannual financial reports
-        of Saima Qaiser Securities (Pvt) Limited, published in compliance with
-        applicable regulatory requirements.
+        This section provides important financial and regulatory information for
+        investors of Saima Qaiser Securities (Pvt) Limited, in compliance with SECP
+        requirements.
       </p>
 
-      <table class="financial-table">
-        <thead>
-          <tr>
-            <th>Document</th>
-            <th>Period</th>
-            <th>Download</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Audited Accounts</td>
-            <td>Year Ended 30 June 2016</td>
-            <td>
-              <a href="assets/files/Audited-Accounts-2016.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Audited Accounts</td>
-            <td>Year Ended 30 June 2017</td>
-            <td>
-              <a href="assets/files/Audited-Accounts-2017.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Audited Accounts</td>
-            <td>Year Ended 30 June 2018</td>
-            <td>
-              <a href="assets/files/Audited-Accounts-2018.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Audited Accounts</td>
-            <td>Year Ended 30 June 2019</td>
-            <td>
-              <a href="assets/files/Audited-Accounts-2019.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Biannual Financial Statement</td>
-            <td>2017</td>
-            <td>
-              <a href="assets/files/BIANNUAL-FS-2017.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Biannual Financial Statement</td>
-            <td>2018</td>
-            <td>
-              <a href="assets/files/BIANNUAL-FS-2018.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Biannual Financial Statement</td>
-            <td>2019</td>
-            <td>
-              <a href="assets/files/BIANNUAL-FS-2019.pdf" target="_blank">
-                Download PDF
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Financial Statements</h2>
+      <p>
+        Audited financial statements are prepared annually in accordance with
+        applicable accounting standards and regulatory requirements.
+      </p>
 
-      <!-- Back to Home -->
+      <h2>Statutory Auditor</h2>
+      <p>
+        The statutory auditor is appointed in compliance with corporate and SECP
+        regulations to ensure transparency and accountability.
+      </p>
+
+      <h2>KYC / CDD Policy</h2>
+      <p>
+        Our Know Your Customer (KYC) and Customer Due Diligence (CDD) policies ensure
+        compliance with AML/CFT regulations and safeguard client interests.
+      </p>
+
+      <h2>Account Opening Form</h2>
+      <p>
+        Investors may download and submit the account opening form along with the
+        required documentation to initiate a trading relationship.
+      </p>
+
       <div style="margin-top: 48px;">
         <a href="index.html" class="btn-primary">← Back to Home</a>
       </div>
@@ -197,6 +163,7 @@
       <p class="last-updated">
         Last updated: February 2026
       </p>
+
     </div>
   </section>
 
