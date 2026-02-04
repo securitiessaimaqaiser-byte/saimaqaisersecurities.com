@@ -8,7 +8,7 @@
 
   <title>Privacy Policy | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Privacy policy of Saima Qaiser Securities (Pvt) Limited outlining collection, use, and protection of client information." />
+  <meta name="description" content="Privacy policy of Saima Qaiser Securities (Pvt) Limited describing how personal information is collected, used, and protected." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
@@ -30,71 +30,88 @@
       </a>
     </div>
 
-    <nav class="main-nav">
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="main-nav" aria-label="Primary Navigation">
       <ul>
 
-        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
 
-        <!-- About Us -->
+        <!-- About Us Dropdown -->
         <li class="nav-dropdown">
-          <a href="about.html">About Us</a>
-          <ul class="dropdown-menu">
-            <li><a href="about.html#vision-mission">Vision &amp; Mission</a></li>
-            <li><a href="about.html#introduction">Introduction</a></li>
-            <li><a href="about.html#management">Management</a></li>
-            <li><a href="about.html#legal-facilitation">Our Legal Facilitation</a></li>
+          <a href="about.html"
+             aria-haspopup="true"
+             aria-expanded="false">
+            About Us
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="about.html#vision">Vision &amp; Mission</a></li>
+            <li><a role="menuitem" href="about.html#introduction">Introduction</a></li>
+            <li><a role="menuitem" href="about.html#management">Management</a></li>
+            <li><a role="menuitem" href="about.html#legal">Our Legal Facilitation</a></li>
           </ul>
         </li>
 
-        <!-- Governance -->
+        <!-- Governance Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Governance</a>
-          <ul class="dropdown-menu">
-            <li><a href="governance.html#board-directors">Board of Directors</a></li>
-            <li><a href="governance.html#shareholding-patterns">Share Holding Patterns</a></li>
+          <a href="governance.html"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Governance
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="governance.html#board">Board of Directors</a></li>
+            <li><a role="menuitem" href="governance.html#shareholding">Share Holding Patterns</a></li>
           </ul>
         </li>
 
-        <!-- Investor Information -->
+        <!-- Investor Information Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Investor Information</a>
-          <ul class="dropdown-menu">
-            <li><a href="financials.html">Financial Statements</a></li>
-            <li><a href="statutory-auditor.html">Statutory Auditor</a></li>
-            <li><a href="kyc-cdd-policy.html">KYC / CDD Policy</a></li>
-            <li><a href="account-opening-form.html">Account Opening Form</a></li>
+          <a href="financials.html"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Investor Information
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="financials.html">Financial Statements</a></li>
+            <li><a role="menuitem" href="auditor.html">Statutory Auditor</a></li>
+            <li><a role="menuitem" href="kyc-policy.html">KYC / CDD Policy</a></li>
+            <li><a role="menuitem" href="account-opening.html">Account Opening Form</a></li>
           </ul>
         </li>
 
-        <!-- Investors Portal -->
+        <!-- Investors Portal Dropdown -->
         <li class="nav-dropdown">
-          <a href="#">Investors Portal</a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="https://www.secp.gov.pk/" target="_blank" rel="noopener">
-                SECP Online Complaints
-              </a>
-            </li>
-            <li>
-              <a href="https://www.psx.com.pk/" target="_blank" rel="noopener">
-                PSX Online Complaint
-              </a>
-            </li>
-            <li><a href="feedback.html">Feedback Form</a></li>
+          <a href="#"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Investors Portal
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">SECP Online Complaints</a></li>
+            <li><a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">PSX Online Complaint</a></li>
+            <li><a role="menuitem" href="feedback.html">Feedback Form</a></li>
           </ul>
         </li>
 
-        <!-- Miscellaneous -->
+        <!-- Miscellaneous Dropdown -->
         <li class="nav-dropdown">
-          <a href="#" class="active">Miscellaneous</a>
-          <ul class="dropdown-menu">
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-            <li><a href="media.html">Media</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+          <a href="#"
+             aria-haspopup="true"
+             aria-expanded="false">
+            Miscellaneous
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a role="menuitem" href="disclaimer.html">Disclaimer</a></li>
+            <li><a role="menuitem" href="media.html">Media</a></li>
+            <li><a role="menuitem" href="faq.html">FAQ</a></li>
           </ul>
         </li>
 
-        <li><a href="index.html#contact">Contact</a></li>
+        <li>
+          <a href="index.html#contact">Contact</a>
+        </li>
 
       </ul>
     </nav>
@@ -105,46 +122,47 @@
 
   <section class="section section-light">
     <div class="container legal-page">
+
       <h1>Privacy Policy</h1>
 
       <p>
         Saima Qaiser Securities (Pvt) Limited is committed to protecting the privacy
-        and confidentiality of client information in accordance with applicable laws
-        and regulatory requirements.
+        and confidentiality of personal information provided by its clients,
+        investors, and website visitors.
       </p>
 
-      <h2>Information Collection</h2>
+      <h2>Information We Collect</h2>
       <p>
-        We may collect personal and financial information necessary to provide
-        brokerage and capital market services, comply with legal obligations, and
-        improve our services.
+        We may collect personal information including, but not limited to, names,
+        contact details, identification documents, and financial information as
+        required under applicable laws and regulations.
       </p>
 
       <h2>Use of Information</h2>
       <p>
-        Collected information is used solely for legitimate business purposes,
-        regulatory compliance, and client servicing.
+        Personal information is used solely for legitimate business purposes,
+        regulatory compliance, account maintenance, and communication with clients.
       </p>
 
-      <h2>Information Security</h2>
+      <h2>Information Sharing</h2>
       <p>
-        Reasonable administrative, technical, and physical safeguards are maintained
-        to protect information against unauthorized access, disclosure, or misuse.
+        We do not sell or disclose personal information to third parties except where
+        required by law, regulatory authorities, or with the explicit consent of the
+        client.
       </p>
 
-      <h2>Disclosure of Information</h2>
+      <h2>Data Security</h2>
       <p>
-        Information may be disclosed to regulatory authorities or as required by law.
-        We do not sell or rent personal information to third parties.
+        Appropriate technical and organizational measures are implemented to protect
+        personal data against unauthorized access, misuse, or loss.
       </p>
 
-      <h2>Policy Updates</h2>
+      <h2>Client Rights</h2>
       <p>
-        This privacy policy may be updated periodically. Continued use of our services
-        constitutes acceptance of any changes.
+        Clients may request access to, correction of, or updates to their personal
+        information in accordance with applicable regulations.
       </p>
 
-      <!-- Back to Home -->
       <div style="margin-top: 48px;">
         <a href="index.html" class="btn-primary">← Back to Home</a>
       </div>
@@ -152,6 +170,7 @@
       <p class="last-updated">
         Last updated: February 2026
       </p>
+
     </div>
   </section>
 
