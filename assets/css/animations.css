@@ -1,0 +1,103 @@
+/* =========================
+   Global Animation Settings
+   ========================= */
+
+:root {
+  --animation-fast: 0.2s ease;
+  --animation-medium: 0.4s ease;
+  --animation-slow: 0.6s ease;
+}
+
+/* =========================
+   Fade In Animations
+   ========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--animation-medium);
+}
+
+/* =========================
+   Slide Up Animations
+   ========================= */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp var(--animation-medium);
+}
+
+/* =========================
+   Scale In Animations
+   ========================= */
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn var(--animation-fast);
+}
+
+/* =========================
+   Hover Animations
+   ========================= */
+
+.hover-lift {
+  transition: transform var(--animation-fast), box-shadow var(--animation-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   Button Interaction
+   ========================= */
+
+.btn-primary {
+  transition: background-color var(--animation-fast), transform var(--animation-fast);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Accessibility: Reduced Motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
