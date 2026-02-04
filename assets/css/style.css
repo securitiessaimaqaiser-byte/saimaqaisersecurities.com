@@ -85,13 +85,14 @@ body {
 }
 
 /* =====================================================
-   DROPDOWN MENU (CORE FEATURE)
+   Dropdown Menu (Desktop Hover)
 ===================================================== */
 
 .nav-dropdown > a::after {
   content: "▾";
   font-size: 0.7rem;
   margin-left: 6px;
+  color: #6b7280;
 }
 
 .dropdown-menu {
@@ -102,12 +103,13 @@ body {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
   list-style: none;
   padding: 8px 0;
+
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: all 0.25s ease;
   z-index: 999;
 }
@@ -117,11 +119,11 @@ body {
 }
 
 .dropdown-menu a {
-  padding: 10px 16px;
-  width: 100%;
   display: block;
+  padding: 10px 18px;
   font-size: 0.9rem;
   color: #1f2937;
+  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -131,7 +133,7 @@ body {
 }
 
 /* Show dropdown on hover */
-.nav-dropdown:hover .dropdown-menu {
+.nav-dropdown:hover > .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -198,6 +200,7 @@ ul {
   box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
 }
 
+/* Back-to-home polish */
 .legal-page .btn-primary {
   margin-top: 12px;
 }
@@ -288,67 +291,4 @@ textarea:focus {
 
 .text-center {
   text-align: center;
-}
-
-/* =====================================================
-   Navbar Dropdown Menu
-===================================================== */
-
-.main-nav li {
-  position: relative;
-}
-
-/* Dropdown container */
-.nav-dropdown > .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  min-width: 220px;
-  padding: 8px 0;
-  border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  border: 1px solid #e5e7eb;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: all 0.25s ease;
-
-  z-index: 999;
-}
-
-/* Dropdown items */
-.dropdown-menu li {
-  list-style: none;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 18px;
-  font-size: 0.9rem;
-  color: #1f2937;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* Hover effects */
-.dropdown-menu a:hover {
-  background-color: #f9fafb;
-  color: #0f766e;
-}
-
-/* Show dropdown on hover */
-.nav-dropdown:hover > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Add arrow indicator */
-.nav-dropdown > a::after {
-  content: "▾";
-  font-size: 0.7rem;
-  margin-left: 6px;
-  color: #6b7280;
 }
