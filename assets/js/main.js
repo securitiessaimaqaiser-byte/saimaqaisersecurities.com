@@ -1,157 +1,103 @@
-(() => {
-  "use strict";
+/**
+ * =====================================================
+ * MAIN NAVIGATION SCRIPT
+ * Mobile + Desktop | Accessible | GitHub Pages Safe
+ * =====================================================
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".main-nav");
+  const navToggle = document.querySelector(".nav-toggle");
+  const dropdownParents = document.querySelectorAll(".nav-dropdown > a");
 
   /* =====================================================
-     Footer Year
+     MOBILE NAV TOGGLE
   ===================================================== */
 
-  const setCurrentYear = () => {
-    const yearElement = document.getElementById("year");
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-  };
-
-  /* =====================================================
-     Smooth Scroll (Internal Anchors)
-  ===================================================== */
-
-  const enableSmoothScroll = () => {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const targetId = link.getAttribute("href");
-
-        if (targetId && targetId.length > 1) {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            event.preventDefault();
-            targetElement.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        }
-      });
+  if (navToggle && nav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen.toString());
     });
-  };
+  }
 
   /* =====================================================
-     Accessible Navbar Dropdowns (Keyboard + ARIA)
+     DROPDOWN TOGGLE (MOBILE ONLY)
   ===================================================== */
 
-  const initAccessibleDropdowns = () => {
-    const dropdowns = document.querySelectorAll(".nav-dropdown");
+  dropdownParents.forEach((trigger) => {
+    const parentLi = trigger.parentElement;
+    const dropdown = parentLi.querySelector(".dropdown-menu");
 
-    const closeAllDropdowns = () => {
-      dropdowns.forEach((dropdown) => {
-        const trigger = dropdown.querySelector("a");
-        if (trigger) {
-          trigger.setAttribute("aria-expanded", "false");
-        }
-      });
-    };
+    if (!dropdown) return;
 
-    dropdowns.forEach((dropdown) => {
-      const trigger = dropdown.querySelector("a");
-      const menu = dropdown.querySelector(".dropdown-menu");
-      const items = menu ? menu.querySelectorAll("a") : [];
+    // Ensure ARIA roles
+    trigger.setAttribute("aria-haspopup", "true");
+    trigger.setAttribute("aria-expanded", "false");
 
-      if (!trigger || !menu) return;
+    trigger.addEventListener("click", (e) => {
+      // Mobile only behavior
+      if (window.innerWidth > 768) return;
 
-      /* ---------- Mouse interactions ---------- */
+      e.preventDefault();
 
-      dropdown.addEventListener("mouseenter", () => {
-        closeAllDropdowns();
-        trigger.setAttribute("aria-expanded", "true");
-      });
-
-      dropdown.addEventListener("mouseleave", () => {
-        trigger.setAttribute("aria-expanded", "false");
-      });
-
-      /* ---------- Keyboard: trigger ---------- */
-
-      trigger.addEventListener("keydown", (event) => {
-        switch (event.key) {
-          case "Enter":
-          case " ":
-          case "ArrowDown":
-            event.preventDefault();
-            closeAllDropdowns();
-            trigger.setAttribute("aria-expanded", "true");
-            if (items.length > 0) {
-              items[0].focus();
-            }
-            break;
-
-          case "Escape":
-            trigger.setAttribute("aria-expanded", "false");
-            trigger.focus();
-            break;
-
-          default:
-            break;
-        }
-      });
-
-      /* ---------- Keyboard: menu items ---------- */
-
-      items.forEach((item, index) => {
-        item.addEventListener("keydown", (event) => {
-          switch (event.key) {
-            case "ArrowDown":
-              event.preventDefault();
-              if (index < items.length - 1) {
-                items[index + 1].focus();
-              }
-              break;
-
-            case "ArrowUp":
-              event.preventDefault();
-              if (index > 0) {
-                items[index - 1].focus();
-              } else {
-                trigger.focus();
-              }
-              break;
-
-            case "Escape":
-              event.preventDefault();
-              trigger.setAttribute("aria-expanded", "false");
-              trigger.focus();
-              break;
-
-            case "Tab":
-              if (index === items.length - 1) {
-                trigger.setAttribute("aria-expanded", "false");
-              }
-              break;
-
-            default:
-              break;
-          }
-        });
-      });
+      const isOpen = parentLi.classList.toggle("open");
+      trigger.setAttribute("aria-expanded", isOpen.toString());
     });
-
-    /* ---------- Close dropdowns when clicking outside ---------- */
-
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest(".nav-dropdown")) {
-        closeAllDropdowns();
-      }
-    });
-  };
-
-  /* =====================================================
-     Init on DOM Ready
-  ===================================================== */
-
-  document.addEventListener("DOMContentLoaded", () => {
-    setCurrentYear();
-    enableSmoothScroll();
-    initAccessibleDropdowns();
   });
-})();
+
+  /* =====================================================
+     CLOSE MENUS ON CLICK OUTSIDE
+  ===================================================== */
+
+  document.addEventListener("click", (e) => {
+    if (!nav || !navToggle) return;
+
+    const clickedInsideNav = nav.contains(e.target);
+    const clickedToggle = navToggle.contains(e.target);
+
+    if (!clickedInsideNav && !clickedToggle) {
+      closeAllMenus();
+    }
+  });
+
+  /* =====================================================
+     ESC KEY HANDLING
+  ===================================================== */
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAllMenus();
+      navToggle?.focus();
+    }
+  });
+
+  /* =====================================================
+     WINDOW RESIZE CLEANUP
+  ===================================================== */
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeAllMenus();
+    }
+  });
+
+  /* =====================================================
+     HELPERS
+  ===================================================== */
+
+  function closeAllMenus() {
+    // Close mobile nav
+    if (nav && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      navToggle?.setAttribute("aria-expanded", "false");
+    }
+
+    // Close dropdowns
+    dropdownParents.forEach((trigger) => {
+      const parentLi = trigger.parentElement;
+      parentLi.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  }
+});
