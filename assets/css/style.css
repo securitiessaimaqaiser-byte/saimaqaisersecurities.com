@@ -1,11 +1,17 @@
 /* =====================================================
-   Base Reset & Typography
+   GLOBAL RESET & SAFETY
 ===================================================== */
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* 🚫 removes horizontal scroll */
 }
 
 html {
@@ -13,6 +19,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   color: #1f2937;
@@ -20,7 +27,7 @@ body {
 }
 
 /* =====================================================
-   Layout Utilities
+   LAYOUT UTILITIES
 ===================================================== */
 
 .container {
@@ -38,8 +45,12 @@ body {
   background-color: #f9fafb;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* =====================================================
-   Header & Navigation
+   HEADER STRUCTURE (LOGO ROW + NAV ROW)
 ===================================================== */
 
 .site-header {
@@ -51,24 +62,37 @@ body {
 
 .site-header .container {
   display: flex;
+  flex-direction: column; /* 🔑 logo row + nav row */
   align-items: center;
-  justify-content: space-between;
-  height: 72px;
+}
+
+/* Logo row */
+.logo {
+  padding: 12px 0;
 }
 
 .logo img {
-  height: 42px;
+  height: 44px;
+  display: block;
 }
 
 /* =====================================================
-   Main Navigation
+   NAVIGATION
 ===================================================== */
+
+.main-nav {
+  width: 100%;
+}
 
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  justify-content: center;
   align-items: center;
+  gap: 28px;
+  padding: 12px 0 16px;
+  margin: 0;
+  flex-wrap: wrap; /* 📱 responsive */
 }
 
 .main-nav li {
@@ -78,40 +102,23 @@ body {
 .main-nav a {
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
   color: #1f2937;
-  padding: 6px 2px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  padding: 6px 4px;
+  display: inline-block;
+  white-space: nowrap; /* 🔑 prevents word breaking */
 }
 
 .main-nav a:hover,
-.main-nav a.active {
+.main-nav a:focus-visible {
   color: #0f766e;
-}
-
-/* =====================================================
-   Accessible Focus Styling (Keyboard)
-===================================================== */
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid #0f766e;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Remove default outline for mouse users */
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible) {
   outline: none;
 }
 
 /* =====================================================
-   Dropdown Menu (Hover + Focus)
+   DROPDOWN MENU (DOWNWARD ONLY)
 ===================================================== */
 
-/* Dropdown indicator */
 .nav-dropdown > a::after {
   content: "▾";
   font-size: 0.7rem;
@@ -122,15 +129,19 @@ button:focus:not(:focus-visible) {
 /* Dropdown container */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 100%;        /* ⬇️ DOWNWARD */
+  left: 0;          /* ⬅️ aligned to parent */
+  right: auto;      /* 🚫 prevent sideways push */
   min-width: 220px;
+
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+
   list-style: none;
   padding: 8px 0;
+  margin: 0;
 
   opacity: 0;
   visibility: hidden;
@@ -140,34 +151,29 @@ button:focus:not(:focus-visible) {
   z-index: 999;
 }
 
-/* Dropdown items */
 .dropdown-menu li {
   width: 100%;
 }
 
 .dropdown-menu a {
   display: block;
+  width: 100%;
   padding: 10px 16px;
   font-size: 0.9rem;
   color: #1f2937;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-/* Hover & focus inside dropdown */
 .dropdown-menu a:hover,
 .dropdown-menu a:focus-visible {
   background-color: #f3f4f6;
   color: #0f766e;
+  outline: none;
 }
 
-/* Show dropdown on hover */
-.nav-dropdown:hover > .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Show dropdown when keyboard focuses parent */
+/* Show dropdown */
+.nav-dropdown:hover > .dropdown-menu,
 .nav-dropdown:focus-within > .dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -175,7 +181,17 @@ button:focus:not(:focus-visible) {
 }
 
 /* =====================================================
-   Typography
+   ACCESSIBLE FOCUS STYLES
+===================================================== */
+
+a:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   TYPOGRAPHY
 ===================================================== */
 
 h1,
@@ -200,13 +216,8 @@ p {
   color: #374151;
 }
 
-ul {
-  margin-left: 20px;
-  margin-bottom: 16px;
-}
-
 /* =====================================================
-   Buttons
+   BUTTONS
 ===================================================== */
 
 .btn-primary {
@@ -221,30 +232,21 @@ ul {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.25);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
   background-color: #0d5f59;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.35);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
-}
-
-.legal-page .btn-primary {
-  margin-top: 12px;
 }
 
 /* =====================================================
-   Legal / Content Pages
+   LEGAL / CONTENT PAGES
 ===================================================== */
 
 .legal-page {
   max-width: 900px;
+  margin: 0 auto;
 }
 
 .last-updated {
@@ -254,7 +256,7 @@ ul {
 }
 
 /* =====================================================
-   Footer
+   FOOTER
 ===================================================== */
 
 .site-footer {
@@ -265,66 +267,22 @@ ul {
 }
 
 .site-footer p {
-  margin-bottom: 12px;
+  margin: 0;
   font-size: 0.9rem;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  gap: 16px;
-}
-
-.footer-links a {
-  color: #9ca3af;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.footer-links a:hover,
-.footer-links a:focus-visible {
-  color: #ffffff;
-}
-
-/* =====================================================
-   Forms
-===================================================== */
-
-form {
-  max-width: 480px;
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-  color: #374151;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-family: inherit;
-}
-
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #0f766e;
-  outline-offset: 2px;
-  border-color: #0f766e;
-}
-
-/* =====================================================
-   Utilities
-===================================================== */
-
-.text-center {
   text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVE TUNING
+===================================================== */
+
+@media (max-width: 768px) {
+  .main-nav ul {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-menu {
+    min-width: 200px;
+  }
 }
