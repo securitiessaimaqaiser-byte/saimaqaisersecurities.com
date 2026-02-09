@@ -1,6 +1,6 @@
 /* ======================================================
    TABLET BREAKPOINT (<= 1024px)
-   ====================================================== */
+====================================================== */
 
 @media (max-width: 1024px) {
 
@@ -27,11 +27,17 @@
 
 /* ======================================================
    MOBILE BREAKPOINT (<= 768px)
-   ====================================================== */
+====================================================== */
 
 @media (max-width: 768px) {
 
-  /* ---------- Header & Navigation ---------- */
+  /* ---------- Global Safety ---------- */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- Header Layout ---------- */
 
   .site-header .container {
     flex-direction: column;
@@ -44,12 +50,55 @@
     height: 40px;
   }
 
+  /* ---------- Main Navigation ---------- */
+
+  .main-nav {
+    width: 100%;
+  }
+
   .main-nav ul {
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .main-nav li {
+    width: 100%;
   }
 
   .main-nav a {
+    font-size: 14px;
+    padding: 10px 12px;
+    width: 100%;
+    display: block;
+  }
+
+  /* ---------- Dropdowns (Mobile) ---------- */
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: 100%;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    background-color: #f9fafb;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+
+  /* Open state controlled by JS (.open) */
+  .nav-dropdown.open > .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    padding: 10px 16px;
     font-size: 14px;
   }
 
@@ -122,7 +171,7 @@
 
 /* ======================================================
    SMALL MOBILE BREAKPOINT (<= 480px)
-   ====================================================== */
+====================================================== */
 
 @media (max-width: 480px) {
 
@@ -144,10 +193,6 @@
 
   .section {
     padding: 40px 0;
-  }
-
-  .main-nav ul {
-    gap: 12px;
   }
 
   .main-nav a {
