@@ -46,6 +46,8 @@
     const navToggle = document.querySelector(".nav-toggle");
     const dropdowns = document.querySelectorAll(".nav-dropdown");
 
+    if (!nav) return;
+
     /* ---------- Helpers ---------- */
 
     const closeAllDropdowns = () => {
@@ -59,7 +61,7 @@
     };
 
     const closeMobileNav = () => {
-      if (nav && nav.classList.contains("open")) {
+      if (nav.classList.contains("open")) {
         nav.classList.remove("open");
         navToggle?.setAttribute("aria-expanded", "false");
       }
@@ -67,10 +69,10 @@
     };
 
     /* =====================================================
-       Mobile Nav Toggle
+       Mobile Nav Toggle (if exists)
     ===================================================== */
 
-    if (nav && navToggle) {
+    if (navToggle) {
       navToggle.addEventListener("click", () => {
         const isOpen = nav.classList.toggle("open");
         navToggle.setAttribute("aria-expanded", isOpen.toString());
@@ -78,7 +80,7 @@
     }
 
     /* =====================================================
-       Dropdown Logic (Desktop + Mobile)
+       Dropdown Logic (Hover + Click + Keyboard)
     ===================================================== */
 
     dropdowns.forEach((dropdown) => {
