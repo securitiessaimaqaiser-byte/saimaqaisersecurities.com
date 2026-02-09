@@ -31,12 +31,19 @@
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
+
+  <!-- ===== Top Header Row ===== -->
   <div class="container header-top">
 
     <!-- LEFT: LOGO -->
     <div class="logo">
       <a href="index.html">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+        <img
+          src="assets/images/logo.png"
+          alt="Saima Qaiser Securities Logo"
+          width="180"
+          height="48"
+        />
       </a>
     </div>
 
@@ -45,12 +52,14 @@
 
       <!-- Search -->
       <form class="header-search" role="search">
-        <label for="site-search" class="sr-only">Search</label>
+        <label for="site-search" class="sr-only">Search the website</label>
         <input
           type="search"
           id="site-search"
-          placeholder="Search..."
-          aria-label="Search website" />
+          name="q"
+          placeholder="Search…"
+          aria-label="Search website"
+        />
       </form>
 
       <!-- Auth Buttons -->
@@ -62,15 +71,18 @@
     </div>
   </div>
 
-  <!-- ================= NAVIGATION ================= -->
+  <!-- ===== Navigation ===== -->
   <nav class="main-nav" aria-label="Primary Navigation">
     <ul>
 
-      <li><a href="index.html" class="active">Home</a></li>
+      <li>
+        <a href="index.html" class="active">Home</a>
+      </li>
 
+      <!-- About Us -->
       <li class="nav-dropdown">
         <a href="about.html" aria-haspopup="true" aria-expanded="false">
-          About Us
+          About&nbsp;Us
         </a>
         <ul class="dropdown-menu" role="menu">
           <li><a role="menuitem" href="about.html#vision">Vision &amp; Mission</a></li>
@@ -80,6 +92,7 @@
         </ul>
       </li>
 
+      <!-- Governance -->
       <li class="nav-dropdown">
         <a href="governance.html" aria-haspopup="true" aria-expanded="false">
           Governance
@@ -90,9 +103,10 @@
         </ul>
       </li>
 
+      <!-- Investor Information -->
       <li class="nav-dropdown">
         <a href="financials.html" aria-haspopup="true" aria-expanded="false">
-          Investor Information
+          Investor&nbsp;Information
         </a>
         <ul class="dropdown-menu" role="menu">
           <li><a role="menuitem" href="financials.html">Financial Statements</a></li>
@@ -102,17 +116,29 @@
         </ul>
       </li>
 
+      <!-- Investors Portal -->
       <li class="nav-dropdown">
         <a href="#" aria-haspopup="true" aria-expanded="false">
-          Investors Portal
+          Investors&nbsp;Portal
         </a>
         <ul class="dropdown-menu" role="menu">
-          <li><a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">SECP Online Complaints</a></li>
-          <li><a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">PSX Online Complaint</a></li>
-          <li><a role="menuitem" href="feedback.html">Feedback Form</a></li>
+          <li>
+            <a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">
+              SECP Online Complaints
+            </a>
+          </li>
+          <li>
+            <a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">
+              PSX Online Complaint
+            </a>
+          </li>
+          <li>
+            <a role="menuitem" href="feedback.html">Feedback Form</a>
+          </li>
         </ul>
       </li>
 
+      <!-- Miscellaneous -->
       <li class="nav-dropdown">
         <a href="#" aria-haspopup="true" aria-expanded="false">
           Miscellaneous
@@ -124,7 +150,9 @@
         </ul>
       </li>
 
-      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
 
     </ul>
   </nav>
