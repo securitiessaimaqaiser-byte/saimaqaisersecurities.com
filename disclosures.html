@@ -8,7 +8,7 @@
 
   <title>Disclosures | Saima Qaiser Securities (Pvt) Limited</title>
 
-  <meta name="description" content="Regulatory disclosures and important information for clients and investors of Saima Qaiser Securities (Pvt) Limited." />
+  <meta name="description" content="Mandatory disclosures and regulatory information of Saima Qaiser Securities (Pvt) Limited in compliance with SECP regulations." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- CSS -->
@@ -22,147 +22,174 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="site-header">
-  <div class="container">
+
+  <!-- ===== Top Header Row ===== -->
+  <div class="container header-top">
+
+    <!-- LEFT: LOGO -->
     <div class="logo">
       <a href="index.html">
-        <img src="assets/images/logo.png" alt="Saima Qaiser Securities Logo" />
+        <img
+          src="assets/images/logo.png"
+          alt="Saima Qaiser Securities Logo"
+          width="180"
+          height="48"
+        />
       </a>
     </div>
 
-    <!-- ================= NAVIGATION ================= -->
-    <nav class="main-nav" aria-label="Primary Navigation">
-      <ul>
+    <!-- RIGHT: SEARCH + AUTH -->
+    <div class="header-actions">
 
-        <li>
-          <a href="index.html">Home</a>
-        </li>
+      <!-- Search -->
+      <form class="header-search" role="search">
+        <label for="site-search" class="sr-only">Search the website</label>
+        <input
+          type="search"
+          id="site-search"
+          name="q"
+          placeholder="Search…"
+          aria-label="Search website"
+        />
+      </form>
 
-        <!-- About Us Dropdown -->
-        <li class="nav-dropdown">
-          <a href="about.html"
-             aria-haspopup="true"
-             aria-expanded="false">
-            About Us
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a role="menuitem" href="about.html#vision">Vision &amp; Mission</a></li>
-            <li><a role="menuitem" href="about.html#introduction">Introduction</a></li>
-            <li><a role="menuitem" href="about.html#management">Management</a></li>
-            <li><a role="menuitem" href="about.html#legal">Our Legal Facilitation</a></li>
-          </ul>
-        </li>
+      <!-- Auth Buttons -->
+      <div class="auth-buttons">
+        <a href="signup.html" class="btn-outline">Client Sign Up</a>
+        <a href="login.html" class="btn-primary">Client Login</a>
+      </div>
 
-        <!-- Governance Dropdown -->
-        <li class="nav-dropdown">
-          <a href="governance.html"
-             aria-haspopup="true"
-             aria-expanded="false">
-            Governance
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a role="menuitem" href="governance.html#board">Board of Directors</a></li>
-            <li><a role="menuitem" href="governance.html#shareholding">Share Holding Patterns</a></li>
-          </ul>
-        </li>
-
-        <!-- Investor Information Dropdown -->
-        <li class="nav-dropdown">
-          <a href="financials.html"
-             aria-haspopup="true"
-             aria-expanded="false">
-            Investor Information
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a role="menuitem" href="financials.html">Financial Statements</a></li>
-            <li><a role="menuitem" href="auditor.html">Statutory Auditor</a></li>
-            <li><a role="menuitem" href="kyc-policy.html">KYC / CDD Policy</a></li>
-            <li><a role="menuitem" href="account-opening.html">Account Opening Form</a></li>
-          </ul>
-        </li>
-
-        <!-- Investors Portal Dropdown -->
-        <li class="nav-dropdown">
-          <a href="#"
-             aria-haspopup="true"
-             aria-expanded="false">
-            Investors Portal
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">SECP Online Complaints</a></li>
-            <li><a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">PSX Online Complaint</a></li>
-            <li><a role="menuitem" href="feedback.html">Feedback Form</a></li>
-          </ul>
-        </li>
-
-        <!-- Miscellaneous Dropdown -->
-        <li class="nav-dropdown">
-          <a href="#"
-             aria-haspopup="true"
-             aria-expanded="false">
-            Miscellaneous
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a role="menuitem" href="disclaimer.html">Disclaimer</a></li>
-            <li><a role="menuitem" href="media.html">Media</a></li>
-            <li><a role="menuitem" href="faq.html">FAQ</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="index.html#contact">Contact</a>
-        </li>
-
-      </ul>
-    </nav>
+    </div>
   </div>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="main-nav" aria-label="Primary Navigation">
+    <ul>
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <!-- About Us -->
+      <li class="nav-dropdown">
+        <a href="about.html" aria-haspopup="true" aria-expanded="false">
+          About&nbsp;Us
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a role="menuitem" href="about.html#vision">Vision &amp; Mission</a></li>
+          <li><a role="menuitem" href="about.html#introduction">Introduction</a></li>
+          <li><a role="menuitem" href="about.html#management">Management</a></li>
+          <li><a role="menuitem" href="about.html#legal">Our Legal Facilitation</a></li>
+        </ul>
+      </li>
+
+      <!-- Governance -->
+      <li class="nav-dropdown">
+        <a href="governance.html" aria-haspopup="true" aria-expanded="false">
+          Governance
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a role="menuitem" href="governance.html#board">Board of Directors</a></li>
+          <li><a role="menuitem" href="governance.html#shareholding">Share Holding Patterns</a></li>
+        </ul>
+      </li>
+
+      <!-- Investor Information -->
+      <li class="nav-dropdown">
+        <a href="financials.html" aria-haspopup="true" aria-expanded="false">
+          Investor&nbsp;Information
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a role="menuitem" href="financials.html">Financial Statements</a></li>
+          <li><a role="menuitem" href="auditor.html">Statutory Auditor</a></li>
+          <li><a role="menuitem" href="kyc-policy.html">KYC / CDD Policy</a></li>
+          <li><a role="menuitem" href="account-opening.html">Account Opening Form</a></li>
+        </ul>
+      </li>
+
+      <!-- Investors Portal -->
+      <li class="nav-dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">
+          Investors&nbsp;Portal
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a role="menuitem" href="https://www.secp.gov.pk/complaints/" target="_blank" rel="noopener">
+              SECP Online Complaints
+            </a>
+          </li>
+          <li>
+            <a role="menuitem" href="https://www.psx.com.pk/psx/resources-and-tools/investors/complaint-form" target="_blank" rel="noopener">
+              PSX Online Complaint
+            </a>
+          </li>
+          <li>
+            <a role="menuitem" href="feedback.html">Feedback Form</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Miscellaneous -->
+      <li class="nav-dropdown">
+        <a href="#" class="active" aria-haspopup="true" aria-expanded="false">
+          Miscellaneous
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a role="menuitem" href="disclaimer.html">Disclaimer</a></li>
+          <li><a role="menuitem" href="media.html">Media</a></li>
+          <li><a role="menuitem" href="faq.html">FAQ</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+
+    </ul>
+  </nav>
 </header>
 
-<main>
+<!-- ================= MAIN ================= -->
+<main class="legal-page">
 
-  <section class="section section-light">
-    <div class="container legal-page">
+  <section class="section">
+    <div class="container">
 
       <h1>Disclosures</h1>
 
       <p>
-        This page contains mandatory disclosures provided by Saima Qaiser Securities
-        (Pvt) Limited in accordance with applicable laws, regulations, and directives
-        issued by the Securities and Exchange Commission of Pakistan (SECP).
+        Saima Qaiser Securities (Pvt) Limited is committed to transparency and
+        regulatory compliance. The disclosures below are provided in accordance
+        with the applicable rules and regulations of the Securities and Exchange
+        Commission of Pakistan (SECP).
       </p>
 
       <h2>Regulatory Status</h2>
       <p>
-        Saima Qaiser Securities (Pvt) Limited is licensed and regulated by the SECP and
-        is required to comply with all applicable rules, regulations, and reporting
-        obligations.
+        Saima Qaiser Securities (Pvt) Limited is a licensed brokerage house
+        regulated by the Securities and Exchange Commission of Pakistan (SECP).
       </p>
 
       <h2>Risk Disclosure</h2>
       <p>
-        Investments in capital markets involve risks, including potential loss of
-        principal. Clients are advised to carefully review all risk disclosure
-        statements before making investment decisions.
+        All investments in capital markets are subject to market risks. Investors
+        are advised to carefully review the risk disclosure statement before
+        investing.
       </p>
 
       <h2>Conflict of Interest</h2>
       <p>
-        The company maintains policies and procedures to identify, disclose, and
-        manage conflicts of interest in a transparent and ethical manner.
+        The company maintains policies to identify, manage, and disclose any
+        potential conflicts of interest in accordance with regulatory standards.
       </p>
 
       <h2>Client Responsibilities</h2>
       <p>
-        Clients are responsible for providing accurate information and for reviewing
-        all statements, confirmations, and disclosures issued by the company.
-      </p>
-
-      <div style="margin-top: 48px;">
-        <a href="index.html" class="btn-primary">← Back to Home</a>
-      </div>
-
-      <p class="last-updated">
-        Last updated: February 2026
+        Clients are responsible for providing accurate information and complying
+        with applicable laws, rules, and regulations when engaging in investment
+        activities.
       </p>
 
     </div>
@@ -170,6 +197,7 @@
 
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="container">
     <p>© <span id="year"></span> Saima Qaiser Securities (Pvt) Limited. All rights reserved.</p>
