@@ -1,8 +1,10 @@
 /* =====================================================
-   Base Reset & Typography
+   BASE RESET & TYPOGRAPHY
 ===================================================== */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,16 +19,29 @@ body {
   line-height: 1.6;
   color: #1f2937;
   background-color: #ffffff;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; /* 🔒 prevent horizontal scroll */
+}
+
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =====================================================
-   Layout Utilities
+   LAYOUT UTILITIES
 ===================================================== */
 
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -40,7 +55,7 @@ body {
 }
 
 /* =====================================================
-   Header & Navigation
+   HEADER (LOGO LEFT, ACTIONS RIGHT)
 ===================================================== */
 
 .site-header {
@@ -50,27 +65,67 @@ body {
   z-index: 1000;
 }
 
-.site-header .container {
+/* Top header row */
+.header-top {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 96px;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 72px;
 }
 
+/* Logo */
 .logo img {
   height: 48px;
   max-width: 100%;
 }
 
+/* Right-side actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* Search */
+.header-search input {
+  width: 180px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.header-search input:focus {
+  outline: none;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+/* Auth buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-nav {
+  border-top: 1px solid #e5e7eb;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 28px;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  flex-wrap: nowrap; /* 🔒 no wrapping */
 }
 
 .main-nav li {
@@ -78,21 +133,24 @@ body {
 }
 
 .main-nav a {
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 0;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #1f2937;
-  padding: 6px 4px;
-  display: inline-block;
+  text-decoration: none;
   white-space: nowrap;
 }
 
 .main-nav a:hover,
+.main-nav a:focus-visible,
 .main-nav a.active {
   color: #0f766e;
 }
 
 /* =====================================================
-   Dropdown Menu
+   DROPDOWN MENUS (DOWNWARD + ACCESSIBLE)
 ===================================================== */
 
 .nav-dropdown > a::after {
@@ -104,19 +162,21 @@ body {
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 100%; /* ⬇ DOWNWARD */
   left: 0;
-  min-width: 220px;
+  min-width: 240px;
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
   list-style: none;
   padding: 8px 0;
+
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.25s ease;
+
   z-index: 999;
 }
 
@@ -125,28 +185,73 @@ body {
 }
 
 .dropdown-menu a {
-  padding: 10px 16px;
-  width: 100%;
   display: block;
+  padding: 10px 16px;
   font-size: 0.9rem;
   color: #1f2937;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
   background-color: #f3f4f6;
   color: #0f766e;
 }
 
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown.open .dropdown-menu {
+/* Show dropdown */
+.nav-dropdown:hover > .dropdown-menu,
+.nav-dropdown:focus-within > .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
 /* =====================================================
-   Typography
+   BUTTONS
+===================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0f766e;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: #0d5f59;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid #0f766e;
+  color: #0f766e;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background-color: #0f766e;
+  color: #ffffff;
+}
+
+/* =====================================================
+   TYPOGRAPHY
 ===================================================== */
 
 h1,
@@ -163,7 +268,7 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  margin: 32px 0 12px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -171,38 +276,8 @@ p {
   color: #374151;
 }
 
-ul {
-  margin-left: 20px;
-  margin-bottom: 16px;
-}
-
 /* =====================================================
-   Buttons
-===================================================== */
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #0f766e;
-  color: #ffffff;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.25);
-}
-
-.btn-primary:hover {
-  background-color: #0d5f59;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.35);
-}
-
-/* =====================================================
-   Legal Pages
+   LEGAL / CONTENT PAGES
 ===================================================== */
 
 .legal-page {
@@ -216,56 +291,7 @@ ul {
 }
 
 /* =====================================================
-   FOOTER (UPDATED COLOR + SINGLE LINE LINKS)
-===================================================== */
-
-.site-footer {
-  background-color: #f1f5f9; /* NEW footer color */
-  color: #334155;
-  padding: 36px 0;
-  margin-top: 64px;
-}
-
-.site-footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.site-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  list-style: none;
-}
-
-.footer-links a {
-  color: #0f766e;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* =====================================================
-   Forms
+   FORMS
 ===================================================== */
 
 form {
@@ -299,25 +325,70 @@ textarea:focus {
 }
 
 /* =====================================================
-   Accessibility
+   FOOTER (UPDATED COLOR + ONE LINE LINKS)
 ===================================================== */
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #0f766e;
-  outline-offset: 3px;
+.site-footer {
+  background-color: #0b1220;
+  color: #d1d5db;
+  padding: 36px 0;
+  margin-top: 64px;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
 }
 
 /* =====================================================
-   Responsive
+   ACCESSIBILITY – FOCUS STYLES
+===================================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.5);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   RESPONSIVE FOUNDATION (SAFE)
 ===================================================== */
 
 @media (max-width: 768px) {
-  .main-nav ul {
-    gap: 18px;
+  .header-top {
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  .site-header .container {
-    padding: 16px;
+  .main-nav ul {
+    gap: 18px;
   }
 }
