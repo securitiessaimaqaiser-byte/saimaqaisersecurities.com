@@ -11,7 +11,7 @@
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden; /* 🚫 removes horizontal scroll */
+  overflow-x: hidden;
 }
 
 html {
@@ -50,7 +50,7 @@ body {
 }
 
 /* =====================================================
-   HEADER STRUCTURE (LOGO ROW + NAV ROW)
+   HEADER STRUCTURE
 ===================================================== */
 
 .site-header {
@@ -62,13 +62,14 @@ body {
 
 .site-header .container {
   display: flex;
-  flex-direction: column; /* 🔑 logo row + nav row */
+  flex-direction: column;
   align-items: center;
 }
 
 /* Logo row */
+
 .logo {
-  padding: 12px 0;
+  padding: 14px 0;
 }
 
 .logo img {
@@ -77,7 +78,28 @@ body {
 }
 
 /* =====================================================
-   NAVIGATION
+   HAMBURGER BUTTON (MOBILE)
+===================================================== */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #1f2937;
+  margin: 5px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* =====================================================
+   NAVIGATION (DESKTOP DEFAULT)
 ===================================================== */
 
 .main-nav {
@@ -92,7 +114,7 @@ body {
   gap: 28px;
   padding: 12px 0 16px;
   margin: 0;
-  flex-wrap: wrap; /* 📱 responsive */
+  flex-wrap: wrap;
 }
 
 .main-nav li {
@@ -106,7 +128,7 @@ body {
   color: #1f2937;
   padding: 6px 4px;
   display: inline-block;
-  white-space: nowrap; /* 🔑 prevents word breaking */
+  white-space: nowrap;
 }
 
 .main-nav a:hover,
@@ -116,7 +138,7 @@ body {
 }
 
 /* =====================================================
-   DROPDOWN MENU (DOWNWARD ONLY)
+   DROPDOWN MENU (DESKTOP)
 ===================================================== */
 
 .nav-dropdown > a::after {
@@ -126,19 +148,15 @@ body {
   color: #6b7280;
 }
 
-/* Dropdown container */
 .dropdown-menu {
   position: absolute;
-  top: 100%;        /* ⬇️ DOWNWARD */
-  left: 0;          /* ⬅️ aligned to parent */
-  right: auto;      /* 🚫 prevent sideways push */
+  top: 100%;
+  left: 0;
   min-width: 220px;
-
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-
   list-style: none;
   padding: 8px 0;
   margin: 0;
@@ -147,21 +165,14 @@ body {
   visibility: hidden;
   transform: translateY(8px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-
   z-index: 999;
-}
-
-.dropdown-menu li {
-  width: 100%;
 }
 
 .dropdown-menu a {
   display: block;
-  width: 100%;
   padding: 10px 16px;
   font-size: 0.9rem;
   color: #1f2937;
-  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -169,10 +180,8 @@ body {
 .dropdown-menu a:focus-visible {
   background-color: #f3f4f6;
   color: #0f766e;
-  outline: none;
 }
 
-/* Show dropdown */
 .nav-dropdown:hover > .dropdown-menu,
 .nav-dropdown:focus-within > .dropdown-menu {
   opacity: 1;
@@ -181,10 +190,11 @@ body {
 }
 
 /* =====================================================
-   ACCESSIBLE FOCUS STYLES
+   ACCESSIBLE FOCUS
 ===================================================== */
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid #0f766e;
   outline-offset: 3px;
   border-radius: 4px;
@@ -231,28 +241,11 @@ p {
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.25s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
   background-color: #0d5f59;
-  transform: translateY(-2px);
-}
-
-/* =====================================================
-   LEGAL / CONTENT PAGES
-===================================================== */
-
-.legal-page {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.last-updated {
-  margin-top: 32px;
-  font-size: 0.85rem;
-  color: #6b7280;
 }
 
 /* =====================================================
@@ -267,22 +260,64 @@ p {
 }
 
 .site-footer p {
+  text-align: center;
   margin: 0;
   font-size: 0.9rem;
-  text-align: center;
 }
 
 /* =====================================================
-   RESPONSIVE TUNING
+   MOBILE NAVBAR BEHAVIOR
 ===================================================== */
 
 @media (max-width: 768px) {
-  .main-nav ul {
-    gap: 16px;
-    font-size: 0.9rem;
+
+  /* Show hamburger */
+  .nav-toggle {
+    display: block;
+    margin-bottom: 8px;
   }
 
+  /* Stack nav vertically */
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    display: none; /* JS toggles this */
+    width: 100%;
+  }
+
+  .main-nav.open ul {
+    display: flex;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .main-nav a {
+    width: 100%;
+    padding: 14px 16px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  /* Mobile dropdowns = inline (not floating) */
   .dropdown-menu {
-    min-width: 200px;
+    position: static;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    padding-left: 16px;
+    display: none;
+  }
+
+  .nav-dropdown.open > .dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown > a::after {
+    float: right;
   }
 }
