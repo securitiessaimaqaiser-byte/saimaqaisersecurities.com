@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block system & utility pages
+Disallow: /404.html
+
+# Sitemap location
+Sitemap: https://saimaqaisersecurities.com/sitemap.xml
