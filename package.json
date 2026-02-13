@@ -1,0 +1,30 @@
+{
+  "name": "saimaqaisersecurities.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/securitiessaimaqaiser-byte/saimaqaisersecurities.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/securitiessaimaqaiser-byte/saimaqaisersecurities.com/issues"
+  },
+  "homepage": "https://github.com/securitiessaimaqaiser-byte/saimaqaisersecurities.com#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0"
+  }
+}
