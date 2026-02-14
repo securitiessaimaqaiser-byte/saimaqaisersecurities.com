@@ -1,0 +1,53 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Saima Qaiser Securities</h1>
+        <p>Your trusted partner in financial growth and secure investments.</p>
+
+        <% if (!user) { %>
+            <div class="hero-buttons">
+                <a href="/auth/register" class="btn primary-btn">Get Started</a>
+                <a href="/auth/login" class="btn secondary-btn">Login</a>
+            </div>
+        <% } else { %>
+            <div class="hero-buttons">
+                <a href="/dashboard" class="btn primary-btn">Go to Dashboard</a>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Secure Investments</h3>
+                <p>We prioritize your financial security with industry-grade protection and compliance standards.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Expert Advisory</h3>
+                <p>Our experienced financial advisors guide you toward smart and sustainable investment decisions.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Transparent Process</h3>
+                <p>No hidden terms. Clear communication and transparent financial planning every step of the way.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Start Building Your Financial Future Today</h2>
+        <% if (!user) { %>
+            <a href="/auth/register" class="btn primary-btn">Create Your Account</a>
+        <% } else { %>
+            <a href="/dashboard" class="btn primary-btn">View Dashboard</a>
+        <% } %>
+    </div>
+</section>
