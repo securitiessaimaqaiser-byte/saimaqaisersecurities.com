@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Saima Qaiser Securities</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header Partial -->
+    <%- include('partials/header') %>
+
+    <!-- Popup Partial -->
+    <%- include('partials/popup') %>
+
+    <!-- Main Content -->
+    <main>
+        <section class="services-hero">
+            <h1>Our Services</h1>
+            <p>Providing comprehensive brokerage and investment services to help you achieve your financial goals.</p>
+        </section>
+
+        <section class="service-list">
+            <div class="service">
+                <h3>Stock Brokerage</h3>
+                <p>Buy and sell shares efficiently with our secure trading platform.</p>
+            </div>
+            <div class="service">
+                <h3>Portfolio Management</h3>
+                <p>Expert guidance to manage and grow your investment portfolio.</p>
+            </div>
+            <div class="service">
+                <h3>Financial Advisory</h3>
+                <p>Receive tailored advice for investments and market strategies.</p>
+            </div>
+            <div class="service">
+                <h3>Market Research</h3>
+                <p>Access to timely and accurate market analysis and insights.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Start your investment journey with us today!</h2>
+            <a href="/auth/register" class="btn primary-btn">Get Started</a>
+        </section>
+    </main>
+
+    <!-- Footer Partial -->
+    <%- include('partials/footer') %>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/popup.js"></script>
+</body>
+</html>

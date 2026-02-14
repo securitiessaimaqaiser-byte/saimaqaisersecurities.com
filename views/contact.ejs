@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Saima Qaiser Securities</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header Partial -->
+    <%- include('partials/header') %>
+
+    <!-- Popup Partial -->
+    <%- include('partials/popup') %>
+
+    <!-- Main Content -->
+    <main>
+        <section class="contact-hero">
+            <h1>Contact Us</h1>
+            <p>Have questions or need assistance? Reach out to us and we’ll respond promptly.</p>
+        </section>
+
+        <section class="contact-form">
+            <form action="/contact" method="POST">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+        </section>
+
+        <section class="contact-info">
+            <h2>Our Office</h2>
+            <p>123 Main Street, Karachi, Pakistan</p>
+            <p>Email: info@saimaqaisersecurities.com</p>
+            <p>Phone: +92 300 1234567</p>
+        </section>
+    </main>
+
+    <!-- Footer Partial -->
+    <%- include('partials/footer') %>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/popup.js"></script>
+</body>
+</html>
