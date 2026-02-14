@@ -1,0 +1,26 @@
+// ===============================
+// Authentication Middleware
+// ===============================
+
+module.exports = {
+    ensureAuthenticated: (req, res, next) => {
+        if (req.session && req.session.userId) {
+            // User is authenticated, proceed
+            return next();
+        } else {
+            // User not authenticated, redirect to login
+            req.flash('error', 'You must be logged in to access this page.');
+            return res.redirect('/auth/login');
+        }
+    },
+
+    forwardAuthenticated: (req, res, next) => {
+        if (!req.session || !req.session.userId) {
+            // User is not logged in, proceed
+            return next();
+        } else {
+            // User is logged in, redirect to dashboard
+            return res.redirect('/dashboard');
+        }
+    }
+};

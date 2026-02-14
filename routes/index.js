@@ -1,26 +1,39 @@
-// routes/index.js - Full A to Z
-
 const express = require('express');
 const router = express.Router();
 
-// Home Page
+// ===============================
+// Render Public Pages
+// ===============================
 router.get('/', (req, res) => {
-    res.render('index', { title: 'Home' });
+    res.render('index', {
+        user: req.session.userId || null,
+        success: req.flash('success'),
+        error: req.flash('error')
+    });
 });
 
-// About Page
 router.get('/about', (req, res) => {
-    res.render('about', { title: 'About Us' });
+    res.render('about', {
+        user: req.session.userId || null,
+        success: req.flash('success'),
+        error: req.flash('error')
+    });
 });
 
-// Services Page
 router.get('/services', (req, res) => {
-    res.render('services', { title: 'Our Services' });
+    res.render('services', {
+        user: req.session.userId || null,
+        success: req.flash('success'),
+        error: req.flash('error')
+    });
 });
 
-// Contact Page
 router.get('/contact', (req, res) => {
-    res.render('contact', { title: 'Contact Us' });
+    res.render('contact', {
+        user: req.session.userId || null,
+        success: req.flash('success'),
+        error: req.flash('error')
+    });
 });
 
 module.exports = router;

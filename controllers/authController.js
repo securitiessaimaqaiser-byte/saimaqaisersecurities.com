@@ -1,28 +1,51 @@
-// controllers/authController.js - Full A to Z
-
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const { validateRegister, validateLogin } = require('../utils/validators');
 
-// Handle User Registration
-exports.registerUser = async (req, res) => {
+// ===============================
+// Render Pages
+// ===============================
+exports.getRegister = (req, res) => {
+    res.render('register', { errors: [], oldInput: {} });
+};
+
+exports.getLogin = (req, res) => {
+    res.render('login', { errors: [], oldInput: {} });
+};
+
+// ===============================
+// Register User
+// ===============================
+exports.postRegister = async (req, res) => {
+    const { name, email, password, confirmPassword } = req.body;
+    const errors = [];
+
+    // Basic validations
+    if (!name || !email || !password || !confirmPassword) {
+        errors.push({ msg: 'All fields are required.' });
+    }
+
+    if (password !== confirmPassword) {
+        errors.push({ msg: 'Passwords do not match.' });
+    }
+
+    if (password.length < 6) {
+        errors.push({ msg: 'Password must be at least 6 characters.' });
+    }
+
+    if (errors.length > 0) {
+        return res.render('register', { errors, oldInput: req.body });
+    }
+
     try {
-        const { name, email, password, confirmPassword } = req.body;
-
-        // Validate input
-        const { valid, errors } = validateRegister({ name, email, password, confirmPassword });
-        if (!valid) {
-            return res.render('register', { title: 'Register', errors, formData: req.body });
-        }
-
-        // Check if email already exists
+        // Check if user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.render('register', { title: 'Register', errors: { email: 'Email already registered' }, formData: req.body });
+            errors.push({ msg: 'Email is already registered.' });
+            return res.render('register', { errors, oldInput: req.body });
         }
 
         // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 12);
 
         // Create new user
         const newUser = new User({
@@ -33,56 +56,60 @@ exports.registerUser = async (req, res) => {
 
         await newUser.save();
 
-        // Redirect to login
+        req.flash('success', 'Registration successful. You can now login.');
         res.redirect('/auth/login');
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Server Error');
+    } catch (err) {
+        console.error(err);
+        errors.push({ msg: 'Something went wrong. Try again later.' });
+        return res.render('register', { errors, oldInput: req.body });
     }
 };
 
-// Handle User Login
-exports.loginUser = async (req, res) => {
+// ===============================
+// Login User
+// ===============================
+exports.postLogin = async (req, res) => {
+    const { email, password } = req.body;
+    const errors = [];
+
+    if (!email || !password) {
+        errors.push({ msg: 'All fields are required.' });
+        return res.render('login', { errors, oldInput: req.body });
+    }
+
     try {
-        const { email, password } = req.body;
-
-        // Validate input
-        const { valid, errors } = validateLogin({ email, password });
-        if (!valid) {
-            return res.render('login', { title: 'Login', errors, formData: req.body });
-        }
-
-        // Check if user exists
         const user = await User.findOne({ email });
         if (!user) {
-            return res.render('login', { title: 'Login', errors: { email: 'Email not found' }, formData: req.body });
+            errors.push({ msg: 'Invalid credentials.' });
+            return res.render('login', { errors, oldInput: req.body });
         }
 
-        // Compare passwords
-        const match = await bcrypt.compare(password, user.password);
-        if (!match) {
-            return res.render('login', { title: 'Login', errors: { password: 'Incorrect password' }, formData: req.body });
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            errors.push({ msg: 'Invalid credentials.' });
+            return res.render('login', { errors, oldInput: req.body });
         }
 
-        // Set user session / cookie
-        req.user = user;
-        req.session.user = user; // If using express-session
-
-        // Redirect to dashboard
+        // Store user id in session
+        req.session.userId = user._id;
         res.redirect('/dashboard');
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Server Error');
+    } catch (err) {
+        console.error(err);
+        errors.push({ msg: 'Something went wrong. Try again later.' });
+        return res.render('login', { errors, oldInput: req.body });
     }
 };
 
-// Handle User Logout
-exports.logoutUser = (req, res) => {
+// ===============================
+// Logout User
+// ===============================
+exports.logout = (req, res) => {
     req.session.destroy(err => {
         if (err) {
             console.error(err);
-            return res.status(500).send('Server Error');
+            return res.redirect('/dashboard');
         }
-        res.redirect('/');
+        res.clearCookie('connect.sid');
+        res.redirect('/auth/login');
     });
 };

@@ -1,25 +1,34 @@
-// controllers/dashboardController.js - Full A to Z
+const User = require('../models/User');
 
-// Render Dashboard Home
-exports.renderDashboard = (req, res) => {
-    if (!req.user) {
+// ===============================
+// Render Dashboard
+// ===============================
+exports.getDashboard = async (req, res) => {
+    try {
+        const userId = req.session.userId;
+
+        if (!userId) {
+            req.flash('error', 'Please log in to access the dashboard.');
+            return res.redirect('/auth/login');
+        }
+
+        // Fetch user details
+        const user = await User.findById(userId).lean();
+
+        if (!user) {
+            req.flash('error', 'User not found.');
+            return res.redirect('/auth/login');
+        }
+
+        // Render dashboard with user info
+        res.render('dashboard', {
+            user,
+            success: req.flash('success'),
+            error: req.flash('error')
+        });
+    } catch (err) {
+        console.error(err);
+        req.flash('error', 'Something went wrong. Try again later.');
         return res.redirect('/auth/login');
     }
-    res.render('dashboard', { title: 'Dashboard', user: req.user });
-};
-
-// Render Profile Page
-exports.renderProfile = (req, res) => {
-    if (!req.user) {
-        return res.redirect('/auth/login');
-    }
-    res.render('dashboard', { title: 'Profile', user: req.user });
-};
-
-// Render Account Settings Page
-exports.renderSettings = (req, res) => {
-    if (!req.user) {
-        return res.redirect('/auth/login');
-    }
-    res.render('dashboard', { title: 'Settings', user: req.user });
 };

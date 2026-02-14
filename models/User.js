@@ -1,31 +1,33 @@
-// models/User.js - Full A to Z
-
 const mongoose = require('mongoose');
 
-// Define User Schema
-const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Name is required'],
-        trim: true,
-        maxlength: [50, 'Name cannot exceed 50 characters']
+const userSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        // Optional: add roles or permissions later
+        role: {
+            type: String,
+            enum: ['user', 'admin'],
+            default: 'user',
+        }
     },
-    email: {
-        type: String,
-        required: [true, 'Email is required'],
-        unique: true,
-        lowercase: true,
-        trim: true
-    },
-    password: {
-        type: String,
-        required: [true, 'Password is required']
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    {
+        timestamps: true, // Adds createdAt and updatedAt automatically
     }
-});
+);
 
-// Export the User model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', userSchema);

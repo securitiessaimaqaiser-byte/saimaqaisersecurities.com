@@ -1,26 +1,22 @@
-// routes/auth.js - Full A to Z
-
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
+const { forwardAuthenticated } = require('../middleware/authMiddleware');
+const { authLimiter } = require('../middleware/rateLimiter');
 
-// Login Page
-router.get('/login', (req, res) => {
-    res.render('login', { title: 'Login' });
-});
+// ===============================
+// Authentication Routes
+// ===============================
 
-// Register Page
-router.get('/register', (req, res) => {
-    res.render('register', { title: 'Register' });
-});
+// Register Routes
+router.get('/register', forwardAuthenticated, authController.getRegister);
+router.post('/register', authLimiter, authController.postRegister);
 
-// Handle Login POST
-router.post('/login', authController.loginUser);
+// Login Routes
+router.get('/login', forwardAuthenticated, authController.getLogin);
+router.post('/login', authLimiter, authController.postLogin);
 
-// Handle Register POST
-router.post('/register', authController.registerUser);
-
-// Handle Logout
-router.get('/logout', authController.logoutUser);
+// Logout Route
+router.get('/logout', authController.logout);
 
 module.exports = router;
