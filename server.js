@@ -1,79 +1,104 @@
 // server.js - Full A to Z
 
-// ----------------------
-// IMPORT DEPENDENCIES
-// ----------------------
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
-const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
+const rateLimiter = require('./middleware/rateLimiter');
 
-// ----------------------
-// CONFIGURATION
-// ----------------------
-dotenv.config(); // Load .env variables
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// ----------------------
-// SECURITY MIDDLEWARE
-// ----------------------
-app.use(helmet()); // Secure HTTP headers
-
-// Rate limiting - limit repeated requests
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per window
-    message: 'Too many requests from this IP, please try again later.'
-});
-app.use(limiter);
-
-// ----------------------
-// MIDDLEWARE
-// ----------------------
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-// Serve static files from public folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// ----------------------
-// EJS TEMPLATE ENGINE
-// ----------------------
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-// ----------------------
-// ROUTES
-// ----------------------
-
-// Import route modules (we'll fill these later)
+// Route Imports
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dashboard');
 
-// Use routes
+const app = express();
+
+/* ===============================
+   DATABASE CONNECTION
+================================= */
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('✅ MongoDB Connected'))
+.catch(err => {
+    console.error('❌ MongoDB Connection Error:', err);
+    process.exit(1);
+});
+
+/* ===============================
+   MIDDLEWARE
+================================= */
+
+// Security headers
+app.use(helmet());
+
+// Rate limiting
+app.use(rateLimiter);
+
+// Body parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Session configuration
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'supersecretkey',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI
+    }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2 // 2 hours
+    }
+}));
+
+// Global user variable for EJS
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+});
+
+/* ===============================
+   VIEW ENGINE
+================================= */
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+/* ===============================
+   STATIC FILES
+================================= */
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+/* ===============================
+   ROUTES
+================================= */
+
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 
-// 404 Page
-app.use((req, res, next) => {
+/* ===============================
+   404 HANDLER
+================================= */
+
+app.use((req, res) => {
     res.status(404).render('404', { title: 'Page Not Found' });
 });
 
-// Global Error Handler
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something went wrong!');
-});
+/* ===============================
+   SERVER START
+================================= */
 
-// ----------------------
-// START SERVER
-// ----------------------
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
