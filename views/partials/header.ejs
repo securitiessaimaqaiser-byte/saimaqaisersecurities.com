@@ -1,0 +1,31 @@
+<header class="navbar">
+    <div class="nav-container">
+        
+        <!-- Logo -->
+        <div class="logo">
+            <a href="/">Saima Qaiser Securities</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="nav-toggle">
+            ☰
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+            <% if (user) { %>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/auth/logout" class="danger-link">Logout</a></li>
+            <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register" class="primary-link">Register</a></li>
+            <% } %>
+        </ul>
+
+    </div>
+</header>

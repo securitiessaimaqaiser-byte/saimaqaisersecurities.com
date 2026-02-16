@@ -1,28 +1,49 @@
-<section class="dashboard-section">
-    <div class="dashboard-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Saima Qaiser Securities</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header Partial -->
+    <%- include('partials/header') %>
 
-        <h2>Welcome to Your Dashboard</h2>
+    <!-- Popup Partial -->
+    <%- include('partials/popup') %>
 
-        <% if (user) { %>
-            <div class="user-info">
-                <p><strong>Name:</strong> <%= user.name %></p>
-                <p><strong>Email:</strong> <%= user.email %></p>
-                <p><strong>Member Since:</strong> <%= new Date(user.createdAt).toDateString() %></p>
+    <!-- Main Content -->
+    <main>
+        <section class="dashboard-hero">
+            <h1>Welcome, <%= user.name %>!</h1>
+            <p>Manage your investments, track your portfolio, and view reports.</p>
+        </section>
+
+        <section class="dashboard-actions">
+            <div class="card">
+                <h3>Portfolio</h3>
+                <p>View your current investments and their performance.</p>
+                <a href="/dashboard/portfolio" class="btn secondary-btn">View Portfolio</a>
             </div>
-        <% } else { %>
-            <p>You are not logged in.</p>
-        <% } %>
+            <div class="card">
+                <h3>Transactions</h3>
+                <p>Track your buy/sell orders and transaction history.</p>
+                <a href="/dashboard/transactions" class="btn secondary-btn">View Transactions</a>
+            </div>
+            <div class="card">
+                <h3>Profile</h3>
+                <p>Update your account information and settings.</p>
+                <a href="/dashboard/profile" class="btn secondary-btn">Edit Profile</a>
+            </div>
+        </section>
+    </main>
 
-        <div class="dashboard-actions">
-            <a href="/dashboard/profile" class="btn primary-btn">View Profile</a>
-            <a href="/dashboard/settings" class="btn secondary-btn">Account Settings</a>
-            <a href="/auth/logout" class="btn danger-btn">Logout</a>
-        </div>
+    <!-- Footer Partial -->
+    <%- include('partials/footer') %>
 
-        <div class="dashboard-content">
-            <h3>Your Financial Overview</h3>
-            <p>This section will display account balances, investment summaries, and activity logs in future updates.</p>
-        </div>
-
-    </div>
-</section>
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/popup.js"></script>
+</body>
+</html>

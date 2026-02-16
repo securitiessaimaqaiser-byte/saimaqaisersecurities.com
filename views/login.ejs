@@ -1,46 +1,46 @@
-<section class="auth-section">
-    <div class="auth-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Saima Qaiser Securities</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header Partial -->
+    <%- include('partials/header') %>
 
-        <h2>Login to Your Account</h2>
+    <!-- Popup Partial -->
+    <%- include('partials/popup') %>
 
-        <% if (typeof errors !== 'undefined' && Object.keys(errors).length > 0) { %>
-            <div class="error-box">
-                <% Object.values(errors).forEach(function(error) { %>
-                    <p><%= error %></p>
-                <% }); %>
-            </div>
-        <% } %>
+    <!-- Main Content -->
+    <main>
+        <section class="auth-form">
+            <h1>Login</h1>
+            <% if (error && error.length > 0) { %>
+                <div class="alert alert-error"><%= error %></div>
+            <% } %>
+            <% if (success && success.length > 0) { %>
+                <div class="alert alert-success"><%= success %></div>
+            <% } %>
+            <form action="/auth/login" method="POST">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
 
-        <form action="/auth/login" method="POST" class="auth-form">
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    value="<%= formData ? formData.email : '' %>" 
-                    required
-                >
-            </div>
-
-            <div class="form-group">
                 <label for="password">Password</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    name="password" 
-                    required
-                >
-            </div>
+                <input type="password" name="password" id="password" required>
 
-            <button type="submit" class="btn primary-btn">Login</button>
+                <button type="submit" class="btn primary-btn">Login</button>
+            </form>
+            <p>Don't have an account? <a href="/auth/register">Register Here</a></p>
+        </section>
+    </main>
 
-        </form>
+    <!-- Footer Partial -->
+    <%- include('partials/footer') %>
 
-        <div class="auth-footer">
-            <p>Don't have an account? <a href="/auth/register">Register here</a></p>
-        </div>
-
-    </div>
-</section>
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/popup.js"></script>
+</body>
+</html>
