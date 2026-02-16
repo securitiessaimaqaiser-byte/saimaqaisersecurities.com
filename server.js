@@ -1,29 +1,38 @@
-// server.js - Full A to Z
-
+// ===============================
+// CORE DEPENDENCIES
+// ===============================
 require('dotenv').config();
 
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+const path = require('path');
 const helmet = require('helmet');
-const rateLimiter = require('./middleware/rateLimiter');
+const rateLimit = require('express-rate-limit');
+const compression = require('compression');
+const morgan = require('morgan');
 
-// Route Imports
-const indexRoutes = require('./routes/index');
-const authRoutes = require('./routes/auth');
-const dashboardRoutes = require('./routes/dashboard');
-
+// ===============================
+// APP INITIALIZATION
+// ===============================
 const app = express();
 
-/* ===============================
-   DATABASE CONNECTION
-================================= */
+// ===============================
+// ENV VARIABLES
+// ===============================
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
+const SESSION_SECRET = process.env.SESSION_SECRET;
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
-mongoose.connect(process.env.MONGO_URI, {
+// ===============================
+// DATABASE CONNECTION
+// ===============================
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
 .then(() => console.log('✅ MongoDB Connected'))
 .catch(err => {
@@ -31,74 +40,113 @@ mongoose.connect(process.env.MONGO_URI, {
     process.exit(1);
 });
 
-/* ===============================
-   MIDDLEWARE
-================================= */
+// ===============================
+// TRUST PROXY (For Production Hosting)
+// ===============================
+if (NODE_ENV === 'production') {
+    app.set('trust proxy', 1);
+}
 
-// Security headers
-app.use(helmet());
-
-// Rate limiting
-app.use(rateLimiter);
-
-// Body parser
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Session configuration
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'supersecretkey',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI
-    }),
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 2 // 2 hours
-    }
-}));
-
-// Global user variable for EJS
-app.use((req, res, next) => {
-    res.locals.user = req.session.user || null;
-    next();
-});
-
-/* ===============================
-   VIEW ENGINE
-================================= */
-
+// ===============================
+// VIEW ENGINE
+// ===============================
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-/* ===============================
-   STATIC FILES
-================================= */
+// ===============================
+// MIDDLEWARE
+// ===============================
 
+// Security Headers
+app.use(helmet());
+
+// Compression
+app.use(compression());
+
+// Logging (only in development)
+if (NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+}
+
+// Body Parsers
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+// Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* ===============================
-   ROUTES
-================================= */
+// ===============================
+// SESSION CONFIGURATION
+// ===============================
+app.use(
+    session({
+        secret: SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: MONGO_URI,
+        }),
+        cookie: {
+            httpOnly: true,
+            secure: NODE_ENV === 'production',
+            maxAge: 1000 * 60 * 60 * 2, // 2 hours
+        },
+    })
+);
+
+// Flash Messages
+app.use(flash());
+
+// ===============================
+// GLOBAL VARIABLES (For Views)
+// ===============================
+app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    res.locals.user = req.session.userId || null;
+    next();
+});
+
+// ===============================
+// GLOBAL RATE LIMITER
+// ===============================
+const globalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 200,
+    message: 'Too many requests. Please try again later.'
+});
+
+app.use(globalLimiter);
+
+// ===============================
+// ROUTES
+// ===============================
+const indexRoutes = require('./routes/index');
+const authRoutes = require('./routes/auth');
+const dashboardRoutes = require('./routes/dashboard');
 
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 
-/* ===============================
-   404 HANDLER
-================================= */
-
+// ===============================
+// 404 HANDLER
+// ===============================
 app.use((req, res) => {
-    res.status(404).render('404', { title: 'Page Not Found' });
+    res.status(404).render('404');
 });
 
-/* ===============================
-   SERVER START
-================================= */
+// ===============================
+// GLOBAL ERROR HANDLER
+// ===============================
+app.use((err, req, res, next) => {
+    console.error('🔥 Server Error:', err);
+    res.status(500).send('Internal Server Error');
+});
 
-const PORT = process.env.PORT || 3000;
-
+// ===============================
+// SERVER START
+// ===============================
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running in ${NODE_ENV} mode on port ${PORT}`);
 });
